@@ -15,6 +15,7 @@
 
 # Import APIs into API package:
 from com.sajari.client.api.collections_api import CollectionsApi
+from com.sajari.client.api.events_api import EventsApi
 from com.sajari.client.api.pipelines_api import PipelinesApi
 from com.sajari.client.api.records_api import RecordsApi
 from com.sajari.client.api.schema_api import SchemaApi

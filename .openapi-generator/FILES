@@ -13,6 +13,7 @@ docs/Collection.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
+docs/EventsApi.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
 docs/GetDefaultPipelineResponse.md
@@ -55,6 +56,7 @@ docs/SchemaApi.md
 docs/SchemaField.md
 docs/SchemaFieldMode.md
 docs/SchemaFieldType.md
+docs/SendEventRequest.md
 docs/SetDefaultPipelineRequest.md
 docs/SetDefaultVersionRequest.md
 docs/Status.md
@@ -67,6 +69,7 @@ sajari_client/api_client.py
 sajari_client/apis/__init__.py
 sajari_client/com.sajari.client.api/__init__.py
 sajari_client/com/sajari/client/api/collections_api.py
+sajari_client/com/sajari/client/api/events_api.py
 sajari_client/com/sajari/client/api/pipelines_api.py
 sajari_client/com/sajari/client/api/records_api.py
 sajari_client/com/sajari/client/api/schema_api.py
@@ -124,6 +127,7 @@ sajari_client/model/record_key.py
 sajari_client/model/schema_field.py
 sajari_client/model/schema_field_mode.py
 sajari_client/model/schema_field_type.py
+sajari_client/model/send_event_request.py
 sajari_client/model/set_default_pipeline_request.py
 sajari_client/model/set_default_version_request.py
 sajari_client/model/status.py
@@ -137,4 +141,6 @@ setup.cfg
 setup.py
 test-requirements.txt
 test/__init__.py
+test/test_events_api.py
+test/test_send_event_request.py
 tox.ini

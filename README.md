@@ -69,8 +69,8 @@ configuration = sajari_client.Configuration(
 
 # Configure HTTP basic authorization: BasicAuth
 configuration = sajari_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
+    username = 'KEY_ID',
+    password = 'KEY_SECRET'
 )
 
 
@@ -106,6 +106,7 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**list_collections**](docs/CollectionsApi.md#list_collections) | **GET** /v4/collections | List collections
 *CollectionsApi* | [**query_collection**](docs/CollectionsApi.md#query_collection) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
 *CollectionsApi* | [**update_collection**](docs/CollectionsApi.md#update_collection) | **PATCH** /v4/collections/{collection_id} | Update collection
+*EventsApi* | [**send_event**](docs/EventsApi.md#send_event) | **POST** /v4/events:sendEvent | Send event
 *PipelinesApi* | [**create_pipeline**](docs/PipelinesApi.md#create_pipeline) | **POST** /v4/collections/{collection_id}/pipelines | Create pipeline
 *PipelinesApi* | [**generate_pipelines**](docs/PipelinesApi.md#generate_pipelines) | **POST** /v4/collections/{collection_id}:generatePipelines | Generate pipelines
 *PipelinesApi* | [**get_default_pipeline**](docs/PipelinesApi.md#get_default_pipeline) | **GET** /v4/collections/{collection_id}:getDefaultPipeline | Get default pipeline
@@ -176,6 +177,7 @@ Class | Method | HTTP request | Description
  - [SchemaField](docs/SchemaField.md)
  - [SchemaFieldMode](docs/SchemaFieldMode.md)
  - [SchemaFieldType](docs/SchemaFieldType.md)
+ - [SendEventRequest](docs/SendEventRequest.md)
  - [SetDefaultPipelineRequest](docs/SetDefaultPipelineRequest.md)
  - [SetDefaultVersionRequest](docs/SetDefaultVersionRequest.md)
  - [Status](docs/Status.md)

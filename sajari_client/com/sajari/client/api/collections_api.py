@@ -178,7 +178,7 @@ class CollectionsApi(object):
         ):
             """Delete collection  # noqa: E501
 
-            Delete a collection and all of its associated data.  > Note: this operation cannot be reversed.  # noqa: E501
+            Delete a collection and all of its associated data.  > Note: This operation cannot be reversed.  # noqa: E501
             This method makes a synchronous HTTP request by default. To make an
             asynchronous HTTP request, please pass async_req=True
 

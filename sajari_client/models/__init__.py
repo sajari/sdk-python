@@ -60,6 +60,7 @@ from sajari_client.model.record_key import RecordKey
 from sajari_client.model.schema_field import SchemaField
 from sajari_client.model.schema_field_mode import SchemaFieldMode
 from sajari_client.model.schema_field_type import SchemaFieldType
+from sajari_client.model.send_event_request import SendEventRequest
 from sajari_client.model.set_default_pipeline_request import SetDefaultPipelineRequest
 from sajari_client.model.set_default_version_request import SetDefaultVersionRequest
 from sajari_client.model.status import Status
