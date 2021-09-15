@@ -1,4 +1,3 @@
-
 # flake8: noqa
 
 # Import all APIs into this package.
@@ -14,8 +13,3 @@
 #   sys.setrecursionlimit(n)
 
 # Import APIs into API package:
-from sajari_client.api.collections_api import CollectionsApi
-from sajari_client.api.events_api import EventsApi
-from sajari_client.api.pipelines_api import PipelinesApi
-from sajari_client.api.records_api import RecordsApi
-from sajari_client.api.schema_api import SchemaApi
