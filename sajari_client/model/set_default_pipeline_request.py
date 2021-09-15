@@ -11,6 +11,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 
+from sajari_client.model.pipeline_type import PipelineType
 from sajari_client.model_utils import (  # noqa: F401
     ApiTypeError,
     ModelComposed,
@@ -67,7 +68,7 @@ class SetDefaultPipelineRequest(ModelNormal):
     _nullable = False
 
     @cached_property
-    def openapi_types():
+    def openapi_types(self):
         """
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
@@ -83,7 +84,7 @@ class SetDefaultPipelineRequest(ModelNormal):
         }
 
     @cached_property
-    def discriminator():
+    def discriminator(self):
         return None
 
     attribute_map = {
@@ -93,14 +94,8 @@ class SetDefaultPipelineRequest(ModelNormal):
 
     _composed_schemas = {}
 
-    required_properties = set([
-        '_data_store',
-        '_check_type',
-        '_spec_property_naming',
-        '_path_to_item',
-        '_configuration',
-        '_visited_composed_classes',
-    ])
+    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
+                           '_visited_composed_classes'}
 
     @convert_js_args_to_python_args
     def __init__(self, type, pipeline, *args, **kwargs):  # noqa: E501
