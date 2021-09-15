@@ -23,7 +23,7 @@ The batch version of the [UpsertRecord](/api#operation/UpsertRecord) call.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import records_api
+from sajari_client.api import records_api
 from sajari_client.model.batch_upsert_records_request import BatchUpsertRecordsRequest
 from sajari_client.model.batch_upsert_records_response import BatchUpsertRecordsResponse
 from sajari_client.model.error import Error
@@ -117,7 +117,7 @@ Delete a record with the given key.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import records_api
+from sajari_client.api import records_api
 from sajari_client.model.delete_record_request import DeleteRecordRequest
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -206,7 +206,7 @@ Retrieve a record with the given key.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import records_api
+from sajari_client.api import records_api
 from sajari_client.model.get_record_request import GetRecordRequest
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -295,7 +295,7 @@ If the record does not exist in your collection it is inserted. If it does exist
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import records_api
+from sajari_client.api import records_api
 from sajari_client.model.upsert_record_request import UpsertRecordRequest
 from sajari_client.model.upsert_record_response import UpsertRecordResponse
 from sajari_client.model.error import Error

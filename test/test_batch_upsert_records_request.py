@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.batch_upsert_records_request_pipeline import BatchUpsertRecordsRequestPipeline
+import sajari_client
+from sajari_client.model.batch_upsert_records_request_pipeline import BatchUpsertRecordsRequestPipeline
 globals()['BatchUpsertRecordsRequestPipeline'] = BatchUpsertRecordsRequestPipeline
-from openapi_client.model.batch_upsert_records_request import BatchUpsertRecordsRequest
+from sajari_client.model.batch_upsert_records_request import BatchUpsertRecordsRequest
 
 
 class TestBatchUpsertRecordsRequest(unittest.TestCase):

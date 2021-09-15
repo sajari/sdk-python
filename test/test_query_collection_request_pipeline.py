@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_collection_request_pipeline import QueryCollectionRequestPipeline
+import sajari_client
+from sajari_client.model.query_collection_request_pipeline import QueryCollectionRequestPipeline
 
 
 class TestQueryCollectionRequestPipeline(unittest.TestCase):

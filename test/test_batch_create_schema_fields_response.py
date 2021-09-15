@@ -12,12 +12,12 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.batch_create_schema_fields_response_error import BatchCreateSchemaFieldsResponseError
-from openapi_client.model.schema_field import SchemaField
+import sajari_client
+from sajari_client.model.batch_create_schema_fields_response_error import BatchCreateSchemaFieldsResponseError
+from sajari_client.model.schema_field import SchemaField
 globals()['BatchCreateSchemaFieldsResponseError'] = BatchCreateSchemaFieldsResponseError
 globals()['SchemaField'] = SchemaField
-from openapi_client.model.batch_create_schema_fields_response import BatchCreateSchemaFieldsResponse
+from sajari_client.model.batch_create_schema_fields_response import BatchCreateSchemaFieldsResponse
 
 
 class TestBatchCreateSchemaFieldsResponse(unittest.TestCase):

@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.collection import Collection
+import sajari_client
+from sajari_client.model.collection import Collection
 
 
 class TestCollection(unittest.TestCase):

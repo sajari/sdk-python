@@ -20,7 +20,7 @@ Send an event to the ranking system after a user interacts with a search result.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import events_api
+from sajari_client.api import events_api
 from sajari_client.model.send_event_request import SendEventRequest
 from sajari_client.model.error import Error
 from pprint import pprint

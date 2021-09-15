@@ -11,8 +11,8 @@
 
 import unittest
 
-import openapi_client
-from com.sajari.client.api.schema_api import SchemaApi  # noqa: E501
+import sajari_client
+from sajari_client.api.schema_api import SchemaApi  # noqa: E501
 
 
 class TestSchemaApi(unittest.TestCase):

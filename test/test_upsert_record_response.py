@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.record_key import RecordKey
+import sajari_client
+from sajari_client.model.record_key import RecordKey
 globals()['RecordKey'] = RecordKey
-from openapi_client.model.upsert_record_response import UpsertRecordResponse
+from sajari_client.model.upsert_record_response import UpsertRecordResponse
 
 
 class TestUpsertRecordResponse(unittest.TestCase):

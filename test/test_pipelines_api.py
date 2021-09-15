@@ -11,8 +11,8 @@
 
 import unittest
 
-import openapi_client
-from com.sajari.client.api.pipelines_api import PipelinesApi  # noqa: E501
+import sajari_client
+from sajari_client.api.pipelines_api import PipelinesApi  # noqa: E501
 
 
 class TestPipelinesApi(unittest.TestCase):

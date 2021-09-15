@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.pipeline_step_param_binding import PipelineStepParamBinding
+import sajari_client
+from sajari_client.model.pipeline_step_param_binding import PipelineStepParamBinding
 
 
 class TestPipelineStepParamBinding(unittest.TestCase):

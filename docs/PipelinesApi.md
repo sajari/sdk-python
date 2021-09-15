@@ -27,7 +27,7 @@ Create a new pipeline.  Pipelines are immutable once created. If you want to cha
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.pipeline import Pipeline
 from pprint import pprint
@@ -154,7 +154,7 @@ Generate basic record, query and autocomplete pipeline templates. Use these temp
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.generate_pipelines_response import GeneratePipelinesResponse
 from sajari_client.model.error import Error
 from sajari_client.model.generate_pipelines_request import GeneratePipelinesRequest
@@ -246,7 +246,7 @@ Get the default pipeline for a collection.  Every collection has a default recor
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.get_default_pipeline_response import GetDefaultPipelineResponse
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -329,7 +329,7 @@ Get the default version for a given pipeline.  The default version of a pipeline
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.pipeline import Pipeline
 from pprint import pprint
@@ -426,7 +426,7 @@ Retrieve the details of a pipeline. Supply the type, name and version.  To retri
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.pipeline import Pipeline
 from pprint import pprint
@@ -525,7 +525,7 @@ Retrieve a list of pipelines.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.list_pipelines_response import ListPipelinesResponse
 from pprint import pprint
@@ -622,7 +622,7 @@ Set the default pipeline for a collection.  Every collection has a default recor
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.set_default_pipeline_request import SetDefaultPipelineRequest
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -709,7 +709,7 @@ Set the default version for a given pipeline.  The default version of a pipeline
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import pipelines_api
+from sajari_client.api import pipelines_api
 from sajari_client.model.set_default_version_request import SetDefaultVersionRequest
 from sajari_client.model.error import Error
 from pprint import pprint

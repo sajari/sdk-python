@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_record_request_pipeline import UpsertRecordRequestPipeline
+import sajari_client
+from sajari_client.model.upsert_record_request_pipeline import UpsertRecordRequestPipeline
 
 
 class TestUpsertRecordRequestPipeline(unittest.TestCase):

@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.pipeline_type import PipelineType
+import sajari_client
+from sajari_client.model.pipeline_type import PipelineType
 
 
 class TestPipelineType(unittest.TestCase):

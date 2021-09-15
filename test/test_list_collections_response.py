@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.collection import Collection
+import sajari_client
+from sajari_client.model.collection import Collection
 globals()['Collection'] = Collection
-from openapi_client.model.list_collections_response import ListCollectionsResponse
+from sajari_client.model.list_collections_response import ListCollectionsResponse
 
 
 class TestListCollectionsResponse(unittest.TestCase):

@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_result_token_click import QueryResultTokenClick
+import sajari_client
+from sajari_client.model.query_result_token_click import QueryResultTokenClick
 
 
 class TestQueryResultTokenClick(unittest.TestCase):

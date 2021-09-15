@@ -12,12 +12,12 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.schema_field_mode import SchemaFieldMode
-from openapi_client.model.schema_field_type import SchemaFieldType
+import sajari_client
+from sajari_client.model.schema_field_mode import SchemaFieldMode
+from sajari_client.model.schema_field_type import SchemaFieldType
 globals()['SchemaFieldMode'] = SchemaFieldMode
 globals()['SchemaFieldType'] = SchemaFieldType
-from openapi_client.model.schema_field import SchemaField
+from sajari_client.model.schema_field import SchemaField
 
 
 class TestSchemaField(unittest.TestCase):

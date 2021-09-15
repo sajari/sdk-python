@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.generate_pipelines_request import GeneratePipelinesRequest
+import sajari_client
+from sajari_client.model.generate_pipelines_request import GeneratePipelinesRequest
 
 
 class TestGeneratePipelinesRequest(unittest.TestCase):

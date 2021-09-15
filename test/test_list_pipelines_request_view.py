@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.list_pipelines_request_view import ListPipelinesRequestView
+import sajari_client
+from sajari_client.model.list_pipelines_request_view import ListPipelinesRequestView
 
 
 class TestListPipelinesRequestView(unittest.TestCase):

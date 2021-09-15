@@ -22,7 +22,7 @@ The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) c
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import schema_api
+from sajari_client.api import schema_api
 from sajari_client.model.batch_create_schema_fields_request import BatchCreateSchemaFieldsRequest
 from sajari_client.model.batch_create_schema_fields_response import BatchCreateSchemaFieldsResponse
 from sajari_client.model.error import Error
@@ -118,7 +118,7 @@ Create a new field in your collection's schema.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import schema_api
+from sajari_client.api import schema_api
 from sajari_client.model.schema_field import SchemaField
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -209,7 +209,7 @@ Retrieve a list of schema fields in the collection.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import schema_api
+from sajari_client.api import schema_api
 from sajari_client.model.list_schema_fields_response import ListSchemaFieldsResponse
 from sajari_client.model.error import Error
 from pprint import pprint

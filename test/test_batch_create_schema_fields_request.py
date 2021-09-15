@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.schema_field import SchemaField
+import sajari_client
+from sajari_client.model.schema_field import SchemaField
 globals()['SchemaField'] = SchemaField
-from openapi_client.model.batch_create_schema_fields_request import BatchCreateSchemaFieldsRequest
+from sajari_client.model.batch_create_schema_fields_request import BatchCreateSchemaFieldsRequest
 
 
 class TestBatchCreateSchemaFieldsRequest(unittest.TestCase):

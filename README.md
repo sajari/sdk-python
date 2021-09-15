@@ -50,7 +50,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import sajari_client
 from pprint import pprint
-from com.sajari.client.api import collections_api
+from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
 from sajari_client.model.list_collections_response import ListCollectionsResponse
@@ -72,7 +72,6 @@ configuration = sajari_client.Configuration(
     username = 'KEY_ID',
     password = 'KEY_SECRET'
 )
-
 
 # Enter a context with an instance of the API client
 with sajari_client.ApiClient(configuration) as api_client:

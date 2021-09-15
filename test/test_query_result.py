@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_result_token import QueryResultToken
+import sajari_client
+from sajari_client.model.query_result_token import QueryResultToken
 globals()['QueryResultToken'] = QueryResultToken
-from openapi_client.model.query_result import QueryResult
+from sajari_client.model.query_result import QueryResult
 
 
 class TestQueryResult(unittest.TestCase):

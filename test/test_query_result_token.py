@@ -12,12 +12,12 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_result_token_click import QueryResultTokenClick
-from openapi_client.model.query_result_token_pos_neg import QueryResultTokenPosNeg
+import sajari_client
+from sajari_client.model.query_result_token_click import QueryResultTokenClick
+from sajari_client.model.query_result_token_pos_neg import QueryResultTokenPosNeg
 globals()['QueryResultTokenClick'] = QueryResultTokenClick
 globals()['QueryResultTokenPosNeg'] = QueryResultTokenPosNeg
-from openapi_client.model.query_result_token import QueryResultToken
+from sajari_client.model.query_result_token import QueryResultToken
 
 
 class TestQueryResultToken(unittest.TestCase):

@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.status import Status
+import sajari_client
+from sajari_client.model.status import Status
 globals()['Status'] = Status
-from openapi_client.model.batch_upsert_records_response_error import BatchUpsertRecordsResponseError
+from sajari_client.model.batch_upsert_records_response_error import BatchUpsertRecordsResponseError
 
 
 class TestBatchUpsertRecordsResponseError(unittest.TestCase):

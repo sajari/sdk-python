@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.protobuf_any import ProtobufAny
+import sajari_client
+from sajari_client.model.protobuf_any import ProtobufAny
 globals()['ProtobufAny'] = ProtobufAny
-from openapi_client.model.error import Error
+from sajari_client.model.error import Error
 
 
 class TestError(unittest.TestCase):

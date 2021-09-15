@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.pipeline import Pipeline
+import sajari_client
+from sajari_client.model.pipeline import Pipeline
 globals()['Pipeline'] = Pipeline
-from openapi_client.model.generate_pipelines_response import GeneratePipelinesResponse
+from sajari_client.model.generate_pipelines_response import GeneratePipelinesResponse
 
 
 class TestGeneratePipelinesResponse(unittest.TestCase):

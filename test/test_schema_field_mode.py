@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.schema_field_mode import SchemaFieldMode
+import sajari_client
+from sajari_client.model.schema_field_mode import SchemaFieldMode
 
 
 class TestSchemaFieldMode(unittest.TestCase):

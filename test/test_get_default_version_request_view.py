@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.get_default_version_request_view import GetDefaultVersionRequestView
+import sajari_client
+from sajari_client.model.get_default_version_request_view import GetDefaultVersionRequestView
 
 
 class TestGetDefaultVersionRequestView(unittest.TestCase):

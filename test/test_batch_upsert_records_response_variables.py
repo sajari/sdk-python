@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.batch_upsert_records_response_variables import BatchUpsertRecordsResponseVariables
+import sajari_client
+from sajari_client.model.batch_upsert_records_response_variables import BatchUpsertRecordsResponseVariables
 
 
 class TestBatchUpsertRecordsResponseVariables(unittest.TestCase):

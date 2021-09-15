@@ -29,8 +29,6 @@ docker-entrypoint.sh generate \
   --git-host "github.com" \
   --git-user-id "sajari" \
   --git-repo-id sdk-python \
-  --api-package com.sajari.client.api \
-  --model-package com.sajari.client.models \
   --additional-properties licenseUrl="http://www.opensource.org/licenses/mit-license.php" \
   --additional-properties licenseName="MIT license" \
   --additional-properties artifactId=sajari-sdk-python-client \

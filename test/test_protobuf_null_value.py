@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.protobuf_null_value import ProtobufNullValue
+import sajari_client
+from sajari_client.model.protobuf_null_value import ProtobufNullValue
 
 
 class TestProtobufNullValue(unittest.TestCase):

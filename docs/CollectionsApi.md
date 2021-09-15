@@ -25,7 +25,7 @@ Create an empty collection.  Before records can be added to a collection, the sc
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import collections_api
+from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -116,7 +116,7 @@ Delete a collection and all of its associated data.  > Note: This operation cann
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import collections_api
+from sajari_client.api import collections_api
 from sajari_client.model.error import Error
 from pprint import pprint
 # Defining the host is optional and defaults to https://api-gateway.sajari.com
@@ -197,7 +197,7 @@ Retrieve the details of a collection.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import collections_api
+from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -279,7 +279,7 @@ Retrieve a list of collections in the account.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import collections_api
+from sajari_client.api import collections_api
 from sajari_client.model.list_collections_response import ListCollectionsResponse
 from sajari_client.model.error import Error
 from pprint import pprint
@@ -364,7 +364,7 @@ Query the collection to search for records.  The following example demonstrates 
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import collections_api
+from sajari_client.api import collections_api
 from sajari_client.model.query_collection_response import QueryCollectionResponse
 from sajari_client.model.query_collection_request import QueryCollectionRequest
 from sajari_client.model.error import Error
@@ -464,7 +464,7 @@ Update the details of a collection.
 ```python
 import time
 import sajari_client
-from com.sajari.client.api import collections_api
+from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
 from pprint import pprint

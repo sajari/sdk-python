@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_aggregate_result_buckets_bucket import QueryAggregateResultBucketsBucket
+import sajari_client
+from sajari_client.model.query_aggregate_result_buckets_bucket import QueryAggregateResultBucketsBucket
 globals()['QueryAggregateResultBucketsBucket'] = QueryAggregateResultBucketsBucket
-from openapi_client.model.query_aggregate_result_buckets import QueryAggregateResultBuckets
+from sajari_client.model.query_aggregate_result_buckets import QueryAggregateResultBuckets
 
 
 class TestQueryAggregateResultBuckets(unittest.TestCase):

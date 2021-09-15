@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.get_default_pipeline_response import GetDefaultPipelineResponse
+import sajari_client
+from sajari_client.model.get_default_pipeline_response import GetDefaultPipelineResponse
 
 
 class TestGetDefaultPipelineResponse(unittest.TestCase):

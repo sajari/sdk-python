@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.record_key import RecordKey
+import sajari_client
+from sajari_client.model.record_key import RecordKey
 
 
 class TestRecordKey(unittest.TestCase):

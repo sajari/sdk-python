@@ -12,20 +12,20 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_aggregate_result_analysis import QueryAggregateResultAnalysis
-from openapi_client.model.query_aggregate_result_buckets import QueryAggregateResultBuckets
-from openapi_client.model.query_aggregate_result_count import QueryAggregateResultCount
-from openapi_client.model.query_aggregate_result_date import QueryAggregateResultDate
-from openapi_client.model.query_aggregate_result_metric import QueryAggregateResultMetric
-from openapi_client.model.query_aggregate_result_percentile import QueryAggregateResultPercentile
+import sajari_client
+from sajari_client.model.query_aggregate_result_analysis import QueryAggregateResultAnalysis
+from sajari_client.model.query_aggregate_result_buckets import QueryAggregateResultBuckets
+from sajari_client.model.query_aggregate_result_count import QueryAggregateResultCount
+from sajari_client.model.query_aggregate_result_date import QueryAggregateResultDate
+from sajari_client.model.query_aggregate_result_metric import QueryAggregateResultMetric
+from sajari_client.model.query_aggregate_result_percentile import QueryAggregateResultPercentile
 globals()['QueryAggregateResultAnalysis'] = QueryAggregateResultAnalysis
 globals()['QueryAggregateResultBuckets'] = QueryAggregateResultBuckets
 globals()['QueryAggregateResultCount'] = QueryAggregateResultCount
 globals()['QueryAggregateResultDate'] = QueryAggregateResultDate
 globals()['QueryAggregateResultMetric'] = QueryAggregateResultMetric
 globals()['QueryAggregateResultPercentile'] = QueryAggregateResultPercentile
-from openapi_client.model.query_aggregate_result import QueryAggregateResult
+from sajari_client.model.query_aggregate_result import QueryAggregateResult
 
 
 class TestQueryAggregateResult(unittest.TestCase):

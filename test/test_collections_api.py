@@ -11,8 +11,8 @@
 
 import unittest
 
-import openapi_client
-from com.sajari.client.api.collections_api import CollectionsApi  # noqa: E501
+import sajari_client
+from sajari_client.api.collections_api import CollectionsApi  # noqa: E501
 
 
 class TestCollectionsApi(unittest.TestCase):

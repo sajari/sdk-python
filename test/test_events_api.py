@@ -12,7 +12,7 @@
 import unittest
 
 import sajari_client
-from com.sajari.client.api.events_api import EventsApi  # noqa: E501
+from sajari_client.api.events_api import EventsApi  # noqa: E501
 
 
 class TestEventsApi(unittest.TestCase):

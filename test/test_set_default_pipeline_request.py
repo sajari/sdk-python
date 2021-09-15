@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.pipeline_type import PipelineType
+import sajari_client
+from sajari_client.model.pipeline_type import PipelineType
 globals()['PipelineType'] = PipelineType
-from openapi_client.model.set_default_pipeline_request import SetDefaultPipelineRequest
+from sajari_client.model.set_default_pipeline_request import SetDefaultPipelineRequest
 
 
 class TestSetDefaultPipelineRequest(unittest.TestCase):

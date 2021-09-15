@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_aggregate_result_analysis import QueryAggregateResultAnalysis
+import sajari_client
+from sajari_client.model.query_aggregate_result_analysis import QueryAggregateResultAnalysis
 
 
 class TestQueryAggregateResultAnalysis(unittest.TestCase):

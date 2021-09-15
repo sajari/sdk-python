@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.query_collection_request_tracking_type import QueryCollectionRequestTrackingType
+import sajari_client
+from sajari_client.model.query_collection_request_tracking_type import QueryCollectionRequestTrackingType
 globals()['QueryCollectionRequestTrackingType'] = QueryCollectionRequestTrackingType
-from openapi_client.model.query_collection_request_tracking import QueryCollectionRequestTracking
+from sajari_client.model.query_collection_request_tracking import QueryCollectionRequestTracking
 
 
 class TestQueryCollectionRequestTracking(unittest.TestCase):

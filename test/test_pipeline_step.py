@@ -12,10 +12,10 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.pipeline_step_param_binding import PipelineStepParamBinding
+import sajari_client
+from sajari_client.model.pipeline_step_param_binding import PipelineStepParamBinding
 globals()['PipelineStepParamBinding'] = PipelineStepParamBinding
-from openapi_client.model.pipeline_step import PipelineStep
+from sajari_client.model.pipeline_step import PipelineStep
 
 
 class TestPipelineStep(unittest.TestCase):

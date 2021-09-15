@@ -12,8 +12,8 @@
 import sys
 import unittest
 
-import openapi_client
-from openapi_client.model.percentile_data_point import PercentileDataPoint
+import sajari_client
+from sajari_client.model.percentile_data_point import PercentileDataPoint
 
 
 class TestPercentileDataPoint(unittest.TestCase):
