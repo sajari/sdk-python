@@ -32,8 +32,9 @@ from sajari_client.model_utils import (  # noqa: F401
 def lazy_import():
     from sajari_client.model.schema_field_mode import SchemaFieldMode
     from sajari_client.model.schema_field_type import SchemaFieldType
-    globals()['SchemaFieldMode'] = SchemaFieldMode
-    globals()['SchemaFieldType'] = SchemaFieldType
+
+    globals()["SchemaFieldMode"] = SchemaFieldMode
+    globals()["SchemaFieldType"] = SchemaFieldType
 
 
 class SchemaField(ModelNormal):
@@ -60,11 +61,9 @@ class SchemaField(ModelNormal):
           as additional properties values.
     """
 
-    allowed_values = {
-    }
+    allowed_values = {}
 
-    validations = {
-    }
+    validations = {}
 
     additional_properties_type = None
 
@@ -82,12 +81,12 @@ class SchemaField(ModelNormal):
         """
         lazy_import()
         return {
-            'name': (str,),  # noqa: E501
-            'type': (SchemaFieldType,),  # noqa: E501
-            'mode': (SchemaFieldMode,),  # noqa: E501
-            'description': (str,),  # noqa: E501
-            'array': (bool,),  # noqa: E501
-            'array_length': (int,),  # noqa: E501
+            "name": (str,),  # noqa: E501
+            "type": (SchemaFieldType,),  # noqa: E501
+            "mode": (SchemaFieldMode,),  # noqa: E501
+            "description": (str,),  # noqa: E501
+            "array": (bool,),  # noqa: E501
+            "array_length": (int,),  # noqa: E501
         }
 
     @cached_property
@@ -95,18 +94,24 @@ class SchemaField(ModelNormal):
         return None
 
     attribute_map = {
-        'name': 'name',  # noqa: E501
-        'type': 'type',  # noqa: E501
-        'mode': 'mode',  # noqa: E501
-        'description': 'description',  # noqa: E501
-        'array': 'array',  # noqa: E501
-        'array_length': 'array_length',  # noqa: E501
+        "name": "name",  # noqa: E501
+        "type": "type",  # noqa: E501
+        "mode": "mode",  # noqa: E501
+        "description": "description",  # noqa: E501
+        "array": "array",  # noqa: E501
+        "array_length": "array_length",  # noqa: E501
     }
 
     _composed_schemas = {}
 
-    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
-                           '_visited_composed_classes'}
+    required_properties = {
+        "_data_store",
+        "_check_type",
+        "_spec_property_naming",
+        "_path_to_item",
+        "_configuration",
+        "_visited_composed_classes",
+    }
 
     @convert_js_args_to_python_args
     def __init__(self, name, type, mode, *args, **kwargs):  # noqa: E501
@@ -153,15 +158,16 @@ class SchemaField(ModelNormal):
             array_length (int): The required length of the array, if `array` is `true`.  This allows you to enforce that an array contains an exact number of items.  For example, to store a 2x2 vector, you could set `type` to float, `array` to `true` and `array_length` to `4`.. [optional]  # noqa: E501
         """
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", False)
+        _path_to_item = kwargs.pop("_path_to_item", ())
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         if args:
             raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                % (
                     args,
                     self.__class__.__name__,
                 ),
@@ -180,10 +186,12 @@ class SchemaField(ModelNormal):
         self.type = type
         self.mode = mode
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                    self._configuration is not None and \
-                    self._configuration.discard_unknown_keys and \
-                    self.additional_properties_type is None:
+            if (
+                var_name not in self.attribute_map
+                and self._configuration is not None
+                and self._configuration.discard_unknown_keys
+                and self.additional_properties_type is None
+            ):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)

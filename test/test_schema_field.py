@@ -15,8 +15,9 @@ import unittest
 import sajari_client
 from sajari_client.model.schema_field_mode import SchemaFieldMode
 from sajari_client.model.schema_field_type import SchemaFieldType
-globals()['SchemaFieldMode'] = SchemaFieldMode
-globals()['SchemaFieldType'] = SchemaFieldType
+
+globals()["SchemaFieldMode"] = SchemaFieldMode
+globals()["SchemaFieldType"] = SchemaFieldType
 from sajari_client.model.schema_field import SchemaField
 
 
@@ -36,5 +37,5 @@ class TestSchemaField(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

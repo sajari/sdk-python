@@ -14,8 +14,11 @@ import unittest
 
 import sajari_client
 from sajari_client.model.status import Status
-globals()['Status'] = Status
-from sajari_client.model.batch_create_schema_fields_response_error import BatchCreateSchemaFieldsResponseError
+
+globals()["Status"] = Status
+from sajari_client.model.batch_create_schema_fields_response_error import (
+    BatchCreateSchemaFieldsResponseError,
+)
 
 
 class TestBatchCreateSchemaFieldsResponseError(unittest.TestCase):
@@ -34,5 +37,5 @@ class TestBatchCreateSchemaFieldsResponseError(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -48,13 +48,12 @@ class ProtobufNullValue(ModelSimple):
     """
 
     allowed_values = {
-        ('value',): {
-            'NULL_VALUE': "NULL_VALUE",
+        ("value",): {
+            "NULL_VALUE": "NULL_VALUE",
         },
     }
 
-    validations = {
-    }
+    validations = {}
 
     additional_properties_type = None
 
@@ -71,7 +70,7 @@ class ProtobufNullValue(ModelSimple):
                 and the value is attribute type.
         """
         return {
-            'value': (str,),
+            "value": (str,),
         }
 
     @cached_property
@@ -82,8 +81,14 @@ class ProtobufNullValue(ModelSimple):
 
     _composed_schemas = None
 
-    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
-                           '_visited_composed_classes'}
+    required_properties = {
+        "_data_store",
+        "_check_type",
+        "_spec_property_naming",
+        "_path_to_item",
+        "_configuration",
+        "_visited_composed_classes",
+    }
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):
@@ -128,24 +133,25 @@ class ProtobufNullValue(ModelSimple):
                                 _visited_composed_classes = (Animal,)
         """
         # required up here when default value is not given
-        _path_to_item = kwargs.pop('_path_to_item', ())
+        _path_to_item = kwargs.pop("_path_to_item", ())
 
-        if 'value' in kwargs:
-            value = kwargs.pop('value')
+        if "value" in kwargs:
+            value = kwargs.pop("value")
         elif args:
             args = list(args)
             value = args.pop(0)
         else:
             value = "NULL_VALUE"
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", False)
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         if args:
             raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                % (
                     args,
                     self.__class__.__name__,
                 ),
@@ -162,7 +168,8 @@ class ProtobufNullValue(ModelSimple):
         self.value = value
         if kwargs:
             raise ApiTypeError(
-                "Invalid named arguments=%s passed to %s. Remove those invalid named arguments." % (
+                "Invalid named arguments=%s passed to %s. Remove those invalid named arguments."
+                % (
                     kwargs,
                     self.__class__.__name__,
                 ),

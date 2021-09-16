@@ -13,8 +13,11 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.batch_upsert_records_request_pipeline import BatchUpsertRecordsRequestPipeline
-globals()['BatchUpsertRecordsRequestPipeline'] = BatchUpsertRecordsRequestPipeline
+from sajari_client.model.batch_upsert_records_request_pipeline import (
+    BatchUpsertRecordsRequestPipeline,
+)
+
+globals()["BatchUpsertRecordsRequestPipeline"] = BatchUpsertRecordsRequestPipeline
 from sajari_client.model.batch_upsert_records_request import BatchUpsertRecordsRequest
 
 
@@ -34,5 +37,5 @@ class TestBatchUpsertRecordsRequest(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

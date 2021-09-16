@@ -14,8 +14,11 @@ import unittest
 
 import sajari_client
 from sajari_client.model.schema_field import SchemaField
-globals()['SchemaField'] = SchemaField
-from sajari_client.model.batch_create_schema_fields_request import BatchCreateSchemaFieldsRequest
+
+globals()["SchemaField"] = SchemaField
+from sajari_client.model.batch_create_schema_fields_request import (
+    BatchCreateSchemaFieldsRequest,
+)
 
 
 class TestBatchCreateSchemaFieldsRequest(unittest.TestCase):
@@ -34,5 +37,5 @@ class TestBatchCreateSchemaFieldsRequest(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -14,7 +14,8 @@ import unittest
 
 import sajari_client
 from sajari_client.model.query_result_token import QueryResultToken
-globals()['QueryResultToken'] = QueryResultToken
+
+globals()["QueryResultToken"] = QueryResultToken
 from sajari_client.model.query_result import QueryResult
 
 
@@ -34,5 +35,5 @@ class TestQueryResult(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

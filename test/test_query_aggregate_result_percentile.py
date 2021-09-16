@@ -14,8 +14,11 @@ import unittest
 
 import sajari_client
 from sajari_client.model.percentile_data_point import PercentileDataPoint
-globals()['PercentileDataPoint'] = PercentileDataPoint
-from sajari_client.model.query_aggregate_result_percentile import QueryAggregateResultPercentile
+
+globals()["PercentileDataPoint"] = PercentileDataPoint
+from sajari_client.model.query_aggregate_result_percentile import (
+    QueryAggregateResultPercentile,
+)
 
 
 class TestQueryAggregateResultPercentile(unittest.TestCase):
@@ -34,5 +37,5 @@ class TestQueryAggregateResultPercentile(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

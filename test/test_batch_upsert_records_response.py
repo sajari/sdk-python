@@ -13,12 +13,19 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.batch_upsert_records_response_error import BatchUpsertRecordsResponseError
-from sajari_client.model.batch_upsert_records_response_key import BatchUpsertRecordsResponseKey
-from sajari_client.model.batch_upsert_records_response_variables import BatchUpsertRecordsResponseVariables
-globals()['BatchUpsertRecordsResponseError'] = BatchUpsertRecordsResponseError
-globals()['BatchUpsertRecordsResponseKey'] = BatchUpsertRecordsResponseKey
-globals()['BatchUpsertRecordsResponseVariables'] = BatchUpsertRecordsResponseVariables
+from sajari_client.model.batch_upsert_records_response_error import (
+    BatchUpsertRecordsResponseError,
+)
+from sajari_client.model.batch_upsert_records_response_key import (
+    BatchUpsertRecordsResponseKey,
+)
+from sajari_client.model.batch_upsert_records_response_variables import (
+    BatchUpsertRecordsResponseVariables,
+)
+
+globals()["BatchUpsertRecordsResponseError"] = BatchUpsertRecordsResponseError
+globals()["BatchUpsertRecordsResponseKey"] = BatchUpsertRecordsResponseKey
+globals()["BatchUpsertRecordsResponseVariables"] = BatchUpsertRecordsResponseVariables
 from sajari_client.model.batch_upsert_records_response import BatchUpsertRecordsResponse
 
 
@@ -38,5 +45,5 @@ class TestBatchUpsertRecordsResponse(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

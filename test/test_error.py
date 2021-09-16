@@ -14,7 +14,8 @@ import unittest
 
 import sajari_client
 from sajari_client.model.protobuf_any import ProtobufAny
-globals()['ProtobufAny'] = ProtobufAny
+
+globals()["ProtobufAny"] = ProtobufAny
 from sajari_client.model.error import Error
 
 
@@ -34,5 +35,5 @@ class TestError(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

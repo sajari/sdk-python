@@ -26,7 +26,7 @@ from sajari_client.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 
 
@@ -42,12 +42,7 @@ class PipelinesApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        def __create_pipeline(
-                self,
-                collection_id,
-                pipeline,
-                **kwargs
-        ):
+        def __create_pipeline(self, collection_id, pipeline, **kwargs):
             """Create pipeline  # noqa: E501
 
             Create a new pipeline.  Pipelines are immutable once created. If you want to change a pipeline e.g. to add or change some steps, you need to create a new version of that pipeline.  To start using a new pipeline you need to update your record ingestion calls and/or your query calls to specify the new pipeline.  To create the pipeline from YAML, set the request's `Content-Type` header to `application/yaml` and submit the pipeline's YAML in the request body.  # noqa: E501
@@ -87,98 +82,67 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['pipeline'] = \
-                pipeline
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["pipeline"] = pipeline
             return self.call_with_http_info(**kwargs)
 
         self.create_pipeline = _Endpoint(
             settings={
-                'response_type': (Pipeline,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/pipelines',
-                'operation_id': 'create_pipeline',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (Pipeline,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/pipelines",
+                "operation_id": "create_pipeline",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'pipeline',
+                "all": [
+                    "collection_id",
+                    "pipeline",
                 ],
-                'required': [
-                    'collection_id',
-                    'pipeline',
+                "required": [
+                    "collection_id",
+                    "pipeline",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "pipeline": (Pipeline,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'pipeline':
-                        (Pipeline,),
+                "location_map": {
+                    "collection_id": "path",
+                    "pipeline": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'pipeline': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json',
-                    'application/yaml'
-                ],
-                'content_type': [
-                    'application/json',
-                    'application/yaml'
-                ]
+                "accept": ["application/json", "application/yaml"],
+                "content_type": ["application/json", "application/yaml"],
             },
             api_client=api_client,
-            callable=__create_pipeline
+            callable=__create_pipeline,
         )
 
         def __generate_pipelines(
-                self,
-                collection_id,
-                generate_pipelines_request,
-                **kwargs
+            self, collection_id, generate_pipelines_request, **kwargs
         ):
             """Generate pipelines  # noqa: E501
 
@@ -219,97 +183,67 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['generate_pipelines_request'] = \
-                generate_pipelines_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["generate_pipelines_request"] = generate_pipelines_request
             return self.call_with_http_info(**kwargs)
 
         self.generate_pipelines = _Endpoint(
             settings={
-                'response_type': (GeneratePipelinesResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}:generatePipelines',
-                'operation_id': 'generate_pipelines',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (GeneratePipelinesResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}:generatePipelines",
+                "operation_id": "generate_pipelines",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'generate_pipelines_request',
+                "all": [
+                    "collection_id",
+                    "generate_pipelines_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'generate_pipelines_request',
+                "required": [
+                    "collection_id",
+                    "generate_pipelines_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "generate_pipelines_request": (GeneratePipelinesRequest,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'generate_pipelines_request':
-                        (GeneratePipelinesRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "generate_pipelines_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'generate_pipelines_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json',
-                    'application/yaml'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json", "application/yaml"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__generate_pipelines
+            callable=__generate_pipelines,
         )
 
         def __get_default_pipeline(
-                self,
-                collection_id,
-                type="TYPE_UNSPECIFIED",
-                **kwargs
+            self, collection_id, type="TYPE_UNSPECIFIED", **kwargs
         ):
             """Get default pipeline  # noqa: E501
 
@@ -350,104 +284,75 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['type'] = \
-                type
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["type"] = type
             return self.call_with_http_info(**kwargs)
 
         self.get_default_pipeline = _Endpoint(
             settings={
-                'response_type': (GetDefaultPipelineResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}:getDefaultPipeline',
-                'operation_id': 'get_default_pipeline',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (GetDefaultPipelineResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}:getDefaultPipeline",
+                "operation_id": "get_default_pipeline",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'type',
+                "all": [
+                    "collection_id",
+                    "type",
                 ],
-                'required': [
-                    'collection_id',
-                    'type',
+                "required": [
+                    "collection_id",
+                    "type",
                 ],
-                'nullable': [
+                "nullable": [],
+                "enum": [
+                    "type",
                 ],
-                'enum': [
-                    'type',
-                ],
-                'validation': [
-                ]
+                "validation": [],
             },
             root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                    ('type',): {
-
+                "validations": {},
+                "allowed_values": {
+                    ("type",): {
                         "TYPE_UNSPECIFIED": "TYPE_UNSPECIFIED",
                         "RECORD": "RECORD",
-                        "QUERY": "QUERY"
+                        "QUERY": "QUERY",
                     },
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'type':
-                        (str,),
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "type": (str,),
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                    'type': 'type',
+                "attribute_map": {
+                    "collection_id": "collection_id",
+                    "type": "type",
                 },
-                'location_map': {
-                    'collection_id': 'path',
-                    'type': 'query',
+                "location_map": {
+                    "collection_id": "path",
+                    "type": "query",
                 },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__get_default_pipeline
+            callable=__get_default_pipeline,
         )
 
-        def __get_default_version(
-                self,
-                collection_id,
-                type,
-                name,
-                **kwargs
-        ):
+        def __get_default_version(self, collection_id, type, name, **kwargs):
             """Get default pipeline version  # noqa: E501
 
             Get the default version for a given pipeline.  The default version of a pipeline is used when a pipeline is referred to without specifying a version.  This allows you to change the pipeline version used for requests without having to change your code.  To retrieve the pipeline in YAML, set the request's `Accept` header to `application/yaml`.  # noqa: E501
@@ -489,126 +394,91 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['type'] = \
-                type
-            kwargs['name'] = \
-                name
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["type"] = type
+            kwargs["name"] = name
             return self.call_with_http_info(**kwargs)
 
         self.get_default_version = _Endpoint(
             settings={
-                'response_type': (Pipeline,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/pipelines/{type}/{name}:getDefaultVersion',
-                'operation_id': 'get_default_version',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (Pipeline,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/pipelines/{type}/{name}:getDefaultVersion",
+                "operation_id": "get_default_version",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'type',
-                    'name',
-                    'view',
+                "all": [
+                    "collection_id",
+                    "type",
+                    "name",
+                    "view",
                 ],
-                'required': [
-                    'collection_id',
-                    'type',
-                    'name',
+                "required": [
+                    "collection_id",
+                    "type",
+                    "name",
                 ],
-                'nullable': [
+                "nullable": [],
+                "enum": [
+                    "type",
+                    "view",
                 ],
-                'enum': [
-                    'type',
-                    'view',
-                ],
-                'validation': [
-                ]
+                "validation": [],
             },
             root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                    ('type',): {
-
+                "validations": {},
+                "allowed_values": {
+                    ("type",): {
                         "TYPE_UNSPECIFIED": "TYPE_UNSPECIFIED",
                         "RECORD": "RECORD",
-                        "QUERY": "QUERY"
+                        "QUERY": "QUERY",
                     },
-                    ('view',): {
-
+                    ("view",): {
                         "VIEW_UNSPECIFIED": "VIEW_UNSPECIFIED",
                         "BASIC": "BASIC",
-                        "FULL": "FULL"
+                        "FULL": "FULL",
                     },
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'type':
-                        (str,),
-                    'name':
-                        (str,),
-                    'view':
-                        (str,),
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "type": (str,),
+                    "name": (str,),
+                    "view": (str,),
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                    'type': 'type',
-                    'name': 'name',
-                    'view': 'view',
+                "attribute_map": {
+                    "collection_id": "collection_id",
+                    "type": "type",
+                    "name": "name",
+                    "view": "view",
                 },
-                'location_map': {
-                    'collection_id': 'path',
-                    'type': 'path',
-                    'name': 'path',
-                    'view': 'query',
+                "location_map": {
+                    "collection_id": "path",
+                    "type": "path",
+                    "name": "path",
+                    "view": "query",
                 },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json',
-                    'application/yaml'
-                ],
-                'content_type': [],
+                "accept": ["application/json", "application/yaml"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__get_default_version
+            callable=__get_default_version,
         )
 
-        def __get_pipeline(
-                self,
-                collection_id,
-                type,
-                name,
-                version,
-                **kwargs
-        ):
+        def __get_pipeline(self, collection_id, type, name, version, **kwargs):
             """Get pipeline  # noqa: E501
 
             Retrieve the details of a pipeline. Supply the type, name and version.  To retrieve the pipeline in YAML, set the request's `Accept` header to `application/yaml`.  # noqa: E501
@@ -651,131 +521,97 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['type'] = \
-                type
-            kwargs['name'] = \
-                name
-            kwargs['version'] = \
-                version
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["type"] = type
+            kwargs["name"] = name
+            kwargs["version"] = version
             return self.call_with_http_info(**kwargs)
 
         self.get_pipeline = _Endpoint(
             settings={
-                'response_type': (Pipeline,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/pipelines/{type}/{name}/{version}',
-                'operation_id': 'get_pipeline',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (Pipeline,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/pipelines/{type}/{name}/{version}",
+                "operation_id": "get_pipeline",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'type',
-                    'name',
-                    'version',
-                    'view',
+                "all": [
+                    "collection_id",
+                    "type",
+                    "name",
+                    "version",
+                    "view",
                 ],
-                'required': [
-                    'collection_id',
-                    'type',
-                    'name',
-                    'version',
+                "required": [
+                    "collection_id",
+                    "type",
+                    "name",
+                    "version",
                 ],
-                'nullable': [
+                "nullable": [],
+                "enum": [
+                    "type",
+                    "view",
                 ],
-                'enum': [
-                    'type',
-                    'view',
-                ],
-                'validation': [
-                ]
+                "validation": [],
             },
             root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                    ('type',): {
-
+                "validations": {},
+                "allowed_values": {
+                    ("type",): {
                         "TYPE_UNSPECIFIED": "TYPE_UNSPECIFIED",
                         "RECORD": "RECORD",
-                        "QUERY": "QUERY"
+                        "QUERY": "QUERY",
                     },
-                    ('view',): {
-
+                    ("view",): {
                         "VIEW_UNSPECIFIED": "VIEW_UNSPECIFIED",
                         "BASIC": "BASIC",
-                        "FULL": "FULL"
+                        "FULL": "FULL",
                     },
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'type':
-                        (str,),
-                    'name':
-                        (str,),
-                    'version':
-                        (str,),
-                    'view':
-                        (str,),
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "type": (str,),
+                    "name": (str,),
+                    "version": (str,),
+                    "view": (str,),
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                    'type': 'type',
-                    'name': 'name',
-                    'version': 'version',
-                    'view': 'view',
+                "attribute_map": {
+                    "collection_id": "collection_id",
+                    "type": "type",
+                    "name": "name",
+                    "version": "version",
+                    "view": "view",
                 },
-                'location_map': {
-                    'collection_id': 'path',
-                    'type': 'path',
-                    'name': 'path',
-                    'version': 'path',
-                    'view': 'query',
+                "location_map": {
+                    "collection_id": "path",
+                    "type": "path",
+                    "name": "path",
+                    "version": "path",
+                    "view": "query",
                 },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json',
-                    'application/yaml'
-                ],
-                'content_type': [],
+                "accept": ["application/json", "application/yaml"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__get_pipeline
+            callable=__get_pipeline,
         )
 
-        def __list_pipelines(
-                self,
-                collection_id,
-                **kwargs
-        ):
+        def __list_pipelines(self, collection_id, **kwargs):
             """List pipelines  # noqa: E501
 
             Retrieve a list of pipelines.  # noqa: E501
@@ -817,109 +653,82 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
             return self.call_with_http_info(**kwargs)
 
         self.list_pipelines = _Endpoint(
             settings={
-                'response_type': (ListPipelinesResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/pipelines',
-                'operation_id': 'list_pipelines',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (ListPipelinesResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/pipelines",
+                "operation_id": "list_pipelines",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'page_size',
-                    'page_token',
-                    'view',
+                "all": [
+                    "collection_id",
+                    "page_size",
+                    "page_token",
+                    "view",
                 ],
-                'required': [
-                    'collection_id',
+                "required": [
+                    "collection_id",
                 ],
-                'nullable': [
+                "nullable": [],
+                "enum": [
+                    "view",
                 ],
-                'enum': [
-                    'view',
-                ],
-                'validation': [
-                ]
+                "validation": [],
             },
             root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                    ('view',): {
-
+                "validations": {},
+                "allowed_values": {
+                    ("view",): {
                         "VIEW_UNSPECIFIED": "VIEW_UNSPECIFIED",
                         "BASIC": "BASIC",
-                        "FULL": "FULL"
+                        "FULL": "FULL",
                     },
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'page_size':
-                        (int,),
-                    'page_token':
-                        (str,),
-                    'view':
-                        (str,),
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "page_size": (int,),
+                    "page_token": (str,),
+                    "view": (str,),
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                    'page_size': 'page_size',
-                    'page_token': 'page_token',
-                    'view': 'view',
+                "attribute_map": {
+                    "collection_id": "collection_id",
+                    "page_size": "page_size",
+                    "page_token": "page_token",
+                    "view": "view",
                 },
-                'location_map': {
-                    'collection_id': 'path',
-                    'page_size': 'query',
-                    'page_token': 'query',
-                    'view': 'query',
+                "location_map": {
+                    "collection_id": "path",
+                    "page_size": "query",
+                    "page_token": "query",
+                    "view": "query",
                 },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__list_pipelines
+            callable=__list_pipelines,
         )
 
         def __set_default_pipeline(
-                self,
-                collection_id,
-                set_default_pipeline_request,
-                **kwargs
+            self, collection_id, set_default_pipeline_request, **kwargs
         ):
             """Set default pipeline  # noqa: E501
 
@@ -960,98 +769,81 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['set_default_pipeline_request'] = \
-                set_default_pipeline_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["set_default_pipeline_request"] = set_default_pipeline_request
             return self.call_with_http_info(**kwargs)
 
         self.set_default_pipeline = _Endpoint(
             settings={
-                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}:setDefaultPipeline',
-                'operation_id': 'set_default_pipeline',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (
+                    {
+                        str: (
+                            bool,
+                            date,
+                            datetime,
+                            dict,
+                            float,
+                            int,
+                            list,
+                            str,
+                            none_type,
+                        )
+                    },
+                ),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}:setDefaultPipeline",
+                "operation_id": "set_default_pipeline",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'set_default_pipeline_request',
+                "all": [
+                    "collection_id",
+                    "set_default_pipeline_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'set_default_pipeline_request',
+                "required": [
+                    "collection_id",
+                    "set_default_pipeline_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "set_default_pipeline_request": (SetDefaultPipelineRequest,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'set_default_pipeline_request':
-                        (SetDefaultPipelineRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "set_default_pipeline_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'set_default_pipeline_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__set_default_pipeline
+            callable=__set_default_pipeline,
         )
 
         def __set_default_version(
-                self,
-                collection_id,
-                type,
-                name,
-                set_default_version_request,
-                **kwargs
+            self, collection_id, type, name, set_default_version_request, **kwargs
         ):
             """Set default pipeline version  # noqa: E501
 
@@ -1094,110 +886,95 @@ class PipelinesApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['type'] = \
-                type
-            kwargs['name'] = \
-                name
-            kwargs['set_default_version_request'] = \
-                set_default_version_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["type"] = type
+            kwargs["name"] = name
+            kwargs["set_default_version_request"] = set_default_version_request
             return self.call_with_http_info(**kwargs)
 
         self.set_default_version = _Endpoint(
             settings={
-                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion',
-                'operation_id': 'set_default_version',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (
+                    {
+                        str: (
+                            bool,
+                            date,
+                            datetime,
+                            dict,
+                            float,
+                            int,
+                            list,
+                            str,
+                            none_type,
+                        )
+                    },
+                ),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/pipelines/{type}/{name}:setDefaultVersion",
+                "operation_id": "set_default_version",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'type',
-                    'name',
-                    'set_default_version_request',
+                "all": [
+                    "collection_id",
+                    "type",
+                    "name",
+                    "set_default_version_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'type',
-                    'name',
-                    'set_default_version_request',
+                "required": [
+                    "collection_id",
+                    "type",
+                    "name",
+                    "set_default_version_request",
                 ],
-                'nullable': [
+                "nullable": [],
+                "enum": [
+                    "type",
                 ],
-                'enum': [
-                    'type',
-                ],
-                'validation': [
-                ]
+                "validation": [],
             },
             root_map={
-                'validations': {
-                },
-                'allowed_values': {
-                    ('type',): {
-
+                "validations": {},
+                "allowed_values": {
+                    ("type",): {
                         "TYPE_UNSPECIFIED": "TYPE_UNSPECIFIED",
                         "RECORD": "RECORD",
-                        "QUERY": "QUERY"
+                        "QUERY": "QUERY",
                     },
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'type':
-                        (str,),
-                    'name':
-                        (str,),
-                    'set_default_version_request':
-                        (SetDefaultVersionRequest,),
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "type": (str,),
+                    "name": (str,),
+                    "set_default_version_request": (SetDefaultVersionRequest,),
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                    'type': 'type',
-                    'name': 'name',
+                "attribute_map": {
+                    "collection_id": "collection_id",
+                    "type": "type",
+                    "name": "name",
                 },
-                'location_map': {
-                    'collection_id': 'path',
-                    'type': 'path',
-                    'name': 'path',
-                    'set_default_version_request': 'body',
+                "location_map": {
+                    "collection_id": "path",
+                    "type": "path",
+                    "name": "path",
+                    "set_default_version_request": "body",
                 },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__set_default_version
+            callable=__set_default_version,
         )

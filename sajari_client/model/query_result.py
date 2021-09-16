@@ -30,7 +30,8 @@ from sajari_client.model_utils import (  # noqa: F401
 
 def lazy_import():
     from sajari_client.model.query_result_token import QueryResultToken
-    globals()['QueryResultToken'] = QueryResultToken
+
+    globals()["QueryResultToken"] = QueryResultToken
 
 
 class QueryResult(ModelNormal):
@@ -57,11 +58,9 @@ class QueryResult(ModelNormal):
           as additional properties values.
     """
 
-    allowed_values = {
-    }
+    allowed_values = {}
 
-    validations = {
-    }
+    validations = {}
 
     additional_properties_type = None
 
@@ -79,10 +78,12 @@ class QueryResult(ModelNormal):
         """
         lazy_import()
         return {
-            'record': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),  # noqa: E501
-            'score': (float,),  # noqa: E501
-            'index_score': (float,),  # noqa: E501
-            'token': (QueryResultToken,),  # noqa: E501
+            "record": (
+                {str: (bool, date, datetime, dict, float, int, list, str, none_type)},
+            ),  # noqa: E501
+            "score": (float,),  # noqa: E501
+            "index_score": (float,),  # noqa: E501
+            "token": (QueryResultToken,),  # noqa: E501
         }
 
     @cached_property
@@ -90,16 +91,22 @@ class QueryResult(ModelNormal):
         return None
 
     attribute_map = {
-        'record': 'record',  # noqa: E501
-        'score': 'score',  # noqa: E501
-        'index_score': 'index_score',  # noqa: E501
-        'token': 'token',  # noqa: E501
+        "record": "record",  # noqa: E501
+        "score": "score",  # noqa: E501
+        "index_score": "index_score",  # noqa: E501
+        "token": "token",  # noqa: E501
     }
 
     _composed_schemas = {}
 
-    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
-                           '_visited_composed_classes'}
+    required_properties = {
+        "_data_store",
+        "_check_type",
+        "_spec_property_naming",
+        "_path_to_item",
+        "_configuration",
+        "_visited_composed_classes",
+    }
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):  # noqa: E501
@@ -142,15 +149,16 @@ class QueryResult(ModelNormal):
             token (QueryResultToken): [optional]  # noqa: E501
         """
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", False)
+        _path_to_item = kwargs.pop("_path_to_item", ())
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         if args:
             raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                % (
                     args,
                     self.__class__.__name__,
                 ),
@@ -166,10 +174,12 @@ class QueryResult(ModelNormal):
         self._visited_composed_classes = _visited_composed_classes + (self.__class__,)
 
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                    self._configuration is not None and \
-                    self._configuration.discard_unknown_keys and \
-                    self.additional_properties_type is None:
+            if (
+                var_name not in self.attribute_map
+                and self._configuration is not None
+                and self._configuration.discard_unknown_keys
+                and self.additional_properties_type is None
+            ):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)

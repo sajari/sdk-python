@@ -13,18 +13,25 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.query_aggregate_result_analysis import QueryAggregateResultAnalysis
-from sajari_client.model.query_aggregate_result_buckets import QueryAggregateResultBuckets
+from sajari_client.model.query_aggregate_result_analysis import (
+    QueryAggregateResultAnalysis,
+)
+from sajari_client.model.query_aggregate_result_buckets import (
+    QueryAggregateResultBuckets,
+)
 from sajari_client.model.query_aggregate_result_count import QueryAggregateResultCount
 from sajari_client.model.query_aggregate_result_date import QueryAggregateResultDate
 from sajari_client.model.query_aggregate_result_metric import QueryAggregateResultMetric
-from sajari_client.model.query_aggregate_result_percentile import QueryAggregateResultPercentile
-globals()['QueryAggregateResultAnalysis'] = QueryAggregateResultAnalysis
-globals()['QueryAggregateResultBuckets'] = QueryAggregateResultBuckets
-globals()['QueryAggregateResultCount'] = QueryAggregateResultCount
-globals()['QueryAggregateResultDate'] = QueryAggregateResultDate
-globals()['QueryAggregateResultMetric'] = QueryAggregateResultMetric
-globals()['QueryAggregateResultPercentile'] = QueryAggregateResultPercentile
+from sajari_client.model.query_aggregate_result_percentile import (
+    QueryAggregateResultPercentile,
+)
+
+globals()["QueryAggregateResultAnalysis"] = QueryAggregateResultAnalysis
+globals()["QueryAggregateResultBuckets"] = QueryAggregateResultBuckets
+globals()["QueryAggregateResultCount"] = QueryAggregateResultCount
+globals()["QueryAggregateResultDate"] = QueryAggregateResultDate
+globals()["QueryAggregateResultMetric"] = QueryAggregateResultMetric
+globals()["QueryAggregateResultPercentile"] = QueryAggregateResultPercentile
 from sajari_client.model.query_aggregate_result import QueryAggregateResult
 
 
@@ -44,5 +51,5 @@ class TestQueryAggregateResult(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

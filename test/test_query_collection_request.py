@@ -13,10 +13,15 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.query_collection_request_pipeline import QueryCollectionRequestPipeline
-from sajari_client.model.query_collection_request_tracking import QueryCollectionRequestTracking
-globals()['QueryCollectionRequestPipeline'] = QueryCollectionRequestPipeline
-globals()['QueryCollectionRequestTracking'] = QueryCollectionRequestTracking
+from sajari_client.model.query_collection_request_pipeline import (
+    QueryCollectionRequestPipeline,
+)
+from sajari_client.model.query_collection_request_tracking import (
+    QueryCollectionRequestTracking,
+)
+
+globals()["QueryCollectionRequestPipeline"] = QueryCollectionRequestPipeline
+globals()["QueryCollectionRequestTracking"] = QueryCollectionRequestTracking
 from sajari_client.model.query_collection_request import QueryCollectionRequest
 
 
@@ -36,5 +41,5 @@ class TestQueryCollectionRequest(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

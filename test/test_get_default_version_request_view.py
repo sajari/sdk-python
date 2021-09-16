@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.get_default_version_request_view import GetDefaultVersionRequestView
+from sajari_client.model.get_default_version_request_view import (
+    GetDefaultVersionRequestView,
+)
 
 
 class TestGetDefaultVersionRequestView(unittest.TestCase):
@@ -32,5 +34,5 @@ class TestGetDefaultVersionRequestView(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

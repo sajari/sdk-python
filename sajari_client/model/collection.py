@@ -51,11 +51,9 @@ class Collection(ModelNormal):
           as additional properties values.
     """
 
-    allowed_values = {
-    }
+    allowed_values = {}
 
-    validations = {
-    }
+    validations = {}
 
     additional_properties_type = None
 
@@ -72,11 +70,11 @@ class Collection(ModelNormal):
                 and the value is attribute type.
         """
         return {
-            'display_name': (str,),  # noqa: E501
-            'id': (str,),  # noqa: E501
-            'account_id': (str,),  # noqa: E501
-            'create_time': (datetime,),  # noqa: E501
-            'authorized_query_domains': ([str],),  # noqa: E501
+            "display_name": (str,),  # noqa: E501
+            "id": (str,),  # noqa: E501
+            "account_id": (str,),  # noqa: E501
+            "create_time": (datetime,),  # noqa: E501
+            "authorized_query_domains": ([str],),  # noqa: E501
         }
 
     @cached_property
@@ -84,17 +82,23 @@ class Collection(ModelNormal):
         return None
 
     attribute_map = {
-        'display_name': 'display_name',  # noqa: E501
-        'id': 'id',  # noqa: E501
-        'account_id': 'account_id',  # noqa: E501
-        'create_time': 'create_time',  # noqa: E501
-        'authorized_query_domains': 'authorized_query_domains',  # noqa: E501
+        "display_name": "display_name",  # noqa: E501
+        "id": "id",  # noqa: E501
+        "account_id": "account_id",  # noqa: E501
+        "create_time": "create_time",  # noqa: E501
+        "authorized_query_domains": "authorized_query_domains",  # noqa: E501
     }
 
     _composed_schemas = {}
 
-    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
-                           '_visited_composed_classes'}
+    required_properties = {
+        "_data_store",
+        "_check_type",
+        "_spec_property_naming",
+        "_path_to_item",
+        "_configuration",
+        "_visited_composed_classes",
+    }
 
     @convert_js_args_to_python_args
     def __init__(self, display_name, *args, **kwargs):  # noqa: E501
@@ -140,15 +144,16 @@ class Collection(ModelNormal):
             authorized_query_domains ([str]): The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.. [optional]  # noqa: E501
         """
 
-        _check_type = kwargs.pop('_check_type', True)
-        _spec_property_naming = kwargs.pop('_spec_property_naming', False)
-        _path_to_item = kwargs.pop('_path_to_item', ())
-        _configuration = kwargs.pop('_configuration', None)
-        _visited_composed_classes = kwargs.pop('_visited_composed_classes', ())
+        _check_type = kwargs.pop("_check_type", True)
+        _spec_property_naming = kwargs.pop("_spec_property_naming", False)
+        _path_to_item = kwargs.pop("_path_to_item", ())
+        _configuration = kwargs.pop("_configuration", None)
+        _visited_composed_classes = kwargs.pop("_visited_composed_classes", ())
 
         if args:
             raise ApiTypeError(
-                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments." % (
+                "Invalid positional arguments=%s passed to %s. Remove those invalid positional arguments."
+                % (
                     args,
                     self.__class__.__name__,
                 ),
@@ -165,10 +170,12 @@ class Collection(ModelNormal):
 
         self.display_name = display_name
         for var_name, var_value in kwargs.items():
-            if var_name not in self.attribute_map and \
-                    self._configuration is not None and \
-                    self._configuration.discard_unknown_keys and \
-                    self.additional_properties_type is None:
+            if (
+                var_name not in self.attribute_map
+                and self._configuration is not None
+                and self._configuration.discard_unknown_keys
+                and self.additional_properties_type is None
+            ):
                 # discard variable.
                 continue
             setattr(self, var_name, var_value)

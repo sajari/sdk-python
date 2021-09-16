@@ -14,7 +14,8 @@ import unittest
 
 import sajari_client
 from sajari_client.model.pipeline import Pipeline
-globals()['Pipeline'] = Pipeline
+
+globals()["Pipeline"] = Pipeline
 from sajari_client.model.generate_pipelines_response import GeneratePipelinesResponse
 
 
@@ -34,5 +35,5 @@ class TestGeneratePipelinesResponse(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

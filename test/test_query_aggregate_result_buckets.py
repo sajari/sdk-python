@@ -13,9 +13,14 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.query_aggregate_result_buckets_bucket import QueryAggregateResultBucketsBucket
-globals()['QueryAggregateResultBucketsBucket'] = QueryAggregateResultBucketsBucket
-from sajari_client.model.query_aggregate_result_buckets import QueryAggregateResultBuckets
+from sajari_client.model.query_aggregate_result_buckets_bucket import (
+    QueryAggregateResultBucketsBucket,
+)
+
+globals()["QueryAggregateResultBucketsBucket"] = QueryAggregateResultBucketsBucket
+from sajari_client.model.query_aggregate_result_buckets import (
+    QueryAggregateResultBuckets,
+)
 
 
 class TestQueryAggregateResultBuckets(unittest.TestCase):
@@ -34,5 +39,5 @@ class TestQueryAggregateResultBuckets(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

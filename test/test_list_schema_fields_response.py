@@ -14,7 +14,8 @@ import unittest
 
 import sajari_client
 from sajari_client.model.schema_field import SchemaField
-globals()['SchemaField'] = SchemaField
+
+globals()["SchemaField"] = SchemaField
 from sajari_client.model.list_schema_fields_response import ListSchemaFieldsResponse
 
 
@@ -34,5 +35,5 @@ class TestListSchemaFieldsResponse(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

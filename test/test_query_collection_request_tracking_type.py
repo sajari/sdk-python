@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.query_collection_request_tracking_type import QueryCollectionRequestTrackingType
+from sajari_client.model.query_collection_request_tracking_type import (
+    QueryCollectionRequestTrackingType,
+)
 
 
 class TestQueryCollectionRequestTrackingType(unittest.TestCase):
@@ -32,5 +34,5 @@ class TestQueryCollectionRequestTrackingType(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
