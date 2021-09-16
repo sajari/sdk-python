@@ -77,7 +77,7 @@ class UpsertRecordRequestPipeline(ModelNormal):
         }
 
     @cached_property
-    def discriminator():
+    def discriminator(self):
         return None
 
     attribute_map = {
@@ -87,14 +87,8 @@ class UpsertRecordRequestPipeline(ModelNormal):
 
     _composed_schemas = {}
 
-    required_properties = set([
-        '_data_store',
-        '_check_type',
-        '_spec_property_naming',
-        '_path_to_item',
-        '_configuration',
-        '_visited_composed_classes',
-    ])
+    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
+                           '_visited_composed_classes'}
 
     @convert_js_args_to_python_args
     def __init__(self, name, *args, **kwargs):  # noqa: E501
