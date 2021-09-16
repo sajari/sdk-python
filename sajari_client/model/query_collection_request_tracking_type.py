@@ -64,7 +64,7 @@ class QueryCollectionRequestTrackingType(ModelSimple):
     _nullable = False
 
     @cached_property
-    def openapi_types():
+    def openapi_types(self):
         """
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
@@ -78,21 +78,15 @@ class QueryCollectionRequestTrackingType(ModelSimple):
         }
 
     @cached_property
-    def discriminator():
+    def discriminator(self):
         return None
 
     attribute_map = {}
 
     _composed_schemas = None
 
-    required_properties = set([
-        '_data_store',
-        '_check_type',
-        '_spec_property_naming',
-        '_path_to_item',
-        '_configuration',
-        '_visited_composed_classes',
-    ])
+    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
+                           '_visited_composed_classes'}
 
     @convert_js_args_to_python_args
     def __init__(self, *args, **kwargs):

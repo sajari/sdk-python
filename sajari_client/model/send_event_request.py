@@ -62,7 +62,7 @@ class SendEventRequest(ModelNormal):
     _nullable = False
 
     @cached_property
-    def openapi_types():
+    def openapi_types(self):
         """
         This must be a method because a model may have properties that are
         of type self, this must run after the class is loaded
@@ -80,7 +80,7 @@ class SendEventRequest(ModelNormal):
         }
 
     @cached_property
-    def discriminator():
+    def discriminator(self):
         return None
 
     attribute_map = {
@@ -92,14 +92,8 @@ class SendEventRequest(ModelNormal):
 
     _composed_schemas = {}
 
-    required_properties = set([
-        '_data_store',
-        '_check_type',
-        '_spec_property_naming',
-        '_path_to_item',
-        '_configuration',
-        '_visited_composed_classes',
-    ])
+    required_properties = {'_data_store', '_check_type', '_spec_property_naming', '_path_to_item', '_configuration',
+                           '_visited_composed_classes'}
 
     @convert_js_args_to_python_args
     def __init__(self, name, token, *args, **kwargs):  # noqa: E501
