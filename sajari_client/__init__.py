@@ -14,6 +14,7 @@ __version__ = "1.0.0"
 
 # import ApiClient
 from sajari_client.api_client import ApiClient
+
 # import Configuration
 from sajari_client.configuration import Configuration
 from sajari_client.exceptions import ApiAttributeError
@@ -21,5 +22,6 @@ from sajari_client.exceptions import ApiException
 from sajari_client.exceptions import ApiKeyError
 from sajari_client.exceptions import ApiTypeError
 from sajari_client.exceptions import ApiValueError
+
 # import exceptions
 from sajari_client.exceptions import OpenApiException

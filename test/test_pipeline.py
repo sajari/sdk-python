@@ -15,8 +15,9 @@ import unittest
 import sajari_client
 from sajari_client.model.pipeline_step import PipelineStep
 from sajari_client.model.pipeline_type import PipelineType
-globals()['PipelineStep'] = PipelineStep
-globals()['PipelineType'] = PipelineType
+
+globals()["PipelineStep"] = PipelineStep
+globals()["PipelineType"] = PipelineType
 from sajari_client.model.pipeline import Pipeline
 
 
@@ -36,5 +37,5 @@ class TestPipeline(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -15,8 +15,9 @@ import unittest
 import sajari_client
 from sajari_client.model.query_result_token_click import QueryResultTokenClick
 from sajari_client.model.query_result_token_pos_neg import QueryResultTokenPosNeg
-globals()['QueryResultTokenClick'] = QueryResultTokenClick
-globals()['QueryResultTokenPosNeg'] = QueryResultTokenPosNeg
+
+globals()["QueryResultTokenClick"] = QueryResultTokenClick
+globals()["QueryResultTokenPosNeg"] = QueryResultTokenPosNeg
 from sajari_client.model.query_result_token import QueryResultToken
 
 
@@ -36,5 +37,5 @@ class TestQueryResultToken(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -13,11 +13,16 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.batch_create_schema_fields_response_error import BatchCreateSchemaFieldsResponseError
+from sajari_client.model.batch_create_schema_fields_response_error import (
+    BatchCreateSchemaFieldsResponseError,
+)
 from sajari_client.model.schema_field import SchemaField
-globals()['BatchCreateSchemaFieldsResponseError'] = BatchCreateSchemaFieldsResponseError
-globals()['SchemaField'] = SchemaField
-from sajari_client.model.batch_create_schema_fields_response import BatchCreateSchemaFieldsResponse
+
+globals()["BatchCreateSchemaFieldsResponseError"] = BatchCreateSchemaFieldsResponseError
+globals()["SchemaField"] = SchemaField
+from sajari_client.model.batch_create_schema_fields_response import (
+    BatchCreateSchemaFieldsResponse,
+)
 
 
 class TestBatchCreateSchemaFieldsResponse(unittest.TestCase):
@@ -36,5 +41,5 @@ class TestBatchCreateSchemaFieldsResponse(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

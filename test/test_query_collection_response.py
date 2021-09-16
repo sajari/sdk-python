@@ -14,11 +14,14 @@ import unittest
 
 import sajari_client
 from sajari_client.model.query_aggregate_result import QueryAggregateResult
-from sajari_client.model.query_collection_response_pipeline import QueryCollectionResponsePipeline
+from sajari_client.model.query_collection_response_pipeline import (
+    QueryCollectionResponsePipeline,
+)
 from sajari_client.model.query_result import QueryResult
-globals()['QueryAggregateResult'] = QueryAggregateResult
-globals()['QueryCollectionResponsePipeline'] = QueryCollectionResponsePipeline
-globals()['QueryResult'] = QueryResult
+
+globals()["QueryAggregateResult"] = QueryAggregateResult
+globals()["QueryCollectionResponsePipeline"] = QueryCollectionResponsePipeline
+globals()["QueryResult"] = QueryResult
 from sajari_client.model.query_collection_response import QueryCollectionResponse
 
 
@@ -38,5 +41,5 @@ class TestQueryCollectionResponse(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

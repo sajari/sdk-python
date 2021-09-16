@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.query_aggregate_result_analysis import QueryAggregateResultAnalysis
+from sajari_client.model.query_aggregate_result_analysis import (
+    QueryAggregateResultAnalysis,
+)
 
 
 class TestQueryAggregateResultAnalysis(unittest.TestCase):
@@ -32,5 +34,5 @@ class TestQueryAggregateResultAnalysis(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

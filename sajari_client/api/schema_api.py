@@ -12,8 +12,12 @@ import re  # noqa: F401
 import sys  # noqa: F401
 
 from sajari_client.api_client import ApiClient, Endpoint as _Endpoint
-from sajari_client.model.batch_create_schema_fields_request import BatchCreateSchemaFieldsRequest
-from sajari_client.model.batch_create_schema_fields_response import BatchCreateSchemaFieldsResponse
+from sajari_client.model.batch_create_schema_fields_request import (
+    BatchCreateSchemaFieldsRequest,
+)
+from sajari_client.model.batch_create_schema_fields_response import (
+    BatchCreateSchemaFieldsResponse,
+)
 from sajari_client.model.list_schema_fields_response import ListSchemaFieldsResponse
 from sajari_client.model.schema_field import SchemaField
 from sajari_client.model_utils import (  # noqa: F401
@@ -23,7 +27,7 @@ from sajari_client.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 
 
@@ -40,10 +44,7 @@ class SchemaApi(object):
         self.api_client = api_client
 
         def __batch_create_schema_fields(
-                self,
-                collection_id,
-                batch_create_schema_fields_request,
-                **kwargs
+            self, collection_id, batch_create_schema_fields_request, **kwargs
         ):
             """Batch create schema fields  # noqa: E501
 
@@ -84,97 +85,70 @@ class SchemaApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['batch_create_schema_fields_request'] = \
-                batch_create_schema_fields_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs[
+                "batch_create_schema_fields_request"
+            ] = batch_create_schema_fields_request
             return self.call_with_http_info(**kwargs)
 
         self.batch_create_schema_fields = _Endpoint(
             settings={
-                'response_type': (BatchCreateSchemaFieldsResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/schemaFields:batchCreate',
-                'operation_id': 'batch_create_schema_fields',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (BatchCreateSchemaFieldsResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/schemaFields:batchCreate",
+                "operation_id": "batch_create_schema_fields",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'batch_create_schema_fields_request',
+                "all": [
+                    "collection_id",
+                    "batch_create_schema_fields_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'batch_create_schema_fields_request',
+                "required": [
+                    "collection_id",
+                    "batch_create_schema_fields_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "batch_create_schema_fields_request": (
+                        BatchCreateSchemaFieldsRequest,
+                    ),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'batch_create_schema_fields_request':
-                        (BatchCreateSchemaFieldsRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "batch_create_schema_fields_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'batch_create_schema_fields_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__batch_create_schema_fields
+            callable=__batch_create_schema_fields,
         )
 
-        def __create_schema_field(
-                self,
-                collection_id,
-                schema_field,
-                **kwargs
-        ):
+        def __create_schema_field(self, collection_id, schema_field, **kwargs):
             """Create schema field  # noqa: E501
 
             Create a new field in your collection's schema.  # noqa: E501
@@ -214,96 +188,66 @@ class SchemaApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['schema_field'] = \
-                schema_field
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["schema_field"] = schema_field
             return self.call_with_http_info(**kwargs)
 
         self.create_schema_field = _Endpoint(
             settings={
-                'response_type': (SchemaField,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/schemaFields',
-                'operation_id': 'create_schema_field',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (SchemaField,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/schemaFields",
+                "operation_id": "create_schema_field",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'schema_field',
+                "all": [
+                    "collection_id",
+                    "schema_field",
                 ],
-                'required': [
-                    'collection_id',
-                    'schema_field',
+                "required": [
+                    "collection_id",
+                    "schema_field",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "schema_field": (SchemaField,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'schema_field':
-                        (SchemaField,),
+                "location_map": {
+                    "collection_id": "path",
+                    "schema_field": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'schema_field': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__create_schema_field
+            callable=__create_schema_field,
         )
 
-        def __list_schema_fields(
-                self,
-                collection_id,
-                **kwargs
-        ):
+        def __list_schema_fields(self, collection_id, **kwargs):
             """List schema fields  # noqa: E501
 
             Retrieve a list of schema fields in the collection.  # noqa: E501
@@ -344,88 +288,64 @@ class SchemaApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
             return self.call_with_http_info(**kwargs)
 
         self.list_schema_fields = _Endpoint(
             settings={
-                'response_type': (ListSchemaFieldsResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/schemaFields',
-                'operation_id': 'list_schema_fields',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (ListSchemaFieldsResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/schemaFields",
+                "operation_id": "list_schema_fields",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'page_size',
-                    'page_token',
+                "all": [
+                    "collection_id",
+                    "page_size",
+                    "page_token",
                 ],
-                'required': [
-                    'collection_id',
+                "required": [
+                    "collection_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "page_size": (int,),
+                    "page_token": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
+                    "page_size": "page_size",
+                    "page_token": "page_token",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'page_size':
-                        (int,),
-                    'page_token':
-                        (str,),
+                "location_map": {
+                    "collection_id": "path",
+                    "page_size": "query",
+                    "page_token": "query",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                    'page_size': 'page_size',
-                    'page_token': 'page_token',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'page_size': 'query',
-                    'page_token': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__list_schema_fields
+            callable=__list_schema_fields,
         )

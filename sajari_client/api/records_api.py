@@ -25,7 +25,7 @@ from sajari_client.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 
 
@@ -42,10 +42,7 @@ class RecordsApi(object):
         self.api_client = api_client
 
         def __batch_upsert_records(
-                self,
-                collection_id,
-                batch_upsert_records_request,
-                **kwargs
+            self, collection_id, batch_upsert_records_request, **kwargs
         ):
             """Batch upsert records  # noqa: E501
 
@@ -86,97 +83,66 @@ class RecordsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['batch_upsert_records_request'] = \
-                batch_upsert_records_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["batch_upsert_records_request"] = batch_upsert_records_request
             return self.call_with_http_info(**kwargs)
 
         self.batch_upsert_records = _Endpoint(
             settings={
-                'response_type': (BatchUpsertRecordsResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/records:batchUpsert',
-                'operation_id': 'batch_upsert_records',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (BatchUpsertRecordsResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/records:batchUpsert",
+                "operation_id": "batch_upsert_records",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'batch_upsert_records_request',
+                "all": [
+                    "collection_id",
+                    "batch_upsert_records_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'batch_upsert_records_request',
+                "required": [
+                    "collection_id",
+                    "batch_upsert_records_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "batch_upsert_records_request": (BatchUpsertRecordsRequest,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'batch_upsert_records_request':
-                        (BatchUpsertRecordsRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "batch_upsert_records_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'batch_upsert_records_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__batch_upsert_records
+            callable=__batch_upsert_records,
         )
 
-        def __delete_record(
-                self,
-                collection_id,
-                delete_record_request,
-                **kwargs
-        ):
+        def __delete_record(self, collection_id, delete_record_request, **kwargs):
             """Delete record  # noqa: E501
 
             Delete a record with the given key.  # noqa: E501
@@ -216,97 +182,76 @@ class RecordsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['delete_record_request'] = \
-                delete_record_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["delete_record_request"] = delete_record_request
             return self.call_with_http_info(**kwargs)
 
         self.delete_record = _Endpoint(
             settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/records:delete',
-                'operation_id': 'delete_record',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (
+                    bool,
+                    date,
+                    datetime,
+                    dict,
+                    float,
+                    int,
+                    list,
+                    str,
+                    none_type,
+                ),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/records:delete",
+                "operation_id": "delete_record",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'delete_record_request',
+                "all": [
+                    "collection_id",
+                    "delete_record_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'delete_record_request',
+                "required": [
+                    "collection_id",
+                    "delete_record_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "delete_record_request": (DeleteRecordRequest,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'delete_record_request':
-                        (DeleteRecordRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "delete_record_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'delete_record_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__delete_record
+            callable=__delete_record,
         )
 
-        def __get_record(
-                self,
-                collection_id,
-                get_record_request,
-                **kwargs
-        ):
+        def __get_record(self, collection_id, get_record_request, **kwargs):
             """Get record  # noqa: E501
 
             Retrieve a record with the given key.  # noqa: E501
@@ -346,97 +291,80 @@ class RecordsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['get_record_request'] = \
-                get_record_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["get_record_request"] = get_record_request
             return self.call_with_http_info(**kwargs)
 
         self.get_record = _Endpoint(
             settings={
-                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/records:get',
-                'operation_id': 'get_record',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (
+                    {
+                        str: (
+                            bool,
+                            date,
+                            datetime,
+                            dict,
+                            float,
+                            int,
+                            list,
+                            str,
+                            none_type,
+                        )
+                    },
+                ),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/records:get",
+                "operation_id": "get_record",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'get_record_request',
+                "all": [
+                    "collection_id",
+                    "get_record_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'get_record_request',
+                "required": [
+                    "collection_id",
+                    "get_record_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "get_record_request": (GetRecordRequest,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'get_record_request':
-                        (GetRecordRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "get_record_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'get_record_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__get_record
+            callable=__get_record,
         )
 
-        def __upsert_record(
-                self,
-                collection_id,
-                upsert_record_request,
-                **kwargs
-        ):
+        def __upsert_record(self, collection_id, upsert_record_request, **kwargs):
             """Upsert record  # noqa: E501
 
             If the record does not exist in your collection it is inserted. If it does exist it is updated.  If no pipeline is specified, the default record pipeline is used to process the record.  If the record is inserted, the response contains the key of the inserted record. You can use this if you need to retrieve or delete the record. If the record is updated, the response does not contain a key. Callers can use this as a signal to determine if the record is inserted/created or updated.  For example, to add a single product from your ecommerce store to a collection, use the following call:  ```json {   \"pipeline\": {     \"name\": \"my-pipeline\",     \"version\": \"1\"   },   \"record\": {     \"id\": \"54hdc7h2334h\",     \"name\": \"Smart TV\",     \"price\": 1999,     \"brand\": \"Acme\",     \"description\": \"...\",     \"in_stock\": true   } } ```  # noqa: E501
@@ -476,87 +404,61 @@ class RecordsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['upsert_record_request'] = \
-                upsert_record_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["upsert_record_request"] = upsert_record_request
             return self.call_with_http_info(**kwargs)
 
         self.upsert_record = _Endpoint(
             settings={
-                'response_type': (UpsertRecordResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}/records:upsert',
-                'operation_id': 'upsert_record',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (UpsertRecordResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}/records:upsert",
+                "operation_id": "upsert_record",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'upsert_record_request',
+                "all": [
+                    "collection_id",
+                    "upsert_record_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'upsert_record_request',
+                "required": [
+                    "collection_id",
+                    "upsert_record_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "upsert_record_request": (UpsertRecordRequest,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'upsert_record_request':
-                        (UpsertRecordRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "upsert_record_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'upsert_record_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__upsert_record
+            callable=__upsert_record,
         )

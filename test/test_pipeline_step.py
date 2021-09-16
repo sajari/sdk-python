@@ -14,7 +14,8 @@ import unittest
 
 import sajari_client
 from sajari_client.model.pipeline_step_param_binding import PipelineStepParamBinding
-globals()['PipelineStepParamBinding'] = PipelineStepParamBinding
+
+globals()["PipelineStepParamBinding"] = PipelineStepParamBinding
 from sajari_client.model.pipeline_step import PipelineStep
 
 
@@ -34,5 +35,5 @@ class TestPipelineStep(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

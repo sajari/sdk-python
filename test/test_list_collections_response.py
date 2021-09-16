@@ -14,7 +14,8 @@ import unittest
 
 import sajari_client
 from sajari_client.model.collection import Collection
-globals()['Collection'] = Collection
+
+globals()["Collection"] = Collection
 from sajari_client.model.list_collections_response import ListCollectionsResponse
 
 
@@ -34,5 +35,5 @@ class TestListCollectionsResponse(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

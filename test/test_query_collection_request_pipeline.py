@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.query_collection_request_pipeline import QueryCollectionRequestPipeline
+from sajari_client.model.query_collection_request_pipeline import (
+    QueryCollectionRequestPipeline,
+)
 
 
 class TestQueryCollectionRequestPipeline(unittest.TestCase):
@@ -32,5 +34,5 @@ class TestQueryCollectionRequestPipeline(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

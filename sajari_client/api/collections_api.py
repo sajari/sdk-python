@@ -23,7 +23,7 @@ from sajari_client.model_utils import (  # noqa: F401
     datetime,
     file_type,
     none_type,
-    validate_and_convert_types
+    validate_and_convert_types,
 )
 
 
@@ -39,12 +39,7 @@ class CollectionsApi(object):
             api_client = ApiClient()
         self.api_client = api_client
 
-        def __create_collection(
-                self,
-                collection_id,
-                collection,
-                **kwargs
-        ):
+        def __create_collection(self, collection_id, collection, **kwargs):
             """Create collection  # noqa: E501
 
             Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Sajari Console, which handles the creation of the schema and pipelines for you.  # noqa: E501
@@ -84,96 +79,66 @@ class CollectionsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['collection'] = \
-                collection
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["collection"] = collection
             return self.call_with_http_info(**kwargs)
 
         self.create_collection = _Endpoint(
             settings={
-                'response_type': (Collection,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections',
-                'operation_id': 'create_collection',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (Collection,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections",
+                "operation_id": "create_collection",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'collection',
+                "all": [
+                    "collection_id",
+                    "collection",
                 ],
-                'required': [
-                    'collection_id',
-                    'collection',
+                "required": [
+                    "collection_id",
+                    "collection",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "collection": (Collection,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'collection':
-                        (Collection,),
+                "location_map": {
+                    "collection_id": "query",
+                    "collection": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'query',
-                    'collection': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__create_collection
+            callable=__create_collection,
         )
 
-        def __delete_collection(
-                self,
-                collection_id,
-                **kwargs
-        ):
+        def __delete_collection(self, collection_id, **kwargs):
             """Delete collection  # noqa: E501
 
             Delete a collection and all of its associated data.  > Note: This operation cannot be reversed.  # noqa: E501
@@ -212,87 +177,71 @@ class CollectionsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
             return self.call_with_http_info(**kwargs)
 
         self.delete_collection = _Endpoint(
             settings={
-                'response_type': (bool, date, datetime, dict, float, int, list, str, none_type,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}',
-                'operation_id': 'delete_collection',
-                'http_method': 'DELETE',
-                'servers': None,
+                "response_type": (
+                    bool,
+                    date,
+                    datetime,
+                    dict,
+                    float,
+                    int,
+                    list,
+                    str,
+                    none_type,
+                ),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}",
+                "operation_id": "delete_collection",
+                "http_method": "DELETE",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
+                "all": [
+                    "collection_id",
                 ],
-                'required': [
-                    'collection_id',
+                "required": [
+                    "collection_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
+                "location_map": {
+                    "collection_id": "path",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__delete_collection
+            callable=__delete_collection,
         )
 
-        def __get_collection(
-                self,
-                collection_id,
-                **kwargs
-        ):
+        def __get_collection(self, collection_id, **kwargs):
             """Get collection  # noqa: E501
 
             Retrieve the details of a collection.  # noqa: E501
@@ -331,86 +280,61 @@ class CollectionsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
             return self.call_with_http_info(**kwargs)
 
         self.get_collection = _Endpoint(
             settings={
-                'response_type': (Collection,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}',
-                'operation_id': 'get_collection',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (Collection,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}",
+                "operation_id": "get_collection",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
+                "all": [
+                    "collection_id",
                 ],
-                'required': [
-                    'collection_id',
+                "required": [
+                    "collection_id",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
+                "location_map": {
+                    "collection_id": "path",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__get_collection
+            callable=__get_collection,
         )
 
-        def __list_collections(
-                self,
-                **kwargs
-        ):
+        def __list_collections(self, **kwargs):
             """List collections  # noqa: E501
 
             Retrieve a list of collections in the account.  # noqa: E501
@@ -449,89 +373,62 @@ class CollectionsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
             return self.call_with_http_info(**kwargs)
 
         self.list_collections = _Endpoint(
             settings={
-                'response_type': (ListCollectionsResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections',
-                'operation_id': 'list_collections',
-                'http_method': 'GET',
-                'servers': None,
+                "response_type": (ListCollectionsResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections",
+                "operation_id": "list_collections",
+                "http_method": "GET",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'page_size',
-                    'page_token',
+                "all": [
+                    "page_size",
+                    "page_token",
                 ],
-                'required': [],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "required": [],
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "page_size": (int,),
+                    "page_token": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "page_size": "page_size",
+                    "page_token": "page_token",
                 },
-                'openapi_types': {
-                    'page_size':
-                        (int,),
-                    'page_token':
-                        (str,),
+                "location_map": {
+                    "page_size": "query",
+                    "page_token": "query",
                 },
-                'attribute_map': {
-                    'page_size': 'page_size',
-                    'page_token': 'page_token',
-                },
-                'location_map': {
-                    'page_size': 'query',
-                    'page_token': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [],
+                "accept": ["application/json"],
+                "content_type": [],
             },
             api_client=api_client,
-            callable=__list_collections
+            callable=__list_collections,
         )
 
-        def __query_collection(
-                self,
-                collection_id,
-                query_collection_request,
-                **kwargs
-        ):
+        def __query_collection(self, collection_id, query_collection_request, **kwargs):
             """Query collection  # noqa: E501
 
             Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)  # noqa: E501
@@ -571,97 +468,66 @@ class CollectionsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['query_collection_request'] = \
-                query_collection_request
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["query_collection_request"] = query_collection_request
             return self.call_with_http_info(**kwargs)
 
         self.query_collection = _Endpoint(
             settings={
-                'response_type': (QueryCollectionResponse,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}:queryCollection',
-                'operation_id': 'query_collection',
-                'http_method': 'POST',
-                'servers': None,
+                "response_type": (QueryCollectionResponse,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}:queryCollection",
+                "operation_id": "query_collection",
+                "http_method": "POST",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'query_collection_request',
+                "all": [
+                    "collection_id",
+                    "query_collection_request",
                 ],
-                'required': [
-                    'collection_id',
-                    'query_collection_request',
+                "required": [
+                    "collection_id",
+                    "query_collection_request",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "query_collection_request": (QueryCollectionRequest,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'query_collection_request':
-                        (QueryCollectionRequest,),
+                "location_map": {
+                    "collection_id": "path",
+                    "query_collection_request": "body",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'query_collection_request': 'body',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__query_collection
+            callable=__query_collection,
         )
 
-        def __update_collection(
-                self,
-                collection_id,
-                collection,
-                **kwargs
-        ):
+        def __update_collection(self, collection_id, collection, **kwargs):
             """Update collection  # noqa: E501
 
             Update the details of a collection.  # noqa: E501
@@ -702,92 +568,65 @@ class CollectionsApi(object):
                     If the method is called asynchronously, returns the request
                     thread.
             """
-            kwargs['async_req'] = kwargs.get(
-                'async_req', False
+            kwargs["async_req"] = kwargs.get("async_req", False)
+            kwargs["_return_http_data_only"] = kwargs.get(
+                "_return_http_data_only", True
             )
-            kwargs['_return_http_data_only'] = kwargs.get(
-                '_return_http_data_only', True
-            )
-            kwargs['_preload_content'] = kwargs.get(
-                '_preload_content', True
-            )
-            kwargs['_request_timeout'] = kwargs.get(
-                '_request_timeout', None
-            )
-            kwargs['_check_input_type'] = kwargs.get(
-                '_check_input_type', True
-            )
-            kwargs['_check_return_type'] = kwargs.get(
-                '_check_return_type', True
-            )
-            kwargs['_host_index'] = kwargs.get('_host_index')
-            kwargs['collection_id'] = \
-                collection_id
-            kwargs['collection'] = \
-                collection
+            kwargs["_preload_content"] = kwargs.get("_preload_content", True)
+            kwargs["_request_timeout"] = kwargs.get("_request_timeout", None)
+            kwargs["_check_input_type"] = kwargs.get("_check_input_type", True)
+            kwargs["_check_return_type"] = kwargs.get("_check_return_type", True)
+            kwargs["_host_index"] = kwargs.get("_host_index")
+            kwargs["collection_id"] = collection_id
+            kwargs["collection"] = collection
             return self.call_with_http_info(**kwargs)
 
         self.update_collection = _Endpoint(
             settings={
-                'response_type': (Collection,),
-                'auth': [
-                    'BasicAuth'
-                ],
-                'endpoint_path': '/v4/collections/{collection_id}',
-                'operation_id': 'update_collection',
-                'http_method': 'PATCH',
-                'servers': None,
+                "response_type": (Collection,),
+                "auth": ["BasicAuth"],
+                "endpoint_path": "/v4/collections/{collection_id}",
+                "operation_id": "update_collection",
+                "http_method": "PATCH",
+                "servers": None,
             },
             params_map={
-                'all': [
-                    'collection_id',
-                    'collection',
-                    'update_mask',
+                "all": [
+                    "collection_id",
+                    "collection",
+                    "update_mask",
                 ],
-                'required': [
-                    'collection_id',
-                    'collection',
+                "required": [
+                    "collection_id",
+                    "collection",
                 ],
-                'nullable': [
-                ],
-                'enum': [
-                ],
-                'validation': [
-                ]
+                "nullable": [],
+                "enum": [],
+                "validation": [],
             },
             root_map={
-                'validations': {
+                "validations": {},
+                "allowed_values": {},
+                "openapi_types": {
+                    "collection_id": (str,),
+                    "collection": (Collection,),
+                    "update_mask": (str,),
                 },
-                'allowed_values': {
+                "attribute_map": {
+                    "collection_id": "collection_id",
+                    "update_mask": "update_mask",
                 },
-                'openapi_types': {
-                    'collection_id':
-                        (str,),
-                    'collection':
-                        (Collection,),
-                    'update_mask':
-                        (str,),
+                "location_map": {
+                    "collection_id": "path",
+                    "collection": "body",
+                    "update_mask": "query",
                 },
-                'attribute_map': {
-                    'collection_id': 'collection_id',
-                    'update_mask': 'update_mask',
-                },
-                'location_map': {
-                    'collection_id': 'path',
-                    'collection': 'body',
-                    'update_mask': 'query',
-                },
-                'collection_format_map': {
-                }
+                "collection_format_map": {},
             },
             headers_map={
-                'accept': [
-                    'application/json'
-                ],
-                'content_type': [
-                    'application/json'
-                ]
+                "accept": ["application/json"],
+                "content_type": ["application/json"],
             },
             api_client=api_client,
-            callable=__update_collection
+            callable=__update_collection,
         )

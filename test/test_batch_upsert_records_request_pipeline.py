@@ -13,7 +13,9 @@ import sys
 import unittest
 
 import sajari_client
-from sajari_client.model.batch_upsert_records_request_pipeline import BatchUpsertRecordsRequestPipeline
+from sajari_client.model.batch_upsert_records_request_pipeline import (
+    BatchUpsertRecordsRequestPipeline,
+)
 
 
 class TestBatchUpsertRecordsRequestPipeline(unittest.TestCase):
@@ -32,5 +34,5 @@ class TestBatchUpsertRecordsRequestPipeline(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -14,7 +14,8 @@ import unittest
 
 import sajari_client
 from sajari_client.model.record_key import RecordKey
-globals()['RecordKey'] = RecordKey
+
+globals()["RecordKey"] = RecordKey
 from sajari_client.model.get_record_request import GetRecordRequest
 
 
@@ -34,5 +35,5 @@ class TestGetRecordRequest(unittest.TestCase):
         pass
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
