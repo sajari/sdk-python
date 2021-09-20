@@ -1687,6 +1687,8 @@ def model_to_dict(model_instance, serialize=True):
                     for v in value:
                         if isinstance(v, PRIMITIVE_TYPES) or v is None:
                             res.append(v)
+                        elif isinstance(v, dict):
+                            res.append(v)
                         elif isinstance(v, ModelSimple):
                             res.append(v.value)
                         else:
