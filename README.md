@@ -56,21 +56,18 @@ from sajari_client.model.error import Error
 from sajari_client.model.list_collections_response import ListCollectionsResponse
 from sajari_client.model.query_collection_request import QueryCollectionRequest
 from sajari_client.model.query_collection_response import QueryCollectionResponse
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
-# See configuration.py for a list of all supported configuration parameters.
-configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
-)
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-# Configure HTTP basic authorization: BasicAuth
 configuration = sajari_client.Configuration(
-    username = 'YOUR_USERNAME',
-    password = 'YOUR_PASSWORD'
+    # Defining the host is optional and defaults to https://api-gateway.sajari.com
+    # See configuration.py for a list of all supported configuration parameters.
+    host = "https://api-gateway.sajari.com",
+    # The client must configure the authentication and authorization parameters
+    # in accordance with the API server security policy.
+    # Examples for each auth method are provided below, use the example that
+    # satisfies your auth use case.
+    # Configure HTTP basic authorization: BasicAuth
+    username = 'KEY-ID',
+    password = 'KEY-SECRET'
 )
 
 
