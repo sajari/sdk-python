@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **post_steps** | [**[PipelineStep]**](PipelineStep.md) | Post-steps are run after an indexing operation or query request has been sent to the search index.  For indexing operations, the post-steps only run when creating new records. They do not run when updating records.  For querying, the post-steps have access to the result-set. This makes it possible to act on the results before sending them back to the caller. | [optional] 
 **collection_default** | **bool** | Output only. Indicates if the pipeline is the collection default pipeline. | [optional] [readonly] 
 **default_version** | **bool** | Output only. Indicates if the pipeline is the default version. | [optional] [readonly] 
+**any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

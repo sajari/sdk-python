@@ -69,9 +69,10 @@ configuration = sajari_client.Configuration(
 
 # Configure HTTP basic authorization: BasicAuth
 configuration = sajari_client.Configuration(
-    username = 'KEY_ID',
-    password = 'KEY_SECRET'
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
 )
+
 
 # Enter a context with an instance of the API client
 with sajari_client.ApiClient(configuration) as api_client:
