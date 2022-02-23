@@ -1,6 +1,6 @@
 # sajari_client.PipelinesApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -24,6 +24,7 @@ Create a new pipeline.  Pipelines are immutable once created. If you want to cha
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -31,10 +32,10 @@ from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.pipeline import Pipeline
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -54,48 +55,48 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = pipelines_api.PipelinesApi(api_client)
     collection_id = "collection_id_example" # str | The collection to create the pipeline in, e.g. `my-collection`.
     pipeline = Pipeline(
-        type=PipelineType("TYPE_UNSPECIFIED"),
-        name="name_example",
-        version="version_example",
         description="description_example",
-        pre_steps=[
-            PipelineStep(
-                id="id_example",
-                title="title_example",
-                description="description_example",
-                params={
-                    "key": PipelineStepParamBinding(
-                        bind="bind_example",
-                        description="description_example",
-                        default_value="default_value_example",
-                        constant="constant_example",
-                    ),
-                },
-                condition="condition_example",
-                annotations=[
-                    "annotations_example",
-                ],
-            ),
-        ],
+        name="name_example",
         post_steps=[
             PipelineStep(
-                id="id_example",
-                title="title_example",
-                description="description_example",
-                params={
-                    "key": PipelineStepParamBinding(
-                        bind="bind_example",
-                        description="description_example",
-                        default_value="default_value_example",
-                        constant="constant_example",
-                    ),
-                },
-                condition="condition_example",
                 annotations=[
                     "annotations_example",
                 ],
+                condition="condition_example",
+                description="description_example",
+                id="id_example",
+                params={
+                    "key": PipelineStepParamBinding(
+                        bind="bind_example",
+                        constant="constant_example",
+                        default_value="default_value_example",
+                        description="description_example",
+                    ),
+                },
+                title="title_example",
             ),
         ],
+        pre_steps=[
+            PipelineStep(
+                annotations=[
+                    "annotations_example",
+                ],
+                condition="condition_example",
+                description="description_example",
+                id="id_example",
+                params={
+                    "key": PipelineStepParamBinding(
+                        bind="bind_example",
+                        constant="constant_example",
+                        default_value="default_value_example",
+                        description="description_example",
+                    ),
+                },
+                title="title_example",
+            ),
+        ],
+        type=PipelineType("TYPE_UNSPECIFIED"),
+        version="version_example",
     ) # Pipeline | The pipeline to create.
 
     # example passing only required values which don't have defaults set
@@ -130,6 +131,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -137,7 +139,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -151,6 +153,7 @@ Generate basic record, query and autocomplete pipeline templates. Use these temp
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -159,10 +162,10 @@ from sajari_client.model.generate_pipelines_response import GeneratePipelinesRes
 from sajari_client.model.error import Error
 from sajari_client.model.generate_pipelines_request import GeneratePipelinesRequest
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -182,11 +185,11 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = pipelines_api.PipelinesApi(api_client)
     collection_id = "collection_id_example" # str | The collection, e.g. `my-collection`.
     generate_pipelines_request = GeneratePipelinesRequest(
-        searchable_fields=[
-            "searchable_fields_example",
-        ],
         query_training_fields=[
             "query_training_fields_example",
+        ],
+        searchable_fields=[
+            "searchable_fields_example",
         ],
     ) # GeneratePipelinesRequest | 
 
@@ -222,6 +225,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -229,7 +233,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -243,6 +247,7 @@ Get the default pipeline for a collection.  Every collection has a default recor
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -250,10 +255,10 @@ from sajari_client.api import pipelines_api
 from sajari_client.model.get_default_pipeline_response import GetDefaultPipelineResponse
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -305,6 +310,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -312,7 +318,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -326,6 +332,7 @@ Get the default version for a given pipeline.  The default version of a pipeline
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -333,10 +340,10 @@ from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.pipeline import Pipeline
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -357,7 +364,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     collection_id = "collection_id_example" # str | The collection that owns the pipeline to get the default version of, e.g. `my-collection`.
     type = "TYPE_UNSPECIFIED" # str | The type of the pipeline to get the default version of.
     name = "name_example" # str | The name of the pipeline to get the default version of, e.g. `my-pipeline`.
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -385,7 +392,7 @@ Name | Type | Description  | Notes
  **collection_id** | **str**| The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. |
  **type** | **str**| The type of the pipeline to get the default version of. |
  **name** | **str**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |
- **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -402,6 +409,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -409,7 +417,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the pipeline does not have a default version. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -423,6 +431,7 @@ Retrieve the details of a pipeline. Supply the type, name and version.  To retri
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -430,10 +439,10 @@ from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.pipeline import Pipeline
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -455,7 +464,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     type = "TYPE_UNSPECIFIED" # str | The type of the pipeline to retrieve.
     name = "name_example" # str | The name of the pipeline to retrieve, e.g. `my-pipeline`.
     version = "version_example" # str | The version of the pipeline to retrieve, e.g. `42`.
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -484,7 +493,7 @@ Name | Type | Description  | Notes
  **type** | **str**| The type of the pipeline to retrieve. |
  **name** | **str**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |
  **version** | **str**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |
- **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -501,6 +510,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -508,7 +518,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -517,11 +527,12 @@ Name | Type | Description  | Notes
 
 List pipelines
 
-Retrieve a list of pipelines.
+Retrieve a list of pipelines in a collection.
 
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -529,10 +540,10 @@ from sajari_client.api import pipelines_api
 from sajari_client.model.error import Error
 from sajari_client.model.list_pipelines_response import ListPipelinesResponse
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -552,8 +563,8 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = pipelines_api.PipelinesApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns this set of pipelines, e.g. `my-collection`.
     page_size = 1 # int | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-    page_token = "page_token_example" # str | A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. (optional)
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    page_token = "page_token_example" # str | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -580,8 +591,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. |
  **page_size** | **int**| The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
- **page_token** | **str**| A page token, received from a previous [ListPipelines](/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/api#operation/ListPipelines) must match the call that provided the page token. | [optional]
- **view** | **str**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/api#operation/ListPipelines) and [GetPipeline](/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **page_token** | **str**| A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. | [optional]
+ **view** | **str**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -598,6 +609,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -605,7 +617,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -619,6 +631,7 @@ Set the default pipeline for a collection.  Every collection has a default recor
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -626,10 +639,10 @@ from sajari_client.api import pipelines_api
 from sajari_client.model.set_default_pipeline_request import SetDefaultPipelineRequest
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -649,8 +662,8 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = pipelines_api.PipelinesApi(api_client)
     collection_id = "collection_id_example" # str | The collection to set the default query pipeline of, e.g. `my-collection`.
     set_default_pipeline_request = SetDefaultPipelineRequest(
-        type=PipelineType("TYPE_UNSPECIFIED"),
         pipeline="pipeline_example",
+        type=PipelineType("TYPE_UNSPECIFIED"),
     ) # SetDefaultPipelineRequest | 
 
     # example passing only required values which don't have defaults set
@@ -685,6 +698,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -692,7 +706,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -706,6 +720,7 @@ Set the default version for a given pipeline.  The default version of a pipeline
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -713,10 +728,10 @@ from sajari_client.api import pipelines_api
 from sajari_client.model.set_default_version_request import SetDefaultVersionRequest
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -775,6 +790,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -782,7 +798,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
