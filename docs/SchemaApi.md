@@ -1,6 +1,6 @@
 # sajari_client.SchemaApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -14,11 +14,12 @@ Method | HTTP request | Description
 
 Batch create schema fields
 
-The batch version of the [CreateSchemaField](/api#operation/CreateSchemaField) call.
+The batch version of the [CreateSchemaField](/docs/api#operation/CreateSchemaField) call.
 
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -27,10 +28,10 @@ from sajari_client.model.batch_create_schema_fields_request import BatchCreateSc
 from sajari_client.model.batch_create_schema_fields_response import BatchCreateSchemaFieldsResponse
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -52,12 +53,12 @@ with sajari_client.ApiClient(configuration) as api_client:
     batch_create_schema_fields_request = BatchCreateSchemaFieldsRequest(
         fields=[
             SchemaField(
-                name="name_example",
-                description="description_example",
-                type=SchemaFieldType("TYPE_UNSPECIFIED"),
-                mode=SchemaFieldMode("MODE_UNSPECIFIED"),
                 array=True,
                 array_length=1,
+                description="description_example",
+                mode=SchemaFieldMode("MODE_UNSPECIFIED"),
+                name="name_example",
+                type=SchemaFieldType("TYPE_UNSPECIFIED"),
             ),
         ],
     ) # BatchCreateSchemaFieldsRequest | 
@@ -94,6 +95,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -101,7 +103,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -110,11 +112,12 @@ Name | Type | Description  | Notes
 
 Create schema field
 
-Create a new field in your collection's schema.
+Create a new field in a collection's schema.
 
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -122,10 +125,10 @@ from sajari_client.api import schema_api
 from sajari_client.model.schema_field import SchemaField
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -145,12 +148,12 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = schema_api.SchemaApi(api_client)
     collection_id = "collection_id_example" # str | The collection to create a schema field in, e.g. `my-collection`.
     schema_field = SchemaField(
-        name="name_example",
-        description="description_example",
-        type=SchemaFieldType("TYPE_UNSPECIFIED"),
-        mode=SchemaFieldMode("MODE_UNSPECIFIED"),
         array=True,
         array_length=1,
+        description="description_example",
+        mode=SchemaFieldMode("MODE_UNSPECIFIED"),
+        name="name_example",
+        type=SchemaFieldType("TYPE_UNSPECIFIED"),
     ) # SchemaField | The schema field to create.
 
     # example passing only required values which don't have defaults set
@@ -185,6 +188,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -192,7 +196,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -201,11 +205,12 @@ Name | Type | Description  | Notes
 
 List schema fields
 
-Retrieve a list of schema fields in the collection.
+Retrieve a list of schema fields in a collection.
 
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -213,10 +218,10 @@ from sajari_client.api import schema_api
 from sajari_client.model.list_schema_fields_response import ListSchemaFieldsResponse
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -236,7 +241,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = schema_api.SchemaApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns this set of schema fields, e.g. `my-collection`.
     page_size = 1 # int | The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
-    page_token = "page_token_example" # str | A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
+    page_token = "page_token_example" # str | A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -263,7 +268,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. |
  **page_size** | **int**| The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
- **page_token** | **str**| A page token, received from a previous [ListSchemaFields](/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional]
+ **page_token** | **str**| A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional]
 
 ### Return type
 
@@ -280,6 +285,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -287,7 +293,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

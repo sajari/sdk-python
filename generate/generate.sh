@@ -12,17 +12,12 @@ function die() {
 if [ -z "$GEN_PATH" ]; then
     die "GEN_PATH must be set, e.g. /path/to/sajari/sdk-python"
 fi
-if [ -z "$TEMPLATES_PATH" ]; then
-    die "TEMPLATES_PATH must be set, e.g. /path/to/sajari/sdk-python/generate/templates"
-fi
-
-VERSION=4.1.0
+VERSION=4.3.0
 
 docker-entrypoint.sh generate \
   -i /openapi.json  \
   -g python \
   -o $GEN_PATH \
-  -t $TEMPLATES_PATH \
   --artifact-version $VERSION \
   --http-user-agent "sajari-sdk-python-$VERSION" \
   --group-id com.sajari \

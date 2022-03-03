@@ -1,14 +1,16 @@
 # sajari_client.CollectionsApi
 
-All URIs are relative to *https://api-gateway.sajari.com*
+All URIs are relative to *https://api.search.io*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_collection**](CollectionsApi.md#create_collection) | **POST** /v4/collections | Create collection
 [**delete_collection**](CollectionsApi.md#delete_collection) | **DELETE** /v4/collections/{collection_id} | Delete collection
+[**experiment**](CollectionsApi.md#experiment) | **POST** /v4/collections/{collection_id}:experiment | Experiment
 [**get_collection**](CollectionsApi.md#get_collection) | **GET** /v4/collections/{collection_id} | Get collection
 [**list_collections**](CollectionsApi.md#list_collections) | **GET** /v4/collections | List collections
-[**query_collection**](CollectionsApi.md#query_collection) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
+[**query_collection**](CollectionsApi.md#query_collection) | **POST** /v4/collections/{collection_id}:query | Query collection
+[**query_collection2**](CollectionsApi.md#query_collection2) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
 [**update_collection**](CollectionsApi.md#update_collection) | **PATCH** /v4/collections/{collection_id} | Update collection
 
 
@@ -17,11 +19,12 @@ Method | HTTP request | Description
 
 Create collection
 
-Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Sajari Console, which handles the creation of the schema and pipelines for you.
+Create an empty collection.  Before records can be added to a collection, the schema and pipelines for the collection have to be set up. Consider setting up new collections via the Search.io Console, which handles the creation of the schema and pipelines for you.
 
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -29,10 +32,10 @@ from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -52,10 +55,10 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = collections_api.CollectionsApi(api_client)
     collection_id = "collection_id_example" # str | The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or `-` characters. Strictly speaking, it must match the regular expression: `^[A-Za-z][A-Za-z0-9\\-]*$`.
     collection = Collection(
-        display_name="display_name_example",
         authorized_query_domains=[
             "authorized_query_domains_example",
         ],
+        display_name="display_name_example",
     ) # Collection | Details of the collection to create.
 
     # example passing only required values which don't have defaults set
@@ -90,6 +93,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -99,7 +103,7 @@ Name | Type | Description  | Notes
 **404** | Returned when the resource does not exist. |  -  |
 **409** | Returned when the collection already exists. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -113,16 +117,17 @@ Delete a collection and all of its associated data.  > Note: This operation cann
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
 from sajari_client.api import collections_api
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -173,6 +178,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -180,7 +186,209 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the collection was not found. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **experiment**
+> ExperimentResponse experiment(collection_id, experiment_request)
+
+Experiment
+
+Run a query on a collection with a hypothetical configuration to see what kinds of results it produces.  Saved promotions with a start date in the future are enabled during the experiment, unless they are explicitly disabled.  The following example demonstrates how to run a simple experiment for a string, against a pipeline and with a proposed promotion:  ```json {   \"pipeline\": { \"name\": \"my-pipeline\" },   \"variables\": { \"q\": \"search terms\" },   \"promotions\": [{     \"id\": \"1234\",     \"condition\": \"q = 'search terms'\",     \"pins\": [{       \"key\": { \"field\": \"id\", \"value\": \"54hdc7h2334h\" },       \"position\": 1     }]   }] } ```
+
+### Example
+
+* Basic Authentication (BasicAuth):
+
+```python
+import time
+import sajari_client
+from sajari_client.api import collections_api
+from sajari_client.model.error import Error
+from sajari_client.model.experiment_response import ExperimentResponse
+from sajari_client.model.experiment_request import ExperimentRequest
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.search.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sajari_client.Configuration(
+    host = "https://api.search.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: BasicAuth
+configuration = sajari_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with sajari_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = collections_api.CollectionsApi(api_client)
+    collection_id = "collection_id_example" # str | The collection to query, e.g. `my-collection`.
+    experiment_request = ExperimentRequest(
+        custom_pipeline=Pipeline(
+            description="description_example",
+            name="name_example",
+            post_steps=[
+                PipelineStep(
+                    annotations=[
+                        "annotations_example",
+                    ],
+                    condition="condition_example",
+                    description="description_example",
+                    id="id_example",
+                    params={
+                        "key": PipelineStepParamBinding(
+                            bind="bind_example",
+                            constant="constant_example",
+                            default_value="default_value_example",
+                            description="description_example",
+                        ),
+                    },
+                    title="title_example",
+                ),
+            ],
+            pre_steps=[
+                PipelineStep(
+                    annotations=[
+                        "annotations_example",
+                    ],
+                    condition="condition_example",
+                    description="description_example",
+                    id="id_example",
+                    params={
+                        "key": PipelineStepParamBinding(
+                            bind="bind_example",
+                            constant="constant_example",
+                            default_value="default_value_example",
+                            description="description_example",
+                        ),
+                    },
+                    title="title_example",
+                ),
+            ],
+            type=PipelineType("TYPE_UNSPECIFIED"),
+            version="version_example",
+        ),
+        pipeline=ExperimentRequestPipeline(
+            name="name_example",
+            version="version_example",
+        ),
+        promotions=[
+            Promotion(
+                banners=[
+                    Banner(
+                        description="description_example",
+                        height=1,
+                        id="id_example",
+                        image_url="image_url_example",
+                        position=1,
+                        target_url="target_url_example",
+                        text_color="text_color_example",
+                        text_position=TextPosition("TEXT_POSITION_UNSPECIFIED"),
+                        title="title_example",
+                        width=1,
+                    ),
+                ],
+                condition="condition_example",
+                disabled=True,
+                display_name="display_name_example",
+                end_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+                exclusions=[
+                    PromotionExclusion(
+                        key=RecordKey(
+                            field="field_example",
+                            value="value_example",
+                        ),
+                    ),
+                ],
+                filter_boosts=[
+                    PromotionFilterBoost(
+                        boost=3.14,
+                        filter="filter_example",
+                    ),
+                ],
+                filter_conditions=[
+                    PromotionFilterCondition(
+                        filter=[
+                            "filter_example",
+                        ],
+                    ),
+                ],
+                id="id_example",
+                pins=[
+                    PromotionPin(
+                        key=RecordKey(
+                            field="field_example",
+                            value="value_example",
+                        ),
+                        position=1,
+                    ),
+                ],
+                range_boosts=[
+                    PromotionRangeBoost(
+                        boost=3.14,
+                        end=3.14,
+                        field="field_example",
+                        null_boost=3.14,
+                        start=3.14,
+                    ),
+                ],
+                start_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
+            ),
+        ],
+        variables={
+            "key": {},
+        },
+    ) # ExperimentRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Experiment
+        api_response = api_instance.experiment(collection_id, experiment_request)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling CollectionsApi->experiment: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **str**| The collection to query, e.g. &#x60;my-collection&#x60;. |
+ **experiment_request** | [**ExperimentRequest**](ExperimentRequest.md)|  |
+
+### Return type
+
+[**ExperimentResponse**](ExperimentResponse.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**401** | Returned when the request does not have valid authentication credentials. |  -  |
+**403** | Returned when the user does not have permission to access the resource. |  -  |
+**404** | Returned when the resource does not exist. |  -  |
+**500** | Returned when the API encounters an internal error. |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -194,6 +402,7 @@ Retrieve the details of a collection.
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -201,10 +410,10 @@ from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -255,6 +464,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -262,7 +472,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -271,11 +481,12 @@ Name | Type | Description  | Notes
 
 List collections
 
-Retrieve a list of collections in the account.
+Retrieve a list of collections in an account.
 
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -283,10 +494,10 @@ from sajari_client.api import collections_api
 from sajari_client.model.list_collections_response import ListCollectionsResponse
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -305,7 +516,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = collections_api.CollectionsApi(api_client)
     page_size = 1 # int | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
-    page_token = "page_token_example" # str | A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. (optional)
+    page_token = "page_token_example" # str | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -323,7 +534,7 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page_size** | **int**| The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional]
- **page_token** | **str**| A page token, received from a previous [ListCollections](/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/api#operation/ListCollections) must match the call that provided the page token. | [optional]
+ **page_token** | **str**| A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional]
 
 ### Return type
 
@@ -340,6 +551,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -347,20 +559,21 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_collection**
-> QueryCollectionResponse query_collection(collection_id, query_collection_request)
+> QueryCollectionResponse query_collection(account_id, collection_id, query_collection_request)
 
 Query collection
 
-Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.sajari.com/user-guide/integrating-search/filters/) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sajari-sdk-js/blob/master/src/session.ts)
+Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.
 
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -369,10 +582,116 @@ from sajari_client.model.query_collection_response import QueryCollectionRespons
 from sajari_client.model.query_collection_request import QueryCollectionRequest
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: BasicAuth
+configuration = sajari_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with sajari_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = collections_api.CollectionsApi(api_client)
+    account_id = "Account-Id_example" # str | Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.
+    collection_id = "collection_id_example" # str | The collection to query, e.g. `my-collection`.
+    query_collection_request = QueryCollectionRequest(
+        pipeline=QueryCollectionRequestPipeline(
+            name="name_example",
+            version="version_example",
+        ),
+        tracking=QueryCollectionRequestTracking(
+            data={
+                "key": "key_example",
+            },
+            field="field_example",
+            query_id="query_id_example",
+            sequence=1,
+            type=QueryCollectionRequestTrackingType("TYPE_UNSPECIFIED"),
+        ),
+        variables={
+            "key": {},
+        },
+    ) # QueryCollectionRequest | 
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Query collection
+        api_response = api_instance.query_collection(account_id, collection_id, query_collection_request)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling CollectionsApi->query_collection: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| Unlike other API calls, the &#x60;QueryCollection&#x60; call requires the &#x60;Account-Id&#x60; header to be set to your account ID. This is because other API calls infer the account ID from your API key. |
+ **collection_id** | **str**| The collection to query, e.g. &#x60;my-collection&#x60;. |
+ **query_collection_request** | [**QueryCollectionRequest**](QueryCollectionRequest.md)|  |
+
+### Return type
+
+[**QueryCollectionResponse**](QueryCollectionResponse.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**401** | Returned when the request does not have valid authentication credentials. |  -  |
+**403** | Returned when the user does not have permission to access the resource. |  -  |
+**404** | Returned when the resource does not exist. |  -  |
+**500** | Returned when the API encounters an internal error. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **query_collection2**
+> QueryCollectionResponse query_collection2(collection_id, query_collection_request)
+
+Query collection
+
+Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.
+
+### Example
+
+* Basic Authentication (BasicAuth):
+
+```python
+import time
+import sajari_client
+from sajari_client.api import collections_api
+from sajari_client.model.query_collection_response import QueryCollectionResponse
+from sajari_client.model.query_collection_request import QueryCollectionRequest
+from sajari_client.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.search.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sajari_client.Configuration(
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -396,25 +715,27 @@ with sajari_client.ApiClient(configuration) as api_client:
             name="name_example",
             version="version_example",
         ),
-        variables={},
         tracking=QueryCollectionRequestTracking(
-            type=QueryCollectionRequestTrackingType("TYPE_UNSPECIFIED"),
-            query_id="query_id_example",
-            sequence=1,
-            field="field_example",
             data={
                 "key": "key_example",
             },
+            field="field_example",
+            query_id="query_id_example",
+            sequence=1,
+            type=QueryCollectionRequestTrackingType("TYPE_UNSPECIFIED"),
         ),
+        variables={
+            "key": {},
+        },
     ) # QueryCollectionRequest | 
 
     # example passing only required values which don't have defaults set
     try:
         # Query collection
-        api_response = api_instance.query_collection(collection_id, query_collection_request)
+        api_response = api_instance.query_collection2(collection_id, query_collection_request)
         pprint(api_response)
     except sajari_client.ApiException as e:
-        print("Exception when calling CollectionsApi->query_collection: %s\n" % e)
+        print("Exception when calling CollectionsApi->query_collection2: %s\n" % e)
 ```
 
 
@@ -440,6 +761,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -447,7 +769,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the resource does not exist. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -461,6 +783,7 @@ Update the details of a collection.
 ### Example
 
 * Basic Authentication (BasicAuth):
+
 ```python
 import time
 import sajari_client
@@ -468,10 +791,10 @@ from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
 from pprint import pprint
-# Defining the host is optional and defaults to https://api-gateway.sajari.com
+# Defining the host is optional and defaults to https://api.search.io
 # See configuration.py for a list of all supported configuration parameters.
 configuration = sajari_client.Configuration(
-    host = "https://api-gateway.sajari.com"
+    host = "https://api.search.io"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -491,12 +814,12 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = collections_api.CollectionsApi(api_client)
     collection_id = "collection_id_example" # str | The collection to update, e.g. `my-collection`.
     collection = Collection(
-        display_name="display_name_example",
         authorized_query_domains=[
             "authorized_query_domains_example",
         ],
-    ) # Collection | Details of the collection to update.
-    update_mask = "update_mask_example" # str | The list of fields to be updated, separated by a comma, e.g. `field1,field2`.  Each field should be in snake case, e.g. `display_name`.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
+        display_name="display_name_example",
+    ) # Collection | The details of the collection to update.
+    update_mask = "update_mask_example" # str | The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
 
     # example passing only required values which don't have defaults set
     try:
@@ -522,8 +845,8 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to update, e.g. &#x60;my-collection&#x60;. |
- **collection** | [**Collection**](Collection.md)| Details of the collection to update. |
- **update_mask** | **str**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional]
+ **collection** | [**Collection**](Collection.md)| The details of the collection to update. |
+ **update_mask** | **str**| The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional]
 
 ### Return type
 
@@ -540,6 +863,7 @@ Name | Type | Description  | Notes
 
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | A successful response. |  -  |
@@ -547,7 +871,7 @@ Name | Type | Description  | Notes
 **403** | Returned when the user does not have permission to access the resource. |  -  |
 **404** | Returned when the collection was not found. |  -  |
 **500** | Returned when the API encounters an internal error. |  -  |
-**0** | An unexpected error response |  -  |
+**0** | An unexpected error response. |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
