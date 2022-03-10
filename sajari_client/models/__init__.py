@@ -27,6 +27,7 @@ from sajari_client.model.batch_upsert_records_response_variables import BatchUps
 from sajari_client.model.collection import Collection
 from sajari_client.model.delete_record_request import DeleteRecordRequest
 from sajari_client.model.error import Error
+from sajari_client.model.event import Event
 from sajari_client.model.experiment_request import ExperimentRequest
 from sajari_client.model.experiment_request_pipeline import ExperimentRequestPipeline
 from sajari_client.model.experiment_response import ExperimentResponse
@@ -39,6 +40,7 @@ from sajari_client.model.get_record_request import GetRecordRequest
 from sajari_client.model.list_collections_response import ListCollectionsResponse
 from sajari_client.model.list_pipelines_request_view import ListPipelinesRequestView
 from sajari_client.model.list_pipelines_response import ListPipelinesResponse
+from sajari_client.model.list_promotions_request_promotion_view import ListPromotionsRequestPromotionView
 from sajari_client.model.list_promotions_response import ListPromotionsResponse
 from sajari_client.model.list_redirects_response import ListRedirectsResponse
 from sajari_client.model.list_schema_fields_response import ListSchemaFieldsResponse
@@ -53,6 +55,7 @@ from sajari_client.model.promotion_exclusion import PromotionExclusion
 from sajari_client.model.promotion_filter_boost import PromotionFilterBoost
 from sajari_client.model.promotion_filter_condition import PromotionFilterCondition
 from sajari_client.model.promotion_pin import PromotionPin
+from sajari_client.model.promotion_pin_mode import PromotionPinMode
 from sajari_client.model.promotion_range_boost import PromotionRangeBoost
 from sajari_client.model.protobuf_any import ProtobufAny
 from sajari_client.model.protobuf_field_mask import ProtobufFieldMask

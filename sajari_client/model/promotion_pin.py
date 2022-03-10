@@ -31,7 +31,9 @@ from sajari_client.exceptions import ApiAttributeError
 
 
 def lazy_import():
+    from sajari_client.model.promotion_pin_mode import PromotionPinMode
     from sajari_client.model.record_key import RecordKey
+    globals()['PromotionPinMode'] = PromotionPinMode
     globals()['RecordKey'] = RecordKey
 
 
@@ -89,6 +91,7 @@ class PromotionPin(ModelNormal):
         lazy_import()
         return {
             'key': (RecordKey,),  # noqa: E501
+            'mode': (PromotionPinMode,),  # noqa: E501
             'position': (int,),  # noqa: E501
         }
 
@@ -99,6 +102,7 @@ class PromotionPin(ModelNormal):
 
     attribute_map = {
         'key': 'key',  # noqa: E501
+        'mode': 'mode',  # noqa: E501
         'position': 'position',  # noqa: E501
     }
 
@@ -144,6 +148,7 @@ class PromotionPin(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             key (RecordKey): [optional]  # noqa: E501
+            mode (PromotionPinMode): [optional]  # noqa: E501
             position (int): Position the record should occupy in search results. The top position is position 1.  Doesn't need to be contiguous with other pins, i.e. there can be gaps in the pinned set that are filled with organic results.  In the case where there are insufficient search results pinned items are collapsed.. [optional]  # noqa: E501
         """
 
@@ -227,6 +232,7 @@ class PromotionPin(ModelNormal):
                                 through its discriminator because we passed in
                                 _visited_composed_classes = (Animal,)
             key (RecordKey): [optional]  # noqa: E501
+            mode (PromotionPinMode): [optional]  # noqa: E501
             position (int): Position the record should occupy in search results. The top position is position 1.  Doesn't need to be contiguous with other pins, i.e. there can be gaps in the pinned set that are filled with organic results.  In the case where there are insufficient search results pinned items are collapsed.. [optional]  # noqa: E501
         """
 

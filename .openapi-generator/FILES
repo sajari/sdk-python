@@ -19,6 +19,7 @@ docs/Collection.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
+docs/Event.md
 docs/EventsApi.md
 docs/ExperimentRequest.md
 docs/ExperimentRequestPipeline.md
@@ -32,6 +33,7 @@ docs/GetRecordRequest.md
 docs/ListCollectionsResponse.md
 docs/ListPipelinesRequestView.md
 docs/ListPipelinesResponse.md
+docs/ListPromotionsRequestPromotionView.md
 docs/ListPromotionsResponse.md
 docs/ListRedirectsResponse.md
 docs/ListSchemaFieldsResponse.md
@@ -47,6 +49,7 @@ docs/PromotionExclusion.md
 docs/PromotionFilterBoost.md
 docs/PromotionFilterCondition.md
 docs/PromotionPin.md
+docs/PromotionPinMode.md
 docs/PromotionRangeBoost.md
 docs/PromotionsApi.md
 docs/ProtobufAny.md
@@ -121,6 +124,7 @@ sajari_client/model/batch_upsert_records_response_variables.py
 sajari_client/model/collection.py
 sajari_client/model/delete_record_request.py
 sajari_client/model/error.py
+sajari_client/model/event.py
 sajari_client/model/experiment_request.py
 sajari_client/model/experiment_request_pipeline.py
 sajari_client/model/experiment_response.py
@@ -133,6 +137,7 @@ sajari_client/model/get_record_request.py
 sajari_client/model/list_collections_response.py
 sajari_client/model/list_pipelines_request_view.py
 sajari_client/model/list_pipelines_response.py
+sajari_client/model/list_promotions_request_promotion_view.py
 sajari_client/model/list_promotions_response.py
 sajari_client/model/list_redirects_response.py
 sajari_client/model/list_schema_fields_response.py
@@ -147,6 +152,7 @@ sajari_client/model/promotion_exclusion.py
 sajari_client/model/promotion_filter_boost.py
 sajari_client/model/promotion_filter_condition.py
 sajari_client/model/promotion_pin.py
+sajari_client/model/promotion_pin_mode.py
 sajari_client/model/promotion_range_boost.py
 sajari_client/model/protobuf_any.py
 sajari_client/model/protobuf_field_mask.py
