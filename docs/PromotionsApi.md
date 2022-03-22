@@ -98,6 +98,7 @@ with sajari_client.ApiClient(configuration) as api_client:
                     field="field_example",
                     value="value_example",
                 ),
+                mode=PromotionPinMode("PIN"),
                 position=1,
             ),
         ],
@@ -370,6 +371,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     collection_id = "collection_id_example" # str | The collection that owns this set of promotions, e.g. `my-collection`.
     page_size = 1 # int | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
+    view = "PROMOTION_VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional) if omitted the server will use the default value of "PROMOTION_VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -383,7 +385,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List promotions
-        api_response = api_instance.list_promotions(collection_id, page_size=page_size, page_token=page_token)
+        api_response = api_instance.list_promotions(collection_id, page_size=page_size, page_token=page_token, view=view)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PromotionsApi->list_promotions: %s\n" % e)
@@ -397,6 +399,7 @@ Name | Type | Description  | Notes
  **collection_id** | **str**| The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. |
  **page_size** | **int**| The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. | [optional]
+ **view** | **str**| The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. | [optional] if omitted the server will use the default value of "PROMOTION_VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -514,6 +517,7 @@ with sajari_client.ApiClient(configuration) as api_client:
                     field="field_example",
                     value="value_example",
                 ),
+                mode=PromotionPinMode("PIN"),
                 position=1,
             ),
         ],

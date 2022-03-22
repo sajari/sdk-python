@@ -105,6 +105,7 @@ class QueryCollectionResponse(ModelNormal):
             'feature_score_weight': (float,),  # noqa: E501
             'pipeline': (QueryCollectionResponsePipeline,),  # noqa: E501
             'processing_duration': (str,),  # noqa: E501
+            'query_id': (str,),  # noqa: E501
             'redirects': ({str: (RedirectResult,)},),  # noqa: E501
             'results': ([QueryResult],),  # noqa: E501
             'total_size': (str,),  # noqa: E501
@@ -124,6 +125,7 @@ class QueryCollectionResponse(ModelNormal):
         'feature_score_weight': 'feature_score_weight',  # noqa: E501
         'pipeline': 'pipeline',  # noqa: E501
         'processing_duration': 'processing_duration',  # noqa: E501
+        'query_id': 'query_id',  # noqa: E501
         'redirects': 'redirects',  # noqa: E501
         'results': 'results',  # noqa: E501
         'total_size': 'total_size',  # noqa: E501
@@ -178,6 +180,7 @@ class QueryCollectionResponse(ModelNormal):
             feature_score_weight (float): The weight applied to the features in the query, used for analyzing the index, neural and feature components for results.  For each result:  ``` score = max(index_score, neural_score) * (1 - feature_score_weight) +         feature_score * feature_score_weight ```. [optional]  # noqa: E501
             pipeline (QueryCollectionResponsePipeline): [optional]  # noqa: E501
             processing_duration (str): The total time taken to perform the query.. [optional]  # noqa: E501
+            query_id (str): The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query.. [optional]  # noqa: E501
             redirects ({str: (RedirectResult,)}): A mapping of redirects triggered for all possible variations of the query.. [optional]  # noqa: E501
             results ([QueryResult]): The results returned by the query.. [optional]  # noqa: E501
             total_size (str): The total number of results that match the query.. [optional]  # noqa: E501
@@ -270,6 +273,7 @@ class QueryCollectionResponse(ModelNormal):
             feature_score_weight (float): The weight applied to the features in the query, used for analyzing the index, neural and feature components for results.  For each result:  ``` score = max(index_score, neural_score) * (1 - feature_score_weight) +         feature_score * feature_score_weight ```. [optional]  # noqa: E501
             pipeline (QueryCollectionResponsePipeline): [optional]  # noqa: E501
             processing_duration (str): The total time taken to perform the query.. [optional]  # noqa: E501
+            query_id (str): The query identifier.  This uniqely identifies the specific query it was returned on. This is used to link user interactions with a query.. [optional]  # noqa: E501
             redirects ({str: (RedirectResult,)}): A mapping of redirects triggered for all possible variations of the query.. [optional]  # noqa: E501
             results ([QueryResult]): The results returned by the query.. [optional]  # noqa: E501
             total_size (str): The total number of results that match the query.. [optional]  # noqa: E501

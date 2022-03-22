@@ -53,6 +53,7 @@ from pprint import pprint
 from sajari_client.api import collections_api
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
+from sajari_client.model.event import Event
 from sajari_client.model.experiment_request import ExperimentRequest
 from sajari_client.model.experiment_response import ExperimentResponse
 from sajari_client.model.list_collections_response import ListCollectionsResponse
@@ -109,6 +110,7 @@ Class | Method | HTTP request | Description
 *CollectionsApi* | [**list_collections**](docs/CollectionsApi.md#list_collections) | **GET** /v4/collections | List collections
 *CollectionsApi* | [**query_collection**](docs/CollectionsApi.md#query_collection) | **POST** /v4/collections/{collection_id}:query | Query collection
 *CollectionsApi* | [**query_collection2**](docs/CollectionsApi.md#query_collection2) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
+*CollectionsApi* | [**track_event**](docs/CollectionsApi.md#track_event) | **POST** /v4/collections/{collection_id}:trackEvent | Track event
 *CollectionsApi* | [**update_collection**](docs/CollectionsApi.md#update_collection) | **PATCH** /v4/collections/{collection_id} | Update collection
 *EventsApi* | [**send_event**](docs/EventsApi.md#send_event) | **POST** /v4/events:send | Send event
 *EventsApi* | [**send_event2**](docs/EventsApi.md#send_event2) | **POST** /v4/events:sendEvent | Send event
@@ -161,6 +163,7 @@ Class | Method | HTTP request | Description
  - [Collection](docs/Collection.md)
  - [DeleteRecordRequest](docs/DeleteRecordRequest.md)
  - [Error](docs/Error.md)
+ - [Event](docs/Event.md)
  - [ExperimentRequest](docs/ExperimentRequest.md)
  - [ExperimentRequestPipeline](docs/ExperimentRequestPipeline.md)
  - [ExperimentResponse](docs/ExperimentResponse.md)
@@ -173,6 +176,7 @@ Class | Method | HTTP request | Description
  - [ListCollectionsResponse](docs/ListCollectionsResponse.md)
  - [ListPipelinesRequestView](docs/ListPipelinesRequestView.md)
  - [ListPipelinesResponse](docs/ListPipelinesResponse.md)
+ - [ListPromotionsRequestPromotionView](docs/ListPromotionsRequestPromotionView.md)
  - [ListPromotionsResponse](docs/ListPromotionsResponse.md)
  - [ListRedirectsResponse](docs/ListRedirectsResponse.md)
  - [ListSchemaFieldsResponse](docs/ListSchemaFieldsResponse.md)
@@ -187,6 +191,7 @@ Class | Method | HTTP request | Description
  - [PromotionFilterBoost](docs/PromotionFilterBoost.md)
  - [PromotionFilterCondition](docs/PromotionFilterCondition.md)
  - [PromotionPin](docs/PromotionPin.md)
+ - [PromotionPinMode](docs/PromotionPinMode.md)
  - [PromotionRangeBoost](docs/PromotionRangeBoost.md)
  - [ProtobufAny](docs/ProtobufAny.md)
  - [ProtobufFieldMask](docs/ProtobufFieldMask.md)

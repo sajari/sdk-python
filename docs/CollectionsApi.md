@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**list_collections**](CollectionsApi.md#list_collections) | **GET** /v4/collections | List collections
 [**query_collection**](CollectionsApi.md#query_collection) | **POST** /v4/collections/{collection_id}:query | Query collection
 [**query_collection2**](CollectionsApi.md#query_collection2) | **POST** /v4/collections/{collection_id}:queryCollection | Query collection
+[**track_event**](CollectionsApi.md#track_event) | **POST** /v4/collections/{collection_id}:trackEvent | Track event
 [**update_collection**](CollectionsApi.md#update_collection) | **PATCH** /v4/collections/{collection_id} | Update collection
 
 
@@ -328,6 +329,7 @@ with sajari_client.ApiClient(configuration) as api_client:
                             field="field_example",
                             value="value_example",
                         ),
+                        mode=PromotionPinMode("PIN"),
                         position=1,
                     ),
                 ],
@@ -564,11 +566,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **query_collection**
-> QueryCollectionResponse query_collection(account_id, collection_id, query_collection_request)
+> QueryCollectionResponse query_collection(collection_id, query_collection_request)
 
 Query collection
 
-Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.
+Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.
 
 ### Example
 
@@ -603,7 +605,6 @@ configuration = sajari_client.Configuration(
 with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = collections_api.CollectionsApi(api_client)
-    account_id = "Account-Id_example" # str | Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.
     collection_id = "collection_id_example" # str | The collection to query, e.g. `my-collection`.
     query_collection_request = QueryCollectionRequest(
         pipeline=QueryCollectionRequestPipeline(
@@ -623,11 +624,21 @@ with sajari_client.ApiClient(configuration) as api_client:
             "key": {},
         },
     ) # QueryCollectionRequest | 
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`.  Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Query collection
-        api_response = api_instance.query_collection(account_id, collection_id, query_collection_request)
+        api_response = api_instance.query_collection(collection_id, query_collection_request)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling CollectionsApi->query_collection: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Query collection
+        api_response = api_instance.query_collection(collection_id, query_collection_request, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling CollectionsApi->query_collection: %s\n" % e)
@@ -638,9 +649,9 @@ with sajari_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **account_id** | **str**| Unlike other API calls, the &#x60;QueryCollection&#x60; call requires the &#x60;Account-Id&#x60; header to be set to your account ID. This is because other API calls infer the account ID from your API key. |
  **collection_id** | **str**| The collection to query, e.g. &#x60;my-collection&#x60;. |
  **query_collection_request** | [**QueryCollectionRequest**](QueryCollectionRequest.md)|  |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;.  Unlike other API calls, the &#x60;QueryCollection&#x60; call can be called from a browser. When called from a browser, the &#x60;Account-Id&#x60; header must be set to your account ID. | [optional]
 
 ### Return type
 
@@ -674,7 +685,7 @@ Name | Type | Description  | Notes
 
 Query collection
 
-Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.
+Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.
 
 ### Example
 
@@ -749,6 +760,103 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**QueryCollectionResponse**](QueryCollectionResponse.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**401** | Returned when the request does not have valid authentication credentials. |  -  |
+**403** | Returned when the user does not have permission to access the resource. |  -  |
+**404** | Returned when the resource does not exist. |  -  |
+**500** | Returned when the API encounters an internal error. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **track_event**
+> {str: (bool, date, datetime, dict, float, int, list, str, none_type)} track_event(account_id, collection_id, event)
+
+Track event
+
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an `Account-Id` header.
+
+### Example
+
+* Basic Authentication (BasicAuth):
+
+```python
+import time
+import sajari_client
+from sajari_client.api import collections_api
+from sajari_client.model.error import Error
+from sajari_client.model.event import Event
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.search.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sajari_client.Configuration(
+    host = "https://api.search.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: BasicAuth
+configuration = sajari_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with sajari_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = collections_api.CollectionsApi(api_client)
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`.
+    collection_id = "collection_id_example" # str | The collection to track the event against, e.g. `my-collection`.
+    event = Event(
+        banner_id="banner_id_example",
+        metadata={
+            "key": {},
+        },
+        query_id="query_id_example",
+        redirect_id="redirect_id_example",
+        result_id="result_id_example",
+        type="type_example",
+    ) # Event | The details of the event to track.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Track event
+        api_response = api_instance.track_event(account_id, collection_id, event)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling CollectionsApi->track_event: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. |
+ **collection_id** | **str**| The collection to track the event against, e.g. &#x60;my-collection&#x60;. |
+ **event** | [**Event**](Event.md)| The details of the event to track. |
+
+### Return type
+
+**{str: (bool, date, datetime, dict, float, int, list, str, none_type)}**
 
 ### Authorization
 

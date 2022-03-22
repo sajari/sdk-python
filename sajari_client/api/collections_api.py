@@ -24,6 +24,7 @@ from sajari_client.model_utils import (  # noqa: F401
 )
 from sajari_client.model.collection import Collection
 from sajari_client.model.error import Error
+from sajari_client.model.event import Event
 from sajari_client.model.experiment_request import ExperimentRequest
 from sajari_client.model.experiment_response import ExperimentResponse
 from sajari_client.model.list_collections_response import ListCollectionsResponse
@@ -327,12 +328,11 @@ class CollectionsApi(object):
             },
             params_map={
                 'all': [
-                    'account_id',
                     'collection_id',
                     'query_collection_request',
+                    'account_id',
                 ],
                 'required': [
-                    'account_id',
                     'collection_id',
                     'query_collection_request',
                 ],
@@ -349,21 +349,21 @@ class CollectionsApi(object):
                 'allowed_values': {
                 },
                 'openapi_types': {
-                    'account_id':
-                        (str,),
                     'collection_id':
                         (str,),
                     'query_collection_request':
                         (QueryCollectionRequest,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
-                    'account_id': 'Account-Id',
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
-                    'account_id': 'header',
                     'collection_id': 'path',
                     'query_collection_request': 'body',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -422,6 +422,70 @@ class CollectionsApi(object):
                 'location_map': {
                     'collection_id': 'path',
                     'query_collection_request': 'body',
+                },
+                'collection_format_map': {
+                }
+            },
+            headers_map={
+                'accept': [
+                    'application/json'
+                ],
+                'content_type': [
+                    'application/json'
+                ]
+            },
+            api_client=api_client
+        )
+        self.track_event_endpoint = _Endpoint(
+            settings={
+                'response_type': ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},),
+                'auth': [
+                    'BasicAuth'
+                ],
+                'endpoint_path': '/v4/collections/{collection_id}:trackEvent',
+                'operation_id': 'track_event',
+                'http_method': 'POST',
+                'servers': None,
+            },
+            params_map={
+                'all': [
+                    'account_id',
+                    'collection_id',
+                    'event',
+                ],
+                'required': [
+                    'account_id',
+                    'collection_id',
+                    'event',
+                ],
+                'nullable': [
+                ],
+                'enum': [
+                ],
+                'validation': [
+                ]
+            },
+            root_map={
+                'validations': {
+                },
+                'allowed_values': {
+                },
+                'openapi_types': {
+                    'account_id':
+                        (str,),
+                    'collection_id':
+                        (str,),
+                    'event':
+                        (Event,),
+                },
+                'attribute_map': {
+                    'account_id': 'Account-Id',
+                    'collection_id': 'collection_id',
+                },
+                'location_map': {
+                    'account_id': 'header',
+                    'collection_id': 'path',
+                    'event': 'body',
                 },
                 'collection_format_map': {
                 }
@@ -897,26 +961,25 @@ class CollectionsApi(object):
 
     def query_collection(
         self,
-        account_id,
         collection_id,
         query_collection_request,
         **kwargs
     ):
         """Query collection  # noqa: E501
 
-        Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.  # noqa: E501
+        Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
-        >>> thread = api.query_collection(account_id, collection_id, query_collection_request, async_req=True)
+        >>> thread = api.query_collection(collection_id, query_collection_request, async_req=True)
         >>> result = thread.get()
 
         Args:
-            account_id (str): Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.
             collection_id (str): The collection to query, e.g. `my-collection`.
             query_collection_request (QueryCollectionRequest):
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.  Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -973,8 +1036,6 @@ class CollectionsApi(object):
         kwargs['_content_type'] = kwargs.get(
             '_content_type')
         kwargs['_host_index'] = kwargs.get('_host_index')
-        kwargs['account_id'] = \
-            account_id
         kwargs['collection_id'] = \
             collection_id
         kwargs['query_collection_request'] = \
@@ -989,7 +1050,7 @@ class CollectionsApi(object):
     ):
         """Query collection  # noqa: E501
 
-        Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call requires the `Account-Id` header to be set to your account ID. This is because other API calls infer the account ID from your API key.  # noqa: E501
+        Query the collection to search for records.  The following example demonstrates how to run a simple search for a particular string:  ```json {   \"variables\": { \"q\": \"search terms\" } } ```  For more information:  - See [filtering content](https://docs.search.io/documentation/fundamentals/integrating-search/filters-and-sort-options) - See [tracking in the Go SDK](https://github.com/sajari/sdk-go/blob/v2/session.go) - See [tracking in the JS SDK](https://github.com/sajari/sdk-js/blob/554e182e77d3ba99a9c100b208ebf3be414d2067/src/index.ts#L881)  Note: Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1062,6 +1123,92 @@ class CollectionsApi(object):
         kwargs['query_collection_request'] = \
             query_collection_request
         return self.query_collection2_endpoint.call_with_http_info(**kwargs)
+
+    def track_event(
+        self,
+        account_id,
+        collection_id,
+        event,
+        **kwargs
+    ):
+        """Track event  # noqa: E501
+
+        Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an `Account-Id` header.  # noqa: E501
+        This method makes a synchronous HTTP request by default. To make an
+        asynchronous HTTP request, please pass async_req=True
+
+        >>> thread = api.track_event(account_id, collection_id, event, async_req=True)
+        >>> result = thread.get()
+
+        Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.
+            collection_id (str): The collection to track the event against, e.g. `my-collection`.
+            event (Event): The details of the event to track.
+
+        Keyword Args:
+            _return_http_data_only (bool): response data without head status
+                code and headers. Default is True.
+            _preload_content (bool): if False, the urllib3.HTTPResponse object
+                will be returned without reading/decoding response data.
+                Default is True.
+            _request_timeout (int/float/tuple): timeout setting for this request. If
+                one number provided, it will be total request timeout. It can also
+                be a pair (tuple) of (connection, read) timeouts.
+                Default is None.
+            _check_input_type (bool): specifies if type checking
+                should be done one the data sent to the server.
+                Default is True.
+            _check_return_type (bool): specifies if type checking
+                should be done one the data received from the server.
+                Default is True.
+            _spec_property_naming (bool): True if the variable names in the input data
+                are serialized names, as specified in the OpenAPI document.
+                False if the variable names in the input data
+                are pythonic names, e.g. snake case (default)
+            _content_type (str/None): force body content-type.
+                Default is None and content-type will be predicted by allowed
+                content-types and body.
+            _host_index (int/None): specifies the index of the server
+                that we want to use.
+                Default is read from the configuration.
+            async_req (bool): execute request asynchronously
+
+        Returns:
+            {str: (bool, date, datetime, dict, float, int, list, str, none_type)}
+                If the method is called asynchronously, returns the request
+                thread.
+        """
+        kwargs['async_req'] = kwargs.get(
+            'async_req', False
+        )
+        kwargs['_return_http_data_only'] = kwargs.get(
+            '_return_http_data_only', True
+        )
+        kwargs['_preload_content'] = kwargs.get(
+            '_preload_content', True
+        )
+        kwargs['_request_timeout'] = kwargs.get(
+            '_request_timeout', None
+        )
+        kwargs['_check_input_type'] = kwargs.get(
+            '_check_input_type', True
+        )
+        kwargs['_check_return_type'] = kwargs.get(
+            '_check_return_type', True
+        )
+        kwargs['_spec_property_naming'] = kwargs.get(
+            '_spec_property_naming', False
+        )
+        kwargs['_content_type'] = kwargs.get(
+            '_content_type')
+        kwargs['_host_index'] = kwargs.get('_host_index')
+        kwargs['account_id'] = \
+            account_id
+        kwargs['collection_id'] = \
+            collection_id
+        kwargs['event'] = \
+            event
+        return self.track_event_endpoint.call_with_http_info(**kwargs)
 
     def update_collection(
         self,

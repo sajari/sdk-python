@@ -12,7 +12,7 @@ function die() {
 if [ -z "$GEN_PATH" ]; then
     die "GEN_PATH must be set, e.g. /path/to/sajari/sdk-python"
 fi
-VERSION=4.3.0
+VERSION=5.0.0
 
 docker-entrypoint.sh generate \
   -i /openapi.json  \
