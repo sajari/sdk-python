@@ -88,10 +88,11 @@ collection = Collection(
         ],
         display_name="display_name_example",
     ) # Collection | Details of the collection to create.
+account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     try:
         # Create collection
-        api_response = api_instance.create_collection(collection_id, collection)
+        api_response = api_instance.create_collection(collection_id, collection, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling CollectionsApi->create_collection: %s\n" % e)
@@ -140,7 +141,9 @@ Class | Method | HTTP request | Description
 *RedirectsApi* | [**update_redirect**](docs/RedirectsApi.md#update_redirect) | **PATCH** /v4/collections/{collection_id}/redirects/{redirect_id} | Update redirect
 *SchemaApi* | [**batch_create_schema_fields**](docs/SchemaApi.md#batch_create_schema_fields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate | Batch create schema fields
 *SchemaApi* | [**create_schema_field**](docs/SchemaApi.md#create_schema_field) | **POST** /v4/collections/{collection_id}/schemaFields | Create schema field
+*SchemaApi* | [**delete_schema_field**](docs/SchemaApi.md#delete_schema_field) | **DELETE** /v4/collections/{collection_id}/schemaFields/{schema_field_name} | Delete schema field
 *SchemaApi* | [**list_schema_fields**](docs/SchemaApi.md#list_schema_fields) | **GET** /v4/collections/{collection_id}/schemaFields | List schema fields
+*SchemaApi* | [**update_schema_field**](docs/SchemaApi.md#update_schema_field) | **PATCH** /v4/collections/{collection_id}/schemaFields/{schema_field_name} | Update schema field
 
 
 ## Documentation For Models
@@ -161,6 +164,7 @@ Class | Method | HTTP request | Description
  - [BatchUpsertRecordsResponseKey](docs/BatchUpsertRecordsResponseKey.md)
  - [BatchUpsertRecordsResponseVariables](docs/BatchUpsertRecordsResponseVariables.md)
  - [Collection](docs/Collection.md)
+ - [CollectionType](docs/CollectionType.md)
  - [DeleteRecordRequest](docs/DeleteRecordRequest.md)
  - [Error](docs/Error.md)
  - [Event](docs/Event.md)
@@ -169,10 +173,12 @@ Class | Method | HTTP request | Description
  - [ExperimentResponse](docs/ExperimentResponse.md)
  - [GeneratePipelinesRequest](docs/GeneratePipelinesRequest.md)
  - [GeneratePipelinesResponse](docs/GeneratePipelinesResponse.md)
+ - [GetCollectionRequestView](docs/GetCollectionRequestView.md)
  - [GetDefaultPipelineResponse](docs/GetDefaultPipelineResponse.md)
  - [GetDefaultVersionRequestView](docs/GetDefaultVersionRequestView.md)
  - [GetPipelineRequestView](docs/GetPipelineRequestView.md)
  - [GetRecordRequest](docs/GetRecordRequest.md)
+ - [ListCollectionsRequestView](docs/ListCollectionsRequestView.md)
  - [ListCollectionsResponse](docs/ListCollectionsResponse.md)
  - [ListPipelinesRequestView](docs/ListPipelinesRequestView.md)
  - [ListPipelinesResponse](docs/ListPipelinesResponse.md)

@@ -58,6 +58,7 @@ class PipelinesApi(object):
                 'all': [
                     'collection_id',
                     'pipeline',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -80,13 +81,17 @@ class PipelinesApi(object):
                         (str,),
                     'pipeline':
                         (Pipeline,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'pipeline': 'body',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -242,6 +247,7 @@ class PipelinesApi(object):
                     'collection_id',
                     'type',
                     'name',
+                    'account_id',
                     'view',
                 ],
                 'required': [
@@ -282,6 +288,8 @@ class PipelinesApi(object):
                         (str,),
                     'name':
                         (str,),
+                    'account_id':
+                        (str,),
                     'view':
                         (str,),
                 },
@@ -289,12 +297,14 @@ class PipelinesApi(object):
                     'collection_id': 'collection_id',
                     'type': 'type',
                     'name': 'name',
+                    'account_id': 'Account-Id',
                     'view': 'view',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'type': 'path',
                     'name': 'path',
+                    'account_id': 'header',
                     'view': 'query',
                 },
                 'collection_format_map': {
@@ -326,6 +336,7 @@ class PipelinesApi(object):
                     'type',
                     'name',
                     'version',
+                    'account_id',
                     'view',
                 ],
                 'required': [
@@ -369,6 +380,8 @@ class PipelinesApi(object):
                         (str,),
                     'version':
                         (str,),
+                    'account_id':
+                        (str,),
                     'view':
                         (str,),
                 },
@@ -377,6 +390,7 @@ class PipelinesApi(object):
                     'type': 'type',
                     'name': 'name',
                     'version': 'version',
+                    'account_id': 'Account-Id',
                     'view': 'view',
                 },
                 'location_map': {
@@ -384,6 +398,7 @@ class PipelinesApi(object):
                     'type': 'path',
                     'name': 'path',
                     'version': 'path',
+                    'account_id': 'header',
                     'view': 'query',
                 },
                 'collection_format_map': {
@@ -412,6 +427,7 @@ class PipelinesApi(object):
             params_map={
                 'all': [
                     'collection_id',
+                    'account_id',
                     'page_size',
                     'page_token',
                     'view',
@@ -441,6 +457,8 @@ class PipelinesApi(object):
                 'openapi_types': {
                     'collection_id':
                         (str,),
+                    'account_id':
+                        (str,),
                     'page_size':
                         (int,),
                     'page_token':
@@ -450,12 +468,14 @@ class PipelinesApi(object):
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                     'page_size': 'page_size',
                     'page_token': 'page_token',
                     'view': 'view',
                 },
                 'location_map': {
                     'collection_id': 'path',
+                    'account_id': 'header',
                     'page_size': 'query',
                     'page_token': 'query',
                     'view': 'query',
@@ -627,6 +647,7 @@ class PipelinesApi(object):
             pipeline (Pipeline): The pipeline to create.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -875,6 +896,7 @@ class PipelinesApi(object):
             name (str): The name of the pipeline to get the default version of, e.g. `my-pipeline`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             view (str): The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.. [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -964,6 +986,7 @@ class PipelinesApi(object):
             version (str): The version of the pipeline to retrieve, e.g. `42`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             view (str): The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.. [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
@@ -1049,6 +1072,7 @@ class PipelinesApi(object):
             collection_id (str): The collection that owns this set of pipelines, e.g. `my-collection`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             page_size (int): The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.. [optional]
             page_token (str): A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token.. [optional]
             view (str): The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration.. [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"

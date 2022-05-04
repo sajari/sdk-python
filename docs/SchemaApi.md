@@ -6,7 +6,9 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**batch_create_schema_fields**](SchemaApi.md#batch_create_schema_fields) | **POST** /v4/collections/{collection_id}/schemaFields:batchCreate | Batch create schema fields
 [**create_schema_field**](SchemaApi.md#create_schema_field) | **POST** /v4/collections/{collection_id}/schemaFields | Create schema field
+[**delete_schema_field**](SchemaApi.md#delete_schema_field) | **DELETE** /v4/collections/{collection_id}/schemaFields/{schema_field_name} | Delete schema field
 [**list_schema_fields**](SchemaApi.md#list_schema_fields) | **GET** /v4/collections/{collection_id}/schemaFields | List schema fields
+[**update_schema_field**](SchemaApi.md#update_schema_field) | **PATCH** /v4/collections/{collection_id}/schemaFields/{schema_field_name} | Update schema field
 
 
 # **batch_create_schema_fields**
@@ -200,6 +202,91 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **delete_schema_field**
+> bool, date, datetime, dict, float, int, list, str, none_type delete_schema_field(collection_id, schema_field_name)
+
+Delete schema field
+
+Deleting a schema field removes it from all records within the collection, however, references to the schema field in pipelines are not removed.  > Note: This operation cannot be reversed.
+
+### Example
+
+* Basic Authentication (BasicAuth):
+
+```python
+import time
+import sajari_client
+from sajari_client.api import schema_api
+from sajari_client.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.search.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sajari_client.Configuration(
+    host = "https://api.search.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: BasicAuth
+configuration = sajari_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with sajari_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = schema_api.SchemaApi(api_client)
+    collection_id = "collection_id_example" # str | The collection the schema field belongs to, e.g. `my-collection`.
+    schema_field_name = "schema_field_name_example" # str | The name of the schema field to delete.
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Delete schema field
+        api_response = api_instance.delete_schema_field(collection_id, schema_field_name)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling SchemaApi->delete_schema_field: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **str**| The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. |
+ **schema_field_name** | **str**| The name of the schema field to delete. |
+
+### Return type
+
+**bool, date, datetime, dict, float, int, list, str, none_type**
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**401** | Returned when the request does not have valid authentication credentials. |  -  |
+**403** | Returned when the user does not have permission to access the resource. |  -  |
+**404** | Returned when the resource does not exist. |  -  |
+**500** | Returned when the API encounters an internal error. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_schema_fields**
 > ListSchemaFieldsResponse list_schema_fields(collection_id)
 
@@ -281,6 +368,112 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | A successful response. |  -  |
+**401** | Returned when the request does not have valid authentication credentials. |  -  |
+**403** | Returned when the user does not have permission to access the resource. |  -  |
+**404** | Returned when the resource does not exist. |  -  |
+**500** | Returned when the API encounters an internal error. |  -  |
+**0** | An unexpected error response. |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **update_schema_field**
+> SchemaField update_schema_field(collection_id, schema_field_name, schema_field)
+
+Update schema field
+
+Update the details of a schema field.  Only `name` and `description` can be updated.
+
+### Example
+
+* Basic Authentication (BasicAuth):
+
+```python
+import time
+import sajari_client
+from sajari_client.api import schema_api
+from sajari_client.model.schema_field import SchemaField
+from sajari_client.model.error import Error
+from pprint import pprint
+# Defining the host is optional and defaults to https://api.search.io
+# See configuration.py for a list of all supported configuration parameters.
+configuration = sajari_client.Configuration(
+    host = "https://api.search.io"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure HTTP basic authorization: BasicAuth
+configuration = sajari_client.Configuration(
+    username = 'YOUR_USERNAME',
+    password = 'YOUR_PASSWORD'
+)
+
+# Enter a context with an instance of the API client
+with sajari_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = schema_api.SchemaApi(api_client)
+    collection_id = "collection_id_example" # str | The collection the schema field belongs to, e.g. `my-collection`.
+    schema_field_name = "schema_field_name_example" # str | The name of the schema field to update.
+    schema_field = SchemaField(
+        array=True,
+        array_length=1,
+        description="description_example",
+        mode=SchemaFieldMode("MODE_UNSPECIFIED"),
+        name="name_example",
+        type=SchemaFieldType("TYPE_UNSPECIFIED"),
+    ) # SchemaField | The schema field details to update.
+    update_mask = "update_mask_example" # str | The list of fields to update, separated by a comma, e.g. `name,description`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
+
+    # example passing only required values which don't have defaults set
+    try:
+        # Update schema field
+        api_response = api_instance.update_schema_field(collection_id, schema_field_name, schema_field)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling SchemaApi->update_schema_field: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update schema field
+        api_response = api_instance.update_schema_field(collection_id, schema_field_name, schema_field, update_mask=update_mask)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling SchemaApi->update_schema_field: %s\n" % e)
+```
+
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **collection_id** | **str**| The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. |
+ **schema_field_name** | **str**| The name of the schema field to update. |
+ **schema_field** | [**SchemaField**](SchemaField.md)| The schema field details to update. |
+ **update_mask** | **str**| The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. | [optional]
+
+### Return type
+
+[**SchemaField**](SchemaField.md)
+
+### Authorization
+
+[BasicAuth](../README.md#BasicAuth)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 

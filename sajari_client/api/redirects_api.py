@@ -53,6 +53,7 @@ class RedirectsApi(object):
                 'all': [
                     'collection_id',
                     'redirect',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -75,13 +76,17 @@ class RedirectsApi(object):
                         (str,),
                     'redirect':
                         (Redirect,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'redirect': 'body',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -111,6 +116,7 @@ class RedirectsApi(object):
                 'all': [
                     'collection_id',
                     'redirect_id',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -133,14 +139,18 @@ class RedirectsApi(object):
                         (str,),
                     'redirect_id':
                         (str,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
                     'redirect_id': 'redirect_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'redirect_id': 'path',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -168,6 +178,7 @@ class RedirectsApi(object):
                 'all': [
                     'collection_id',
                     'redirect_id',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -190,14 +201,18 @@ class RedirectsApi(object):
                         (str,),
                     'redirect_id':
                         (str,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
                     'redirect_id': 'redirect_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'redirect_id': 'path',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -224,6 +239,7 @@ class RedirectsApi(object):
             params_map={
                 'all': [
                     'collection_id',
+                    'account_id',
                     'page_size',
                     'page_token',
                 ],
@@ -245,6 +261,8 @@ class RedirectsApi(object):
                 'openapi_types': {
                     'collection_id':
                         (str,),
+                    'account_id':
+                        (str,),
                     'page_size':
                         (int,),
                     'page_token':
@@ -252,11 +270,13 @@ class RedirectsApi(object):
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                     'page_size': 'page_size',
                     'page_token': 'page_token',
                 },
                 'location_map': {
                     'collection_id': 'path',
+                    'account_id': 'header',
                     'page_size': 'query',
                     'page_token': 'query',
                 },
@@ -288,6 +308,7 @@ class RedirectsApi(object):
                     'redirect_id',
                     'update_mask',
                     'redirect',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -316,17 +337,21 @@ class RedirectsApi(object):
                         (str,),
                     'redirect':
                         (Redirect,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
                     'redirect_id': 'redirect_id',
                     'update_mask': 'update_mask',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'redirect_id': 'path',
                     'update_mask': 'query',
                     'redirect': 'body',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -362,6 +387,7 @@ class RedirectsApi(object):
             redirect (Redirect): The redirect to create.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -444,6 +470,7 @@ class RedirectsApi(object):
             redirect_id (str): The redirect to delete, e.g. `1234`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -526,6 +553,7 @@ class RedirectsApi(object):
             redirect_id (str): The redirect to retrieve, e.g. `1234`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -606,6 +634,7 @@ class RedirectsApi(object):
             collection_id (str): The collection that owns this set of redirects, e.g. `my-collection`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             page_size (int): The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.. [optional]
             page_token (str): A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token.. [optional]
             _return_http_data_only (bool): response data without head status
@@ -692,6 +721,7 @@ class RedirectsApi(object):
             redirect (Redirect): Details of the redirect to update.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

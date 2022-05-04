@@ -58,6 +58,7 @@ class CollectionsApi(object):
                 'all': [
                     'collection_id',
                     'collection',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -80,13 +81,17 @@ class CollectionsApi(object):
                         (str,),
                     'collection':
                         (Collection,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'query',
                     'collection': 'body',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -115,6 +120,7 @@ class CollectionsApi(object):
             params_map={
                 'all': [
                     'collection_id',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -134,12 +140,16 @@ class CollectionsApi(object):
                 'openapi_types': {
                     'collection_id':
                         (str,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -224,6 +234,8 @@ class CollectionsApi(object):
             params_map={
                 'all': [
                     'collection_id',
+                    'account_id',
+                    'view',
                 ],
                 'required': [
                     'collection_id',
@@ -231,6 +243,7 @@ class CollectionsApi(object):
                 'nullable': [
                 ],
                 'enum': [
+                    'view',
                 ],
                 'validation': [
                 ]
@@ -239,16 +252,30 @@ class CollectionsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('view',): {
+
+                        "VIEW_UNSPECIFIED": "VIEW_UNSPECIFIED",
+                        "BASIC": "BASIC",
+                        "FULL": "FULL"
+                    },
                 },
                 'openapi_types': {
                     'collection_id':
                         (str,),
+                    'account_id':
+                        (str,),
+                    'view':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
+                    'view': 'view',
                 },
                 'location_map': {
                     'collection_id': 'path',
+                    'account_id': 'header',
+                    'view': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -274,13 +301,16 @@ class CollectionsApi(object):
             },
             params_map={
                 'all': [
+                    'account_id',
                     'page_size',
                     'page_token',
+                    'view',
                 ],
                 'required': [],
                 'nullable': [
                 ],
                 'enum': [
+                    'view',
                 ],
                 'validation': [
                 ]
@@ -289,20 +319,34 @@ class CollectionsApi(object):
                 'validations': {
                 },
                 'allowed_values': {
+                    ('view',): {
+
+                        "VIEW_UNSPECIFIED": "VIEW_UNSPECIFIED",
+                        "BASIC": "BASIC",
+                        "FULL": "FULL"
+                    },
                 },
                 'openapi_types': {
+                    'account_id':
+                        (str,),
                     'page_size':
                         (int,),
                     'page_token':
                         (str,),
+                    'view':
+                        (str,),
                 },
                 'attribute_map': {
+                    'account_id': 'Account-Id',
                     'page_size': 'page_size',
                     'page_token': 'page_token',
+                    'view': 'view',
                 },
                 'location_map': {
+                    'account_id': 'header',
                     'page_size': 'query',
                     'page_token': 'query',
+                    'view': 'query',
                 },
                 'collection_format_map': {
                 }
@@ -515,6 +559,7 @@ class CollectionsApi(object):
                 'all': [
                     'collection_id',
                     'collection',
+                    'account_id',
                     'update_mask',
                 ],
                 'required': [
@@ -538,16 +583,20 @@ class CollectionsApi(object):
                         (str,),
                     'collection':
                         (Collection,),
+                    'account_id':
+                        (str,),
                     'update_mask':
                         (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                     'update_mask': 'update_mask',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'collection': 'body',
+                    'account_id': 'header',
                     'update_mask': 'query',
                 },
                 'collection_format_map': {
@@ -584,6 +633,7 @@ class CollectionsApi(object):
             collection (Collection): Details of the collection to create.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -664,6 +714,7 @@ class CollectionsApi(object):
             collection_id (str): The collection to delete, e.g. `my-collection`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -824,6 +875,8 @@ class CollectionsApi(object):
             collection_id (str): The collection to retrieve, e.g. `my-collection`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
+            view (str): The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.. [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -899,8 +952,10 @@ class CollectionsApi(object):
 
 
         Keyword Args:
+            account_id (str): The account that owns this set of collections, e.g. `1618535966441231024`.. [optional]
             page_size (int): The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100.. [optional]
             page_token (str): A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token.. [optional]
+            view (str): The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage.. [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -1133,7 +1188,7 @@ class CollectionsApi(object):
     ):
         """Track event  # noqa: E501
 
-        Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an `Account-Id` header.  # noqa: E501
+        Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set `type` to `redirect`.  Note: You must pass an `Account-Id` header.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
 
@@ -1230,6 +1285,7 @@ class CollectionsApi(object):
             collection (Collection): The details of the collection to update.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             update_mask (str): The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.

@@ -53,6 +53,7 @@ class PromotionsApi(object):
                 'all': [
                     'collection_id',
                     'promotion',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -75,13 +76,17 @@ class PromotionsApi(object):
                         (str,),
                     'promotion':
                         (Promotion,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'promotion': 'body',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -111,6 +116,7 @@ class PromotionsApi(object):
                 'all': [
                     'collection_id',
                     'promotion_id',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -133,14 +139,18 @@ class PromotionsApi(object):
                         (str,),
                     'promotion_id':
                         (str,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
                     'promotion_id': 'promotion_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'promotion_id': 'path',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -168,6 +178,7 @@ class PromotionsApi(object):
                 'all': [
                     'collection_id',
                     'promotion_id',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -190,14 +201,18 @@ class PromotionsApi(object):
                         (str,),
                     'promotion_id':
                         (str,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
                     'promotion_id': 'promotion_id',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'promotion_id': 'path',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -224,6 +239,7 @@ class PromotionsApi(object):
             params_map={
                 'all': [
                     'collection_id',
+                    'account_id',
                     'page_size',
                     'page_token',
                     'view',
@@ -253,6 +269,8 @@ class PromotionsApi(object):
                 'openapi_types': {
                     'collection_id':
                         (str,),
+                    'account_id':
+                        (str,),
                     'page_size':
                         (int,),
                     'page_token':
@@ -262,12 +280,14 @@ class PromotionsApi(object):
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
+                    'account_id': 'Account-Id',
                     'page_size': 'page_size',
                     'page_token': 'page_token',
                     'view': 'view',
                 },
                 'location_map': {
                     'collection_id': 'path',
+                    'account_id': 'header',
                     'page_size': 'query',
                     'page_token': 'query',
                     'view': 'query',
@@ -300,6 +320,7 @@ class PromotionsApi(object):
                     'promotion_id',
                     'update_mask',
                     'promotion',
+                    'account_id',
                 ],
                 'required': [
                     'collection_id',
@@ -328,17 +349,21 @@ class PromotionsApi(object):
                         (str,),
                     'promotion':
                         (Promotion,),
+                    'account_id':
+                        (str,),
                 },
                 'attribute_map': {
                     'collection_id': 'collection_id',
                     'promotion_id': 'promotion_id',
                     'update_mask': 'update_mask',
+                    'account_id': 'Account-Id',
                 },
                 'location_map': {
                     'collection_id': 'path',
                     'promotion_id': 'path',
                     'update_mask': 'query',
                     'promotion': 'body',
+                    'account_id': 'header',
                 },
                 'collection_format_map': {
                 }
@@ -374,6 +399,7 @@ class PromotionsApi(object):
             promotion (Promotion): The promotion to create.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -456,6 +482,7 @@ class PromotionsApi(object):
             promotion_id (str): The promotion to delete, e.g. `1234`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -538,6 +565,7 @@ class PromotionsApi(object):
             promotion_id (str): The promotion to retrieve, e.g. `1234`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object
@@ -618,6 +646,7 @@ class PromotionsApi(object):
             collection_id (str): The collection that owns this set of promotions, e.g. `my-collection`.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             page_size (int): The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000.. [optional]
             page_token (str): A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token.. [optional]
             view (str): The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value.. [optional] if omitted the server will use the default value of "PROMOTION_VIEW_UNSPECIFIED"
@@ -705,6 +734,7 @@ class PromotionsApi(object):
             promotion (Promotion): Details of the promotion to update.
 
         Keyword Args:
+            account_id (str): The account that owns the collection, e.g. `1618535966441231024`.. [optional]
             _return_http_data_only (bool): response data without head status
                 code and headers. Default is True.
             _preload_content (bool): if False, the urllib3.HTTPResponse object

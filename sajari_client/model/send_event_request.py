@@ -111,7 +111,7 @@ class SendEventRequest(ModelNormal):
         """SendEventRequest - a model defined in OpenAPI
 
         Args:
-            name (str): The name of event, e.g. `click`, `purchase`.
+            name (str): The name of event, e.g. `click`, `redirect`, `purchase`.
             token (str): The token corresponding to the search result that was interacted with, e.g. `eyJ...`.
 
         Keyword Args:
@@ -200,7 +200,7 @@ class SendEventRequest(ModelNormal):
         """SendEventRequest - a model defined in OpenAPI
 
         Args:
-            name (str): The name of event, e.g. `click`, `purchase`.
+            name (str): The name of event, e.g. `click`, `redirect`, `purchase`.
             token (str): The token corresponding to the search result that was interacted with, e.g. `eyJ...`.
 
         Keyword Args:

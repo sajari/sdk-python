@@ -61,11 +61,21 @@ with sajari_client.ApiClient(configuration) as api_client:
         ],
         display_name="display_name_example",
     ) # Collection | Details of the collection to create.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create collection
         api_response = api_instance.create_collection(collection_id, collection)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling CollectionsApi->create_collection: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create collection
+        api_response = api_instance.create_collection(collection_id, collection, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling CollectionsApi->create_collection: %s\n" % e)
@@ -78,6 +88,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The ID to use for the collection.  This must start with an alphanumeric character followed by one or more alphanumeric or &#x60;-&#x60; characters. Strictly speaking, it must match the regular expression: &#x60;^[A-Za-z][A-Za-z0-9\\-]*$&#x60;. |
  **collection** | [**Collection**](Collection.md)| Details of the collection to create. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -147,11 +158,21 @@ with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = collections_api.CollectionsApi(api_client)
     collection_id = "collection_id_example" # str | The collection to delete, e.g. `my-collection`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete collection
         api_response = api_instance.delete_collection(collection_id)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling CollectionsApi->delete_collection: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete collection
+        api_response = api_instance.delete_collection(collection_id, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling CollectionsApi->delete_collection: %s\n" % e)
@@ -163,6 +184,7 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to delete, e.g. &#x60;my-collection&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -434,11 +456,22 @@ with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = collections_api.CollectionsApi(api_client)
     collection_id = "collection_id_example" # str | The collection to retrieve, e.g. `my-collection`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
         # Get collection
         api_response = api_instance.get_collection(collection_id)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling CollectionsApi->get_collection: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get collection
+        api_response = api_instance.get_collection(collection_id, account_id=account_id, view=view)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling CollectionsApi->get_collection: %s\n" % e)
@@ -450,6 +483,8 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to retrieve, e.g. &#x60;my-collection&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
+ **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -517,14 +552,16 @@ configuration = sajari_client.Configuration(
 with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = collections_api.CollectionsApi(api_client)
+    account_id = "Account-Id_example" # str | The account that owns this set of collections, e.g. `1618535966441231024`. (optional)
     page_size = 1 # int | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     # and optional values
     try:
         # List collections
-        api_response = api_instance.list_collections(page_size=page_size, page_token=page_token)
+        api_response = api_instance.list_collections(account_id=account_id, page_size=page_size, page_token=page_token, view=view)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling CollectionsApi->list_collections: %s\n" % e)
@@ -535,8 +572,10 @@ with sajari_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **account_id** | **str**| The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **page_size** | **int**| The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional]
+ **view** | **str**| The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -789,7 +828,7 @@ Name | Type | Description  | Notes
 
 Track event
 
-Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  Note: You must pass an `Account-Id` header.
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set `type` to `redirect`.  Note: You must pass an `Account-Id` header.
 
 ### Example
 
@@ -927,6 +966,7 @@ with sajari_client.ApiClient(configuration) as api_client:
         ],
         display_name="display_name_example",
     ) # Collection | The details of the collection to update.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     update_mask = "update_mask_example" # str | The list of fields to update, separated by a comma, e.g. `authorized_query_domains,display_name`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. (optional)
 
     # example passing only required values which don't have defaults set
@@ -941,7 +981,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update collection
-        api_response = api_instance.update_collection(collection_id, collection, update_mask=update_mask)
+        api_response = api_instance.update_collection(collection_id, collection, account_id=account_id, update_mask=update_mask)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling CollectionsApi->update_collection: %s\n" % e)
@@ -954,6 +994,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to update, e.g. &#x60;my-collection&#x60;. |
  **collection** | [**Collection**](Collection.md)| The details of the collection to update. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **update_mask** | **str**| The list of fields to update, separated by a comma, e.g. &#x60;authorized_query_domains,display_name&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the collection object containing the new value. | [optional]
 
 ### Return type

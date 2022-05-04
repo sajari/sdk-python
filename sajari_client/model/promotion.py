@@ -193,7 +193,7 @@ class Promotion(ModelNormal):
             end_time (datetime): If specified, the promotion is considered disabled after this time.. [optional]  # noqa: E501
             exclusions ([PromotionExclusion]): The records to exclude from search results, if the promotion is enabled.. [optional]  # noqa: E501
             filter_boosts ([PromotionFilterBoost]): The filter boosts to apply to searches, if the promotion is enabled.. [optional]  # noqa: E501
-            filter_conditions ([PromotionFilterCondition]): The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.. [optional]  # noqa: E501
+            filter_conditions ([PromotionFilterCondition]): The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form `field = value` and matches a query if all of those filters are present in the query.  For example, a query with the filter `productType = 'shirt' AND size = 'medium'` triggers a promotion with the filter condition `productType = 'shirt'`, but not one with both `productType = 'shirt', and `size = 'small'`.. [optional]  # noqa: E501
             id (str): The promotion's ID.. [optional]  # noqa: E501
             pins ([PromotionPin]): The items to fix to specific positions in the search results.. [optional]  # noqa: E501
             range_boosts ([PromotionRangeBoost]): The range boosts to apply to searches, if the promotion is enabled.. [optional]  # noqa: E501
@@ -293,7 +293,7 @@ class Promotion(ModelNormal):
             end_time (datetime): If specified, the promotion is considered disabled after this time.. [optional]  # noqa: E501
             exclusions ([PromotionExclusion]): The records to exclude from search results, if the promotion is enabled.. [optional]  # noqa: E501
             filter_boosts ([PromotionFilterBoost]): The filter boosts to apply to searches, if the promotion is enabled.. [optional]  # noqa: E501
-            filter_conditions ([PromotionFilterCondition]): The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion.. [optional]  # noqa: E501
+            filter_conditions ([PromotionFilterCondition]): The conditions applied to the filters passed from the user. A query must match at least one of these in order to trigger the promotion. A filter condition is comprised of a set of filters of the form `field = value` and matches a query if all of those filters are present in the query.  For example, a query with the filter `productType = 'shirt' AND size = 'medium'` triggers a promotion with the filter condition `productType = 'shirt'`, but not one with both `productType = 'shirt', and `size = 'small'`.. [optional]  # noqa: E501
             id (str): The promotion's ID.. [optional]  # noqa: E501
             pins ([PromotionPin]): The items to fix to specific positions in the search results.. [optional]  # noqa: E501
             range_boosts ([PromotionRangeBoost]): The range boosts to apply to searches, if the promotion is enabled.. [optional]  # noqa: E501

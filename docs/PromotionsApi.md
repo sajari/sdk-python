@@ -113,11 +113,21 @@ with sajari_client.ApiClient(configuration) as api_client:
         ],
         start_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # Promotion | The promotion to create.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create promotion
         api_response = api_instance.create_promotion(collection_id, promotion)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling PromotionsApi->create_promotion: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create promotion
+        api_response = api_instance.create_promotion(collection_id, promotion, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PromotionsApi->create_promotion: %s\n" % e)
@@ -130,6 +140,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to create a promotion in, e.g. &#x60;my-collection&#x60;. |
  **promotion** | [**Promotion**](Promotion.md)| The promotion to create. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -198,11 +209,21 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = promotions_api.PromotionsApi(api_client)
     collection_id = "collection_id_example" # str | The collection the promotion belongs to, e.g. `my-collection`.
     promotion_id = "promotion_id_example" # str | The promotion to delete, e.g. `1234`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete promotion
         api_response = api_instance.delete_promotion(collection_id, promotion_id)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling PromotionsApi->delete_promotion: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete promotion
+        api_response = api_instance.delete_promotion(collection_id, promotion_id, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PromotionsApi->delete_promotion: %s\n" % e)
@@ -215,6 +236,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection the promotion belongs to, e.g. &#x60;my-collection&#x60;. |
  **promotion_id** | **str**| The promotion to delete, e.g. &#x60;1234&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -284,11 +306,21 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = promotions_api.PromotionsApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns the promotion, e.g. `my-collection`.
     promotion_id = "promotion_id_example" # str | The promotion to retrieve, e.g. `1234`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get promotion
         api_response = api_instance.get_promotion(collection_id, promotion_id)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling PromotionsApi->get_promotion: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get promotion
+        api_response = api_instance.get_promotion(collection_id, promotion_id, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PromotionsApi->get_promotion: %s\n" % e)
@@ -301,6 +333,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns the promotion, e.g. &#x60;my-collection&#x60;. |
  **promotion_id** | **str**| The promotion to retrieve, e.g. &#x60;1234&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -369,6 +402,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = promotions_api.PromotionsApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns this set of promotions, e.g. `my-collection`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     page_size = 1 # int | The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. (optional)
     view = "PROMOTION_VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `FULL` view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. (optional) if omitted the server will use the default value of "PROMOTION_VIEW_UNSPECIFIED"
@@ -385,7 +419,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List promotions
-        api_response = api_instance.list_promotions(collection_id, page_size=page_size, page_token=page_token, view=view)
+        api_response = api_instance.list_promotions(collection_id, account_id=account_id, page_size=page_size, page_token=page_token, view=view)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PromotionsApi->list_promotions: %s\n" % e)
@@ -397,6 +431,7 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns this set of promotions, e.g. &#x60;my-collection&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **page_size** | **int**| The maximum number of promotions to return. The service may return fewer than this value.  If unspecified, at most 50 promotions are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListPromotions](/docs/api#operation/ListPromotions) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPromotions](/docs/api#operation/ListPromotions) must match the call that provided the page token. | [optional]
  **view** | **str**| The amount of information to include in each retrieved promotion.   - PROMOTION_VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;FULL&#x60; view.  - BASIC: Include basic information including name, start time and end time, but not detailed information about the promotion effects.  - FULL: Returns all information about a promotion. This is the default value. | [optional] if omitted the server will use the default value of "PROMOTION_VIEW_UNSPECIFIED"
@@ -532,11 +567,21 @@ with sajari_client.ApiClient(configuration) as api_client:
         ],
         start_time=dateutil_parser('1970-01-01T00:00:00.00Z'),
     ) # Promotion | Details of the promotion to update.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update promotion
         api_response = api_instance.update_promotion(collection_id, promotion_id, update_mask, promotion)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling PromotionsApi->update_promotion: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update promotion
+        api_response = api_instance.update_promotion(collection_id, promotion_id, update_mask, promotion, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PromotionsApi->update_promotion: %s\n" % e)
@@ -551,6 +596,7 @@ Name | Type | Description  | Notes
  **promotion_id** | **str**| The promotion to update, e.g. &#x60;1234&#x60;. |
  **update_mask** | **str**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;display_name&#x60;, &#x60;filter_boosts&#x60;.  For each field that you want to update, provide a corresponding value in the promotion object containing the new value. |
  **promotion** | [**Promotion**](Promotion.md)| Details of the promotion to update. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 

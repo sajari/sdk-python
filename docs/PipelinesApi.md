@@ -98,11 +98,21 @@ with sajari_client.ApiClient(configuration) as api_client:
         type=PipelineType("TYPE_UNSPECIFIED"),
         version="version_example",
     ) # Pipeline | The pipeline to create.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create pipeline
         api_response = api_instance.create_pipeline(collection_id, pipeline)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling PipelinesApi->create_pipeline: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create pipeline
+        api_response = api_instance.create_pipeline(collection_id, pipeline, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PipelinesApi->create_pipeline: %s\n" % e)
@@ -115,6 +125,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to create the pipeline in, e.g. &#x60;my-collection&#x60;. |
  **pipeline** | [**Pipeline**](Pipeline.md)| The pipeline to create. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -364,6 +375,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     collection_id = "collection_id_example" # str | The collection that owns the pipeline to get the default version of, e.g. `my-collection`.
     type = "TYPE_UNSPECIFIED" # str | The type of the pipeline to get the default version of.
     name = "name_example" # str | The name of the pipeline to get the default version of, e.g. `my-pipeline`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
@@ -378,7 +390,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get default pipeline version
-        api_response = api_instance.get_default_version(collection_id, type, name, view=view)
+        api_response = api_instance.get_default_version(collection_id, type, name, account_id=account_id, view=view)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PipelinesApi->get_default_version: %s\n" % e)
@@ -392,6 +404,7 @@ Name | Type | Description  | Notes
  **collection_id** | **str**| The collection that owns the pipeline to get the default version of, e.g. &#x60;my-collection&#x60;. |
  **type** | **str**| The type of the pipeline to get the default version of. |
  **name** | **str**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
@@ -464,6 +477,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     type = "TYPE_UNSPECIFIED" # str | The type of the pipeline to retrieve.
     name = "name_example" # str | The name of the pipeline to retrieve, e.g. `my-pipeline`.
     version = "version_example" # str | The version of the pipeline to retrieve, e.g. `42`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
@@ -478,7 +492,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Get pipeline
-        api_response = api_instance.get_pipeline(collection_id, type, name, version, view=view)
+        api_response = api_instance.get_pipeline(collection_id, type, name, version, account_id=account_id, view=view)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PipelinesApi->get_pipeline: %s\n" % e)
@@ -493,6 +507,7 @@ Name | Type | Description  | Notes
  **type** | **str**| The type of the pipeline to retrieve. |
  **name** | **str**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |
  **version** | **str**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
@@ -562,6 +577,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = pipelines_api.PipelinesApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns this set of pipelines, e.g. `my-collection`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     page_size = 1 # int | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
     view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
@@ -578,7 +594,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List pipelines
-        api_response = api_instance.list_pipelines(collection_id, page_size=page_size, page_token=page_token, view=view)
+        api_response = api_instance.list_pipelines(collection_id, account_id=account_id, page_size=page_size, page_token=page_token, view=view)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling PipelinesApi->list_pipelines: %s\n" % e)
@@ -590,6 +606,7 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns this set of pipelines, e.g. &#x60;my-collection&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **page_size** | **int**| The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. | [optional]
  **view** | **str**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
