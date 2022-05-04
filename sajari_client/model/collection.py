@@ -151,7 +151,7 @@ class Collection(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             account_id (str): Output only. The ID of the account that owns this collection.. [optional]  # noqa: E501
             authorized_query_domains ([str]): The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.. [optional]  # noqa: E501
-            create_time (datetime): Output only. Time the collection was created.. [optional]  # noqa: E501
+            create_time (datetime): Output only. The time the collection was created.. [optional]  # noqa: E501
             id (str): Output only. The collection's ID.. [optional]  # noqa: E501
         """
 
@@ -240,7 +240,7 @@ class Collection(ModelNormal):
                                 _visited_composed_classes = (Animal,)
             account_id (str): Output only. The ID of the account that owns this collection.. [optional]  # noqa: E501
             authorized_query_domains ([str]): The list of authorized query domains for the collection.  Client-side / browser requests to the [QueryCollection](/docs/api#operation/QueryCollection) call can be made by any authorized query domain or any of its subdomains. This allows your interface to make search requests without having to provide an API key in the client-side request.. [optional]  # noqa: E501
-            create_time (datetime): Output only. Time the collection was created.. [optional]  # noqa: E501
+            create_time (datetime): Output only. The time the collection was created.. [optional]  # noqa: E501
             id (str): Output only. The collection's ID.. [optional]  # noqa: E501
         """
 

@@ -16,6 +16,7 @@ docs/BatchUpsertRecordsResponseError.md
 docs/BatchUpsertRecordsResponseKey.md
 docs/BatchUpsertRecordsResponseVariables.md
 docs/Collection.md
+docs/CollectionType.md
 docs/CollectionsApi.md
 docs/DeleteRecordRequest.md
 docs/Error.md
@@ -26,10 +27,12 @@ docs/ExperimentRequestPipeline.md
 docs/ExperimentResponse.md
 docs/GeneratePipelinesRequest.md
 docs/GeneratePipelinesResponse.md
+docs/GetCollectionRequestView.md
 docs/GetDefaultPipelineResponse.md
 docs/GetDefaultVersionRequestView.md
 docs/GetPipelineRequestView.md
 docs/GetRecordRequest.md
+docs/ListCollectionsRequestView.md
 docs/ListCollectionsResponse.md
 docs/ListPipelinesRequestView.md
 docs/ListPipelinesResponse.md
@@ -122,6 +125,7 @@ sajari_client/model/batch_upsert_records_response_error.py
 sajari_client/model/batch_upsert_records_response_key.py
 sajari_client/model/batch_upsert_records_response_variables.py
 sajari_client/model/collection.py
+sajari_client/model/collection_type.py
 sajari_client/model/delete_record_request.py
 sajari_client/model/error.py
 sajari_client/model/event.py
@@ -130,10 +134,12 @@ sajari_client/model/experiment_request_pipeline.py
 sajari_client/model/experiment_response.py
 sajari_client/model/generate_pipelines_request.py
 sajari_client/model/generate_pipelines_response.py
+sajari_client/model/get_collection_request_view.py
 sajari_client/model/get_default_pipeline_response.py
 sajari_client/model/get_default_version_request_view.py
 sajari_client/model/get_pipeline_request_view.py
 sajari_client/model/get_record_request.py
+sajari_client/model/list_collections_request_view.py
 sajari_client/model/list_collections_response.py
 sajari_client/model/list_pipelines_request_view.py
 sajari_client/model/list_pipelines_response.py

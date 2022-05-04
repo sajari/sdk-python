@@ -56,11 +56,21 @@ with sajari_client.ApiClient(configuration) as api_client:
         disabled=True,
         target="target_example",
     ) # Redirect | The redirect to create.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create redirect
         api_response = api_instance.create_redirect(collection_id, redirect)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling RedirectsApi->create_redirect: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create redirect
+        api_response = api_instance.create_redirect(collection_id, redirect, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling RedirectsApi->create_redirect: %s\n" % e)
@@ -73,6 +83,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to create a redirect in, e.g. &#x60;my-collection&#x60;. |
  **redirect** | [**Redirect**](Redirect.md)| The redirect to create. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -141,11 +152,21 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = redirects_api.RedirectsApi(api_client)
     collection_id = "collection_id_example" # str | The collection the redirect belongs to, e.g. `my-collection`.
     redirect_id = "redirect_id_example" # str | The redirect to delete, e.g. `1234`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete redirect
         api_response = api_instance.delete_redirect(collection_id, redirect_id)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling RedirectsApi->delete_redirect: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete redirect
+        api_response = api_instance.delete_redirect(collection_id, redirect_id, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling RedirectsApi->delete_redirect: %s\n" % e)
@@ -158,6 +179,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection the redirect belongs to, e.g. &#x60;my-collection&#x60;. |
  **redirect_id** | **str**| The redirect to delete, e.g. &#x60;1234&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -227,11 +249,21 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = redirects_api.RedirectsApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns the redirect, e.g. `my-collection`.
     redirect_id = "redirect_id_example" # str | The redirect to retrieve, e.g. `1234`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Get redirect
         api_response = api_instance.get_redirect(collection_id, redirect_id)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling RedirectsApi->get_redirect: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Get redirect
+        api_response = api_instance.get_redirect(collection_id, redirect_id, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling RedirectsApi->get_redirect: %s\n" % e)
@@ -244,6 +276,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns the redirect, e.g. &#x60;my-collection&#x60;. |
  **redirect_id** | **str**| The redirect to retrieve, e.g. &#x60;1234&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -312,6 +345,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = redirects_api.RedirectsApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns this set of redirects, e.g. `my-collection`.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     page_size = 1 # int | The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. (optional)
 
@@ -327,7 +361,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List redirects
-        api_response = api_instance.list_redirects(collection_id, page_size=page_size, page_token=page_token)
+        api_response = api_instance.list_redirects(collection_id, account_id=account_id, page_size=page_size, page_token=page_token)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling RedirectsApi->list_redirects: %s\n" % e)
@@ -339,6 +373,7 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns this set of redirects, e.g. &#x60;my-collection&#x60;. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **page_size** | **int**| The maximum number of redirects to return. The service may return fewer than this value.  If unspecified, at most 50 redirects are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListRedirects](/docs/api#operation/ListRedirects) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListRedirects](/docs/api#operation/ListRedirects) must match the call that provided the page token. | [optional]
 
@@ -416,11 +451,21 @@ with sajari_client.ApiClient(configuration) as api_client:
         disabled=True,
         target="target_example",
     ) # Redirect | Details of the redirect to update.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Update redirect
         api_response = api_instance.update_redirect(collection_id, redirect_id, update_mask, redirect)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling RedirectsApi->update_redirect: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Update redirect
+        api_response = api_instance.update_redirect(collection_id, redirect_id, update_mask, redirect, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling RedirectsApi->update_redirect: %s\n" % e)
@@ -435,6 +480,7 @@ Name | Type | Description  | Notes
  **redirect_id** | **str**| The redirect to update, e.g. &#x60;1234&#x60;. |
  **update_mask** | **str**| The list of fields to be updated, separated by a comma, e.g. &#x60;field1,field2&#x60;.  Each field should be in snake case, e.g. &#x60;condition&#x60;, &#x60;target&#x60;.  For each field that you want to update, provide a corresponding value in the redirect object containing the new value. |
  **redirect** | [**Redirect**](Redirect.md)| Details of the redirect to update. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
