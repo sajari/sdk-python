@@ -5,7 +5,7 @@ set -eo pipefail
 cd "$(dirname "$0")"
 
 function die() {
-    echo 1>&2 $*
+    echo 1>&2 "$@"
     exit 1
 }
 
@@ -17,7 +17,7 @@ VERSION=5.1.0
 docker-entrypoint.sh generate \
   -i /openapi.json  \
   -g python \
-  -o $GEN_PATH \
+  -o "$GEN_PATH" \
   --artifact-version $VERSION \
   --http-user-agent "sajari-sdk-python-$VERSION" \
   --group-id com.sajari \
