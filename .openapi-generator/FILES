@@ -18,6 +18,7 @@ docs/BatchUpsertRecordsResponseVariables.md
 docs/Collection.md
 docs/CollectionType.md
 docs/CollectionsApi.md
+docs/CreateSchemaFieldRequest.md
 docs/DeleteRecordRequest.md
 docs/Error.md
 docs/Event.md
@@ -126,6 +127,7 @@ sajari_client/model/batch_upsert_records_response_key.py
 sajari_client/model/batch_upsert_records_response_variables.py
 sajari_client/model/collection.py
 sajari_client/model/collection_type.py
+sajari_client/model/create_schema_field_request.py
 sajari_client/model/delete_record_request.py
 sajari_client/model/error.py
 sajari_client/model/event.py
@@ -202,5 +204,4 @@ sajari_client/rest.py
 setup.cfg
 setup.py
 test-requirements.txt
-test/__init__.py
 tox.ini

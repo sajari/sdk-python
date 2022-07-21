@@ -304,7 +304,7 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to get the default query pipeline of, e.g. &#x60;my-collection&#x60;. |
- **type** | **str**| The type of the pipeline to get.   - TYPE_UNSPECIFIED: Pipeline type not specified.  - RECORD: Record pipeline.  - QUERY: Query pipeline. | defaults to "TYPE_UNSPECIFIED"
+ **type** | **str**| The type of the pipeline to get.   - RECORD: Record pipeline.  - QUERY: Query pipeline. | defaults to "TYPE_UNSPECIFIED"
 
 ### Return type
 
@@ -376,7 +376,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     type = "TYPE_UNSPECIFIED" # str | The type of the pipeline to get the default version of.
     name = "name_example" # str | The name of the pipeline to get the default version of, e.g. `my-pipeline`.
     account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -405,7 +405,7 @@ Name | Type | Description  | Notes
  **type** | **str**| The type of the pipeline to get the default version of. |
  **name** | **str**| The name of the pipeline to get the default version of, e.g. &#x60;my-pipeline&#x60;. |
  **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
- **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **view** | **str**| The amount of information to include in the retrieved pipeline.   - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -478,7 +478,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     name = "name_example" # str | The name of the pipeline to retrieve, e.g. `my-pipeline`.
     version = "version_example" # str | The version of the pipeline to retrieve, e.g. `42`.
     account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -508,7 +508,7 @@ Name | Type | Description  | Notes
  **name** | **str**| The name of the pipeline to retrieve, e.g. &#x60;my-pipeline&#x60;. |
  **version** | **str**| The version of the pipeline to retrieve, e.g. &#x60;42&#x60;. |
  **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
- **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **view** | **str**| The amount of information to include in the retrieved pipeline.   - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -580,7 +580,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     page_size = 1 # int | The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. (optional)
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved pipeline.   - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from `BASIC`, plus full step configuration. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -609,7 +609,7 @@ Name | Type | Description  | Notes
  **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **page_size** | **int**| The maximum number of pipelines to return. The service may return fewer than this value.  If unspecified, at most 50 pipelines are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListPipelines](/docs/api#operation/ListPipelines) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListPipelines](/docs/api#operation/ListPipelines) must match the call that provided the page token. | [optional]
- **view** | **str**| The amount of information to include in each retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **view** | **str**| The amount of information to include in each retrieved pipeline.   - BASIC: Include basic information including type, name, version and description but not the full step configuration. This is the default value (for both [ListPipelines](/docs/api#operation/ListPipelines) and [GetPipeline](/docs/api#operation/GetPipeline)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full step configuration. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 

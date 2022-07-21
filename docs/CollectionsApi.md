@@ -368,7 +368,7 @@ with sajari_client.ApiClient(configuration) as api_client:
             ),
         ],
         variables={
-            "key": {},
+            "key": None,
         },
     ) # ExperimentRequest | 
 
@@ -457,7 +457,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = collections_api.CollectionsApi(api_client)
     collection_id = "collection_id_example" # str | The collection to retrieve, e.g. `my-collection`.
     account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in the retrieved pipeline.   - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     try:
@@ -484,7 +484,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to retrieve, e.g. &#x60;my-collection&#x60;. |
  **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
- **view** | **str**| The amount of information to include in the retrieved pipeline.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **view** | **str**| The amount of information to include in the retrieved pipeline.   - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -555,7 +555,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     account_id = "Account-Id_example" # str | The account that owns this set of collections, e.g. `1618535966441231024`. (optional)
     page_size = 1 # int | The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. (optional)
-    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the `BASIC` view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+    view = "VIEW_UNSPECIFIED" # str | The amount of information to include in each retrieved collection.   - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from `BASIC`, plus full collection details like disk usage. (optional) if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
     # example passing only required values which don't have defaults set
     # and optional values
@@ -575,7 +575,7 @@ Name | Type | Description  | Notes
  **account_id** | **str**| The account that owns this set of collections, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **page_size** | **int**| The maximum number of collections to return. The service may return fewer than this value.  If unspecified, at most 50 collections are returned.  The maximum value is 100; values above 100 are coerced to 100. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListCollections](/docs/api#operation/ListCollections) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListCollections](/docs/api#operation/ListCollections) must match the call that provided the page token. | [optional]
- **view** | **str**| The amount of information to include in each retrieved collection.   - VIEW_UNSPECIFIED: The default / unset value. The API defaults to the &#x60;BASIC&#x60; view.  - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
+ **view** | **str**| The amount of information to include in each retrieved collection.   - BASIC: Include basic information including display name and domains. This is the default value (for both [ListCollections](/docs/api#operation/ListCollections) and [GetCollection](/docs/api#operation/GetCollection)).  - FULL: Include the information from &#x60;BASIC&#x60;, plus full collection details like disk usage. | [optional] if omitted the server will use the default value of "VIEW_UNSPECIFIED"
 
 ### Return type
 
@@ -660,7 +660,7 @@ with sajari_client.ApiClient(configuration) as api_client:
             type=QueryCollectionRequestTrackingType("TYPE_UNSPECIFIED"),
         ),
         variables={
-            "key": {},
+            "key": None,
         },
     ) # QueryCollectionRequest | 
     account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`.  Unlike other API calls, the `QueryCollection` call can be called from a browser. When called from a browser, the `Account-Id` header must be set to your account ID. (optional)
@@ -775,7 +775,7 @@ with sajari_client.ApiClient(configuration) as api_client:
             type=QueryCollectionRequestTrackingType("TYPE_UNSPECIFIED"),
         ),
         variables={
-            "key": {},
+            "key": None,
         },
     ) # QueryCollectionRequest | 
 
@@ -828,7 +828,7 @@ Name | Type | Description  | Notes
 
 Track event
 
-Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set `type` to `redirect`.  Note: You must pass an `Account-Id` header.
+Track an analytics event when a user interacts with an object returned by a [QueryCollection](/docs/api/#operation/QueryCollection) request.  An analytics event can be tracked for the following objects:  - Results - Promotion banners - Redirects  When tracking redirect events, set `type` to `redirect`.  - **Note:** You must pass an `Account-Id` header. - **Note:** One of `result_id`, `banner_id` or `redirect_id` are required.
 
 ### Example
 

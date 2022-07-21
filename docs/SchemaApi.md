@@ -64,11 +64,21 @@ with sajari_client.ApiClient(configuration) as api_client:
             ),
         ],
     ) # BatchCreateSchemaFieldsRequest | 
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Batch create schema fields
         api_response = api_instance.batch_create_schema_fields(collection_id, batch_create_schema_fields_request)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling SchemaApi->batch_create_schema_fields: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Batch create schema fields
+        api_response = api_instance.batch_create_schema_fields(collection_id, batch_create_schema_fields_request, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling SchemaApi->batch_create_schema_fields: %s\n" % e)
@@ -81,6 +91,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to create the schema fields in, e.g. &#x60;my-collection&#x60;. |
  **batch_create_schema_fields_request** | [**BatchCreateSchemaFieldsRequest**](BatchCreateSchemaFieldsRequest.md)|  |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -157,11 +168,22 @@ with sajari_client.ApiClient(configuration) as api_client:
         name="name_example",
         type=SchemaFieldType("TYPE_UNSPECIFIED"),
     ) # SchemaField | The schema field to create.
+    parent = "parent_example" # str | The parent resource where the schema field is to be created.  Format:   - accounts/{account}/collections/{collection}   - accounts/{account}/collections/{collection}/schemaFields/{schemaField} (optional)
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Create schema field
         api_response = api_instance.create_schema_field(collection_id, schema_field)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling SchemaApi->create_schema_field: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Create schema field
+        api_response = api_instance.create_schema_field(collection_id, schema_field, parent=parent, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling SchemaApi->create_schema_field: %s\n" % e)
@@ -174,6 +196,8 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection to create a schema field in, e.g. &#x60;my-collection&#x60;. |
  **schema_field** | [**SchemaField**](SchemaField.md)| The schema field to create. |
+ **parent** | **str**| The parent resource where the schema field is to be created.  Format:   - accounts/{account}/collections/{collection}   - accounts/{account}/collections/{collection}/schemaFields/{schemaField} | [optional]
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -242,11 +266,21 @@ with sajari_client.ApiClient(configuration) as api_client:
     api_instance = schema_api.SchemaApi(api_client)
     collection_id = "collection_id_example" # str | The collection the schema field belongs to, e.g. `my-collection`.
     schema_field_name = "schema_field_name_example" # str | The name of the schema field to delete.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
 
     # example passing only required values which don't have defaults set
     try:
         # Delete schema field
         api_response = api_instance.delete_schema_field(collection_id, schema_field_name)
+        pprint(api_response)
+    except sajari_client.ApiException as e:
+        print("Exception when calling SchemaApi->delete_schema_field: %s\n" % e)
+
+    # example passing only required values which don't have defaults set
+    # and optional values
+    try:
+        # Delete schema field
+        api_response = api_instance.delete_schema_field(collection_id, schema_field_name, account_id=account_id)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling SchemaApi->delete_schema_field: %s\n" % e)
@@ -259,6 +293,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. |
  **schema_field_name** | **str**| The name of the schema field to delete. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
 
 ### Return type
 
@@ -327,6 +362,8 @@ with sajari_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schema_api.SchemaApi(api_client)
     collection_id = "collection_id_example" # str | The collection that owns this set of schema fields, e.g. `my-collection`.
+    parent = "parent_example" # str | The parent to list schema fields from.  Format:   - accounts/{account}/collections/{collection}   - accounts/{account}/collections/{collection}/schemaFields/{schemaField} (optional)
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     page_size = 1 # int | The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. (optional)
     page_token = "page_token_example" # str | A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. (optional)
 
@@ -342,7 +379,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # List schema fields
-        api_response = api_instance.list_schema_fields(collection_id, page_size=page_size, page_token=page_token)
+        api_response = api_instance.list_schema_fields(collection_id, parent=parent, account_id=account_id, page_size=page_size, page_token=page_token)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling SchemaApi->list_schema_fields: %s\n" % e)
@@ -354,6 +391,8 @@ with sajari_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **collection_id** | **str**| The collection that owns this set of schema fields, e.g. &#x60;my-collection&#x60;. |
+ **parent** | **str**| The parent to list schema fields from.  Format:   - accounts/{account}/collections/{collection}   - accounts/{account}/collections/{collection}/schemaFields/{schemaField} | [optional]
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **page_size** | **int**| The maximum number of schema fields to return. The service may return fewer than this value.  If unspecified, at most 50 schema fields are returned.  The maximum value is 1000; values above 1000 are coerced to 1000. | [optional]
  **page_token** | **str**| A page token, received from a previous [ListSchemaFields](/docs/api#operation/ListSchemaFields) call.  Provide this to retrieve the subsequent page.  When paginating, all other parameters provided to [ListSchemaFields](/docs/api#operation/ListSchemaFields) must match the call that provided the page token. | [optional]
 
@@ -433,6 +472,7 @@ with sajari_client.ApiClient(configuration) as api_client:
         name="name_example",
         type=SchemaFieldType("TYPE_UNSPECIFIED"),
     ) # SchemaField | The schema field details to update.
+    account_id = "Account-Id_example" # str | The account that owns the collection, e.g. `1618535966441231024`. (optional)
     update_mask = "update_mask_example" # str | The list of fields to update, separated by a comma, e.g. `name,description`.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. (optional)
 
     # example passing only required values which don't have defaults set
@@ -447,7 +487,7 @@ with sajari_client.ApiClient(configuration) as api_client:
     # and optional values
     try:
         # Update schema field
-        api_response = api_instance.update_schema_field(collection_id, schema_field_name, schema_field, update_mask=update_mask)
+        api_response = api_instance.update_schema_field(collection_id, schema_field_name, schema_field, account_id=account_id, update_mask=update_mask)
         pprint(api_response)
     except sajari_client.ApiException as e:
         print("Exception when calling SchemaApi->update_schema_field: %s\n" % e)
@@ -461,6 +501,7 @@ Name | Type | Description  | Notes
  **collection_id** | **str**| The collection the schema field belongs to, e.g. &#x60;my-collection&#x60;. |
  **schema_field_name** | **str**| The name of the schema field to update. |
  **schema_field** | [**SchemaField**](SchemaField.md)| The schema field details to update. |
+ **account_id** | **str**| The account that owns the collection, e.g. &#x60;1618535966441231024&#x60;. | [optional]
  **update_mask** | **str**| The list of fields to update, separated by a comma, e.g. &#x60;name,description&#x60;.  Each field should be in snake case.  For each field that you want to update, provide a corresponding value in the schema field object containing the new value. | [optional]
 
 ### Return type

@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **redirects** | [**{str: (RedirectResult,)}**](RedirectResult.md) | A mapping of redirects triggered for all possible variations of the query. | [optional] 
 **results** | [**[QueryResult]**](QueryResult.md) | The results returned by the query. | [optional] 
 **total_size** | **str** | The total number of results that match the query. | [optional] 
-**variables** | **{str: ({str: (bool, date, datetime, dict, float, int, list, str, none_type)},)}** | The modified variables returned by the pipeline after it has finished processing. | [optional] 
+**variables** | **{str: (bool, date, datetime, dict, float, int, list, str, none_type)}** | The modified variables returned by the pipeline after it has finished processing. | [optional] 
 **any string name** | **bool, date, datetime, dict, float, int, list, str, none_type** | any string name can be used but the value must be the correct type | [optional]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
