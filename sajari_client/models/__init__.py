@@ -26,6 +26,7 @@ from sajari_client.model.batch_upsert_records_response_key import BatchUpsertRec
 from sajari_client.model.batch_upsert_records_response_variables import BatchUpsertRecordsResponseVariables
 from sajari_client.model.collection import Collection
 from sajari_client.model.collection_type import CollectionType
+from sajari_client.model.create_schema_field_request import CreateSchemaFieldRequest
 from sajari_client.model.delete_record_request import DeleteRecordRequest
 from sajari_client.model.error import Error
 from sajari_client.model.event import Event
